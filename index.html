@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>KKN Desa Pandan Indah - Tim 2026</title>
+  <title>Desa Pandan Indah - Kec. Praya Barat Daya</title>
   
-  <meta property="og:title" content="KKN Desa Pandan Indah - Tim 2026">
-  <meta property="og:description" content="Profil Tim KKN Universitas Mataram di Desa Pandan Indah">
+  <meta property="og:title" content="Desa Pandan Indah - Kec. Praya Barat Daya">
+  <meta property="og:description" content="Profil Desa Pandan Indah, Kec. Praya Barat Daya, Kab. Lombok Tengah, NTB">
   <meta property="og:type" content="website">
   
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;60recipient:700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <style>
     *, *::before, *::after {
@@ -19,7 +19,6 @@
     }
 
     :root {
-      /* Red Burgundy & White Theme */
       --primary: #8B1A2B;
       --primary-light: #A52A3A;
       --primary-dark: #5E1120;
@@ -39,26 +38,26 @@
       --gray-900: #111827;
       --success: #10B981;
       --gradient-primary: linear-gradient(135deg, #8B1A2B 0%, #A52A3A 100%);
-      --gradient-hero: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
       --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-display: 'Playfair Display', Georgia, serif;
       --transition-base: 250ms ease;
+      --transition-slow: 400ms ease;
     }
 
     html {
       font-size: 16px;
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: var(--font-sans);
-      background: var(--gray-900);
+      background: var(--gray-50);
       color: var(--gray-800);
-      overflow: hidden;
-      height: 100vh;
-      width: 100vw;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
 
     /* ============================================
@@ -67,13 +66,12 @@
     .loading-screen {
       position: fixed;
       inset: 0;
-      background: var(--primary-dark);
+      background: linear-gradient(135deg, #3D0A12 0%, #5E1120 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
       transition: opacity 0.8s ease;
-      background: linear-gradient(135deg, #3D0A12 0%, #5E1120 100%);
     }
 
     .loading-screen.fade-out {
@@ -103,16 +101,608 @@
     }
 
     /* ============================================
-       MAIN CONTAINER - HORIZONTAL SCROLL
+       MAIN PAGE
        ============================================ */
-    .slides-container {
+    .main-page {
+      min-height: 100vh;
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+
+    .main-page.hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+
+    /* Hero Section */
+    .village-hero {
+      background: linear-gradient(135deg, #3D0A12 0%, #5E1120 50%, #8B1A2B 100%);
+      color: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .village-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .village-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .village-logo {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
       display: flex;
-      height: 100vh;
-      width: 100vw;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+      border: 3px solid rgba(255,255,255,0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .village-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .village-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.25rem;
+    }
+
+    .village-address {
+      font-size: 0.85rem;
+      color: var(--accent-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .village-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .village-stat {
+      text-align: center;
+    }
+
+    .village-stat-number {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .village-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .village-description {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Village Info Section */
+    .village-info-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      background: var(--white);
+    }
+
+    .village-info-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .village-info-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+
+    .village-info-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+      transform: translateY(-4px);
+    }
+
+    .village-info-header {
+      background: var(--gradient-primary);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .village-info-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .village-info-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .village-info-body {
+      padding: 1.25rem;
+    }
+
+    .village-info-body p {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .village-info-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .village-info-highlights {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary-50);
+      padding: 0.4rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .highlight-icon {
+      font-size: 0.85rem;
+    }
+
+    .village-mission-list {
+      padding-left: 1.25rem;
+      margin: 0.5rem 0;
+    }
+
+    .village-mission-list li {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+
+    .potensi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .potensi-item {
+      text-align: center;
+      padding: 0.75rem;
+      background: var(--gray-50);
+      border-radius: 0.5rem;
+    }
+
+    .potensi-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .potensi-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 0.1rem;
+    }
+
+    .potensi-desc {
+      font-size: 0.7rem;
+      color: var(--gray-500);
+    }
+
+    .gov-structure {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .gov-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .gov-item:last-child {
+      border-bottom: none;
+    }
+
+    .gov-role {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    .gov-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .facility-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .facility-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: var(--gray-50);
+      border-radius: 0.375rem;
+    }
+
+    .facility-icon {
+      font-size: 1rem;
+    }
+
+    .facility-name {
+      font-size: 0.75rem;
+      color: var(--gray-700);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.7rem;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-value {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.4;
+    }
+
+    /* Dusun Section */
+    .dusun-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border-radius: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Dusun Grid */
+    .dusun-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .dusun-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .dusun-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .dusun-card-header {
+      background: var(--gradient-primary);
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .dusun-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin: 0 auto 0.75rem;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .dusun-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .dusun-kadus {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .dusun-card-body {
+      padding: 1.25rem;
+    }
+
+    .dusun-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .dusun-info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .dusun-info-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary-50);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .dusun-info-text {
+      flex: 1;
+    }
+
+    .dusun-info-label {
+      font-size: 0.7rem;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .dusun-info-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .dusun-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all var(--transition-base);
+    }
+
+    .dusun-card:hover .dusun-cta {
+      background: var(--primary-dark);
+    }
+
+    .dusun-cta-arrow {
+      transition: transform var(--transition-base);
+    }
+
+    .dusun-card:hover .dusun-cta-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    .main-footer {
+      background: var(--gray-900);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--gray-400);
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-credits {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: 1rem;
+    }
+
+    /* ============================================
+       SLIDE PAGE (DUSUN)
+       ============================================ */
+    .slide-page {
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform var(--transition-slow);
+    }
+
+    .slide-page.active {
+      transform: translateX(0);
+    }
+
+    /* Slide Header */
+    .slide-header {
+      background: var(--gradient-primary);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .slide-back-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all var(--transition-base);
+    }
+
+    .slide-back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .slide-header-info {
+      text-align: center;
+      flex: 1;
+    }
+
+    .slide-header-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .slide-header-subtitle {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .slide-header-spacer {
+      width: 100px;
+    }
+
+    /* Slide Container */
+    .slides-container {
+      flex: 1;
+      display: flex;
       overflow-x: auto;
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -120,1273 +710,296 @@
       display: none;
     }
 
-    /* ============================================
-       SLIDE BASE WITH MORPH EFFECT
-       ============================================ */
+    /* Slide */
     .slide {
-      min-width: 100vw;
-      height: 100vh;
+      min-width: 100%;
+      height: 100%;
       scroll-snap-align: start;
       scroll-snap-stop: always;
-      position: relative;
-      overflow: visible;
-    }
-
-    /* Morph animation classes */
-    .morph-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), 
-                  opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-      overflow: hidden;
-    }
-
-    /* When slide is not visible */
-    .slide.prev .morph-wrapper {
-      transform: scale(0.9) translateX(50px);
-      opacity: 0.3;
-    }
-
-    .slide.next .morph-wrapper {
-      transform: scale(0.9) translateX(-50px);
-      opacity: 0.3;
-    }
-
-    /* When slide is active/visible */
-    .slide.active .morph-wrapper {
-      transform: scale(1) translateX(0);
-      opacity: 1;
-    }
-
-    /* Content morph effects */
-    .morph-content {
-      transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1) 0.15s,
-                  opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1) 0.15s;
-    }
-
-    .slide.prev .morph-content {
-      transform: translateX(30px);
-      opacity: 0;
-    }
-
-    .slide.next .morph-content {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
-
-    .slide.active .morph-content {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    /* Individual element stagger animations */
-    .morph-item {
-      transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1),
-                  opacity 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-    }
-
-    .slide.active .morph-item:nth-child(1) { transition-delay: 0.2s; }
-    .slide.active .morph-item:nth-child(2) { transition-delay: 0.3s; }
-    .slide.active .morph-item:nth-child(3) { transition-delay: 0.4s; }
-    .slide.active .morph-item:nth-child(4) { transition-delay: 0.5s; }
-    .slide.active .morph-item:nth-child(5) { transition-delay: 0.6s; }
-    .slide.active .morph-item:nth-child(6) { transition-delay: 0.7s; }
-    .slide.active .morph-item:nth-child(7) { transition-delay: 0.8s; }
-    .slide.active .morph-item:nth-child(8) { transition-delay: 0.9s; }
-    .slide.active .morph-item:nth-child(9) { transition-delay: 1.0s; }
-    .slide.active .morph-item:nth-child(10) { transition-delay: 1.1s; }
-
-    .slide.prev .morph-item,
-    .slide.next .morph-item {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-
-    .slide.active .morph-item {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* ============================================
-       PROGRESS INDICATOR (BOTTOM)
-       ============================================ */
-    .progress-container {
-      position: fixed;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-    }
-
-    .progress-bar {
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .progress-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      cursor: pointer;
-      transition: all var(--transition-base);
-    }
-
-    .progress-dot:hover {
-      background: rgba(255,255,255,0.6);
-      transform: scale(1.2);
-    }
-
-    .progress-dot.active {
-      background: var(--white);
-      transform: scale(1.3);
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-    }
-
-    .progress-counter {
-      color: var(--white);
-      font-size: 0.7rem;
-      font-weight: 600;
-      white-space: nowrap;
-      padding-left: 0.5rem;
-      border-left: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* ============================================
-       NAVIGATION ARROWS
-       ============================================ */
-    .nav-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 100;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(8px);
-      border: 2px solid rgba(255,255,255,0.1);
-      color: var(--white);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all var(--transition-base);
-      font-size: 1.25rem;
-    }
-
-    .nav-arrow:hover {
-      background: rgba(0,0,0,0.7);
-      border-color: var(--accent);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .nav-prev { left: 1rem; }
-    .nav-next { right: 1rem; }
-
-    /* ============================================
-       SECTION BASE
-       ============================================ */
-    .section {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 1.5rem 3rem 5rem;
-      position: relative;
-      z-index: 2;
       overflow-y: auto;
-      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
     }
 
-    .section-content::-webkit-scrollbar {
+    .slide::-webkit-scrollbar {
       width: 4px;
     }
 
-    .section-content::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .section-content::-webkit-scrollbar-thumb {
+    .slide::-webkit-scrollbar-thumb {
       background: rgba(0,0,0,0.15);
       border-radius: 2px;
     }
 
-    /* Dark sections scrollbar */
-    .section-dark .section-content::-webkit-scrollbar-thumb,
-    .section-primary .section-content::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 1.25rem;
-      flex-shrink: 0;
-    }
-
-    .section-badge {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--white);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 2rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--gray-900);
-      line-height: 1.2;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-      max-width: 450px;
-      margin: 0 auto;
-      line-height: 1.4;
-    }
-
-    /* Section Variants */
-    .section-light {
-      background: var(--white);
-      color: var(--gray-800);
-    }
-    .section-light .section-title { color: var(--gray-900); }
-    .section-light .section-subtitle { color: var(--gray-500); }
-
-    .section-dark {
-      background: var(--gray-900);
-      color: var(--white);
-    }
-    .section-dark .section-title { color: var(--white); }
-    .section-dark .section-subtitle { color: var(--gray-400); }
-
-    .section-primary {
-      background: var(--gradient-primary);
-      color: var(--white);
-    }
-    .section-primary .section-title { color: var(--white); }
-    .section-primary .section-subtitle { color: rgba(255,255,255,0.8); }
-    .section-primary .section-badge { background: rgba(255,255,255,0.2); }
-
-    /* ============================================
-       HERO SECTION
-       ============================================ */
-    .hero-section {
-      background: var(--primary-dark);
-      background: linear-gradient(135deg, #3D0A12 0%, #5E1120 50%, #8B1A2B 100%);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: var(--gradient-hero);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: var(--white);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-
-    .hero-logo {
-      width: 65px;
-      height: 65px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
-      border: 2px solid rgba(255,255,255,0.2);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .hero-university {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 0.3rem;
-    }
-
-    .hero-batch {
-      font-size: 0.7rem;
-      background: rgba(255,255,255,0.15);
-      padding: 0.25rem 0.6rem;
-      border-radius: 2rem;
-      margin-bottom: 1rem;
-      backdrop-filter: blur(4px);
-    }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: 2.25rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero-location {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 0.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--accent-light);
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
-    .hero-swipe {
-      position: absolute;
-      bottom: 4rem;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      animation: bounce 2s infinite;
-    }
-
-    .hero-swipe-text {
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.7);
-      display: block;
-      margin-top: 0.2rem;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateX(0); }
-      40% { transform: translateX(-50%) translateX(10px); }
-      60% { transform: translateX(-50%) translateX(5px); }
-    }
-
-    /* ============================================
-       ABOUT SECTION
-       ============================================ */
-    .about-content {
-      max-width: 550px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about-description {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--gray-600);
-      margin-bottom: 1.25rem;
-    }
-
-    .theme-card {
-      background: var(--primary-50);
-      border: 2px solid var(--primary-light);
-      border-radius: 1rem;
-      padding: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .theme-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-    }
-
-    .theme-title {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.3rem;
-    }
-
-    .theme-description {
-      font-size: 0.8rem;
-      color: var(--gray-600);
-      line-height: 1.4;
-    }
-
-    .mission-text {
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--gray-600);
-      line-height: 1.6;
-      padding: 0.6rem;
-      border-left: 3px solid var(--accent);
-      text-align: left;
-    }
-
-    /* ============================================
-       LOCATION SECTION
-       ============================================ */
-    .location-content {
-      max-width: 550px;
+    /* Slide Content */
+    .slide-content {
+      padding: 2rem 1.5rem 4rem;
+      max-width: 700px;
       margin: 0 auto;
     }
 
-    .location-header {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .location-name {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.15rem;
-    }
-
-    .location-address {
-      font-size: 0.8rem;
-      color: var(--gray-500);
-    }
-
-    .map-container {
-      border-radius: 1rem;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow-lg);
-      aspect-ratio: 16/9;
-      background: var(--gray-200);
-      max-height: 200px;
-    }
-
-    .map-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 0.3rem;
-      color: var(--gray-500);
-      font-size: 2rem;
-    }
-
-    .demographics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .demo-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 0.6rem;
-      padding: 0.6rem;
-      text-align: center;
-      transition: all var(--transition-base);
-    }
-
-    .demo-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary-light);
-    }
-
-    .demo-icon { font-size: 1.1rem; margin-bottom: 0.15rem; }
-
-    .demo-value {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .demo-label {
-      font-size: 0.6rem;
-      color: var(--gray-500);
-    }
-
-    .location-description {
-      font-size: 0.8rem;
-      line-height: 1.6;
-      color: var(--gray-600);
-      text-align: center;
-    }
-
-    /* ============================================
-       VISION SECTION
-       ============================================ */
-    .vision-content {
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .vision-box {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 0.75rem;
-      padding: 1rem;
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-
-    .vision-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-light);
-      margin-bottom: 0.4rem;
-    }
-
-    .vision-text {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: var(--white);
-    }
-
-    .missions-list {
-      list-style: none;
-      margin-bottom: 1.25rem;
-    }
-
-    .missions-list li {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.9);
-      padding: 0.35rem 0;
-      padding-left: 1.25rem;
-      position: relative;
-      line-height: 1.4;
-    }
-
-    .missions-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .objectives-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-    }
-
-    .objective-card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 0.6rem;
-      padding: 0.6rem;
-      text-align: center;
-      transition: all var(--transition-base);
-    }
-
-    .objective-card:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
-    }
-
-    .objective-icon { font-size: 1.1rem; margin-bottom: 0.2rem; }
-
-    .objective-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.1rem;
-    }
-
-    .objective-desc {
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.3;
-    }
-
-    /* ============================================
-       PROGRAMS SECTION
-       ============================================ */
-    .programs-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
-    }
-
-    .program-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 0.6rem;
-      padding: 0.75rem;
-      transition: all var(--transition-base);
-    }
-
-    .program-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary-light);
-    }
-
-    .program-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
-
-    .program-category {
-      font-size: 0.55rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-      margin-bottom: 0.1rem;
-    }
-
-    .program-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: 0.15rem;
-    }
-
-    .program-desc {
-      font-size: 0.7rem;
-      color: var(--gray-500);
-      line-height: 1.3;
-      margin-bottom: 0.25rem;
-    }
-
-    .program-schedule {
-      font-size: 0.6rem;
-      color: var(--primary);
-      font-weight: 500;
-    }
-
-    /* ============================================
-       TEAM SECTION
-       ============================================ */
-    .team-content {
-      max-width: 650px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.5rem;
-      width: 100%;
-    }
-
-    .team-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 0.5rem;
-      overflow: hidden;
-      transition: all var(--transition-base);
-    }
-
-    .team-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-
-    .team-photo-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      background: var(--gradient-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .team-info {
-      padding: 0.35rem;
-      text-align: center;
-    }
-
-    .team-name {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: 0.05rem;
-      line-height: 1.2;
-    }
-
-    .team-role {
-      font-size: 0.55rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 0.1rem;
-    }
-
-    .team-major {
-      font-size: 0.5rem;
-      color: var(--gray-500);
-      line-height: 1.2;
-    }
-
-    .team-quote {
-      font-size: 0.45rem;
-      color: var(--gray-400);
-      font-style: italic;
-      margin-top: 0.15rem;
-      line-height: 1.2;
-      display: none;
-    }
-
-    /* Show quote on hover */
-    .team-card:hover .team-quote {
-      display: block;
-    }
-
-    /* ============================================
-       TIMELINE SECTION
-       ============================================ */
-    .timeline-content {
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .timeline-period {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--gray-500);
-      margin-bottom: 1rem;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 1.75rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--gray-200);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 1rem;
-      padding-left: 0.75rem;
-    }
-
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    .timeline-dot {
-      position: absolute;
-      left: -2.1rem;
-      top: 0.15rem;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--gray-300);
-      border: 2px solid var(--white);
-    }
-
-    .timeline-item.completed .timeline-dot { background: var(--success); }
-
-    .timeline-item.active .timeline-dot {
-      background: var(--primary);
-      box-shadow: 0 0 0 4px rgba(45, 80, 22, 0.2);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(139, 26, 43, 0.4); }
-      70% { box-shadow: 0 0 0 6px rgba(139, 26, 43, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(139, 26, 43, 0); }
-    }
-
-    .timeline-date {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.1rem;
-    }
-
-    .timeline-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: 0.1rem;
-    }
-
-    .timeline-desc {
-      font-size: 0.7rem;
-      color: var(--gray-500);
-      line-height: 1.3;
-    }
-
-    .timeline-status {
-      display: inline-block;
-      font-size: 0.55rem;
-      font-weight: 600;
-      padding: 0.1rem 0.4rem;
-      border-radius: 1rem;
-      margin-top: 0.2rem;
-    }
-
-    .status-completed { background: #D1FAE5; color: #065F46; }
-    .status-active { background: #DBEAFE; color: #1E40AF; }
-    .status-upcoming { background: var(--gray-100); color: var(--gray-500); }
-
-    /* ============================================
-       GALLERY SECTION
-       ============================================ */
-    .gallery-content {
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .gallery-filters {
-      display: flex;
-      gap: 0.35rem;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-    }
-
-    .gallery-filter {
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.65rem;
-      font-weight: 600;
-      padding: 0.35rem 0.7rem;
-      border-radius: 2rem;
-      cursor: pointer;
-      transition: all var(--transition-base);
-    }
-
-    .gallery-filter:hover { background: rgba(255,255,255,0.2); }
-
-    .gallery-filter.active {
-      background: var(--accent);
-      color: var(--gray-900);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.5rem;
-    }
-
-    .gallery-item {
-      aspect-ratio: 1;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      transition: transform var(--transition-base);
-      background: rgba(255,255,255,0.1);
-    }
-
-    .gallery-item:hover { transform: scale(1.05); }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-    }
-
-    .gallery-item-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity var(--transition-base);
-      display: flex;
-      align-items: flex-end;
-      padding: 0.4rem;
-    }
-
-    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-
-    .gallery-item-caption {
-      color: var(--white);
-      font-size: 0.6rem;
-      font-weight: 500;
-    }
-
-    /* ============================================
-       IMPACT SECTION
-       ============================================ */
-    .impact-content {
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .achievement-card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 0.6rem;
-      padding: 0.6rem;
-      text-align: center;
-      transition: all var(--transition-base);
-    }
-
-    .achievement-card:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
-    }
-
-    .achievement-icon { font-size: 1.1rem; margin-bottom: 0.2rem; }
-
-    .achievement-number {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.05rem;
-    }
-
-    .achievement-label {
-      font-size: 0.6rem;
-      color: rgba(255,255,255,0.8);
-    }
-
-    .testimonials-section { margin-top: 1rem; }
-
-    .testimonials-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-light);
-      text-align: center;
-      margin-bottom: 0.6rem;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-    }
-
-    .testimonial-card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 0.6rem;
-      padding: 0.6rem;
-    }
-
-    .testimonial-quote {
-      font-size: 0.7rem;
-      font-style: italic;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.4;
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-left: 1rem;
-    }
-
-    .testimonial-quote::before {
-      content: '"';
-      position: absolute;
-      left: 0;
-      top: -0.2rem;
+    .slide-title {
       font-family: var(--font-display);
       font-size: 1.5rem;
-      color: var(--accent);
-      line-height: 1;
+      font-weight: 700;
+      color: var(--gray-900);
+      text-align: center;
+      margin-bottom: 0.5rem;
     }
 
-    .testimonial-author {
+    .slide-subtitle {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Slide Navigation */
+    .slide-nav {
+      background: var(--gray-100);
+      padding: 0.75rem;
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-shrink: 0;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .slide-nav-btn {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      color: var(--gray-700);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all var(--transition-base);
+    }
+
+    .slide-nav-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .slide-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .slide-dots {
+      display: flex;
       gap: 0.4rem;
     }
 
-    .testimonial-avatar-placeholder {
-      width: 28px;
-      height: 28px;
+    .slide-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-weight: 700;
-      font-size: 0.65rem;
-      flex-shrink: 0;
-    }
-
-    .testimonial-info { flex: 1; }
-
-    .testimonial-name {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .testimonial-role {
-      font-size: 0.55rem;
-      color: rgba(255,255,255,0.7);
-    }
-
-    /* ============================================
-       CONTACT SECTION
-       ============================================ */
-    .contact-content {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .thank-you-card {
-      background: var(--primary-50);
-      border-radius: 0.75rem;
-      padding: 1rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .thank-you-icon { font-size: 1.75rem; margin-bottom: 0.4rem; }
-
-    .thank-you-text {
-      font-size: 0.8rem;
-      line-height: 1.6;
-      color: var(--gray-600);
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: var(--white);
-      border: 2px solid var(--gray-200);
-      border-radius: 0.6rem;
-      padding: 0.5rem 0.85rem;
-      text-decoration: none;
-      color: var(--gray-700);
-      font-size: 0.75rem;
-      font-weight: 600;
+      background: var(--gray-300);
+      cursor: pointer;
       transition: all var(--transition-base);
     }
 
-    .social-link:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-2px);
+    .slide-dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+
+    .slide-counter {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      min-width: 50px;
+      text-align: center;
+    }
+
+    /* Slide Cards */
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      transition: all var(--transition-base);
+    }
+
+    .info-card:hover {
       box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
     }
 
-    .credits {
-      font-size: 0.65rem;
-      color: var(--gray-400);
+    .info-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
+    .info-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .info-card-text {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--gradient-primary);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .stat-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.1rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Program List */
+    .program-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .program-item {
+      display: flex;
+      gap: 1rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      transition: all var(--transition-base);
+    }
+
+    .program-item:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+
+    .program-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-50);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .program-info {
+      flex: 1;
+    }
+
+    .program-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.2rem;
+    }
+
+    .program-desc {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      line-height: 1.4;
+    }
+
+    /* Responsive */
     @media (max-width: 767px) {
-      .section-content {
-        padding: 1.25rem 1rem 4rem;
+      .village-hero {
+        padding: 3rem 1.5rem;
       }
 
-      .hero-title {
+      .village-title {
         font-size: 1.75rem;
       }
 
+      .village-stats {
+        gap: 1.5rem;
+      }
+
+      .village-stat-number {
+        font-size: 1.5rem;
+      }
+
+      .dusun-grid {
+        grid-template-columns: 1fr;
+      }
+
       .section-title {
+        font-size: 1.5rem;
+      }
+
+      .slide-content {
+        padding: 1.5rem 1rem 3rem;
+      }
+
+      .slide-title {
         font-size: 1.3rem;
       }
 
-      .section-header {
-        margin-bottom: 1rem;
-      }
-
-      .programs-grid {
-        grid-template-columns: 1fr;
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
       }
 
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.4rem;
-      }
-
-      .team-photo-placeholder {
-        font-size: 1rem;
-      }
-
-      .team-name {
-        font-size: 0.6rem;
-      }
-
-      .achievements-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 0.4rem;
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .demographics-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .objectives-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
-      }
-
-      .nav-prev { left: 0.5rem; }
-      .nav-next { right: 0.5rem; }
-
-      .progress-container {
-        bottom: 0.5rem;
-        padding: 0.3rem 0.6rem;
-        gap: 0.5rem;
-      }
-
-      .progress-dot {
-        width: 6px;
-        height: 6px;
-      }
-
-      .progress-counter {
-        font-size: 0.6rem;
-      }
-
-      .about-description, .mission-text, .location-description {
-        font-size: 0.8rem;
-      }
-
-      .theme-card, .vision-box, .thank-you-card {
-        padding: 0.85rem;
-      }
-
-      .timeline-item {
-        padding-bottom: 0.75rem;
-      }
-
-      .social-links {
-        gap: 0.5rem;
-      }
-
-      .social-link {
-        padding: 0.45rem 0.75rem;
-        font-size: 0.7rem;
-      }
-
-      .achievements-grid {
-        gap: 0.4rem;
-      }
-
-      .achievement-number {
-        font-size: 1.1rem;
+      .stat-number {
+        font-size: 1.25rem;
       }
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .section-content {
-        padding: 2rem 2.5rem 5rem;
+    @media (min-width: 768px) {
+      .village-hero {
+        padding: 5rem 2rem;
       }
 
-      .team-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0.5rem;
+      .village-title {
+        font-size: 3rem;
       }
 
-      .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
+      .dusun-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .slide-content {
+        padding: 2.5rem 2rem 4rem;
       }
     }
 
     @media (min-width: 1024px) {
-      .section-content {
-        padding: 2rem 4rem 5rem;
-      }
-
-      .hero-title { font-size: 2.75rem; }
-      .section-title { font-size: 2rem; }
-
-      .about-content, .location-content, .vision-content, .programs-content,
-      .team-content, .timeline-content, .gallery-content, .impact-content,
-      .contact-content {
-        max-width: 700px;
+      .dusun-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
@@ -1396,618 +1009,942 @@
   <div id="loading-screen" class="loading-screen">
     <div style="text-align: center;">
       <div class="loader-spinner"></div>
-      <p class="loader-text">Memuat...</p>
+      <p class="loader-text">Memuat Desa Pandan Indah...</p>
     </div>
   </div>
 
-  <!-- Progress Indicator -->
-  <div class="progress-container" id="progress-container">
-    <div class="progress-bar" id="progress-bar"></div>
-    <div class="progress-counter">
-      <span id="current-slide">1</span> / <span id="total-slides">10</span>
+  <!-- ============================================
+       MAIN PAGE
+       ============================================ -->
+  <div class="main-page" id="main-page">
+    
+    <!-- Hero Section -->
+    <div class="village-hero">
+      <div class="village-hero-content">
+        <div class="village-logo">🏡</div>
+        <h1 class="village-title">Desa Pandan Indah</h1>
+        <p class="village-subtitle">Kecamatan Praya Barat Daya</p>
+        <p class="village-address">Kabupaten Lombok Tengah, Nusa Tenggara Barat</p>
+        
+        <div class="village-stats">
+          <div class="village-stat">
+            <div class="village-stat-number">13</div>
+            <div class="village-stat-label">Dusun</div>
+          </div>
+          <div class="village-stat">
+            <div class="village-stat-number">2.847</div>
+            <div class="village-stat-label">Penduduk</div>
+          </div>
+          <div class="village-stat">
+            <div class="village-stat-number">856</div>
+            <div class="village-stat-label">KK</div>
+          </div>
+          <div class="village-stat">
+            <div class="village-stat-number">12,5</div>
+            <div class="village-stat-label">km²</div>
+          </div>
+        </div>
+        
+        <p class="village-description">
+          Desa Pandan Indah terletak di Kecamatan Praya Barat Daya, Kabupaten Lombok Tengah. 
+          Desa ini memiliki potensi besar di sektor pertanian, peternakan, dan kerajinan lokal 
+          yang menjadi sumber penghidupan utama masyarakat.
+        </p>
+      </div>
+    </div>
+
+    <!-- Village Info Section -->
+    <div class="village-info-section">
+      <div class="village-info-container">
+        <!-- Profil Desa -->
+        <div class="village-info-card">
+          <div class="village-info-header">
+            <div class="village-info-icon">🏛️</div>
+            <h3 class="village-info-title">Profil Desa</h3>
+          </div>
+          <div class="village-info-body">
+            <p>Desa Pandan Indah merupakan salah satu desa di Kecamatan Praya Barat Daya yang memiliki luas wilayah 12,5 km². Desa ini terdiri dari 13 dusun dengan total penduduk 2.847 jiwa dari 856 Kepala Keluarga (KK).</p>
+            <div class="village-info-highlights">
+              <div class="highlight-item">
+                <span class="highlight-icon">📍</span>
+                <span class="highlight-text">Lokasi Strategis</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">🌾</span>
+                <span class="highlight-text">Agraris</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">🤝</span>
+                <span class="highlight-text">Gotong Royong</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visi & Misi -->
+        <div class="village-info-card">
+          <div class="village-info-header">
+            <div class="village-info-icon">🎯</div>
+            <h3 class="village-info-title">Visi & Misi</h3>
+          </div>
+          <div class="village-info-body">
+            <p><strong>Visi:</strong> Mewujudkan Desa Pandan Indah yang mandiri, sejahtera, dan berdaya saing berdasarkan nilai-nilai kearifan lokal.</p>
+            <p><strong>Misi:</strong></p>
+            <ul class="village-mission-list">
+              <li>Meningkatkan kualitas pelayanan publik</li>
+              <li>Mengembangkan potensi ekonomi desa</li>
+              <li>Meningkatkan infrastruktur dan fasilitas umum</li>
+              <li>Memberdayakan masyarakat melalui pendidikan dan pelatihan</li>
+              <li>Melestarikan budaya dan lingkungan hidup</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Potensi Desa -->
+        <div class="village-info-card">
+          <div class="village-info-header">
+            <div class="village-info-icon">💎</div>
+            <h3 class="village-info-title">Potensi Desa</h3>
+          </div>
+          <div class="village-info-body">
+            <div class="potensi-grid">
+              <div class="potensi-item">
+                <div class="potensi-icon">🌾</div>
+                <div class="potensi-name">Pertanian</div>
+                <div class="potensi-desc">Padi, jagung, sayuran</div>
+              </div>
+              <div class="potensi-item">
+                <div class="potensi-icon">🐄</div>
+                <div class="potensi-name">Peternakan</div>
+                <div class="potensi-desc">Sapi, kambing, unggas</div>
+              </div>
+              <div class="potensi-item">
+                <div class="potensi-icon">🧶</div>
+                <div class="potensi-name">Kerajinan</div>
+                <div class="potensi-desc">Tenun, anyaman</div>
+              </div>
+              <div class="potensi-item">
+                <div class="potensi-icon">🏞️</div>
+                <div class="potensi-name">Wisata</div>
+                <div class="potensi-desc">Alam & budaya</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pemerintahan -->
+        <div class="village-info-card">
+          <div class="village-info-header">
+            <div class="village-info-icon">👨‍💼</div>
+            <h3 class="village-info-title">Pemerintahan</h3>
+          </div>
+          <div class="village-info-body">
+            <div class="gov-structure">
+              <div class="gov-item">
+                <div class="gov-role">Kepala Desa</div>
+                <div class="gov-name">H. Muhammad Saleh</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-role">Sekretaris Desa</div>
+                <div class="gov-name">Ahmad Fauzi</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-role">Bendahara Desa</div>
+                <div class="gov-name">Siti Aminah</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-role">Kaur Pemerintahan</div>
+                <div class="gov-name">Lalu Irwan</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-role">Kaur Pembangunan</div>
+                <div class="gov-name">Baiq Nurul</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-role">Kaur Kesra</div>
+                <div class="gov-name">H. Ridwan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fasilitas Desa -->
+        <div class="village-info-card">
+          <div class="village-info-header">
+            <div class="village-info-icon">🏗️</div>
+            <h3 class="village-info-title">Fasilitas Desa</h3>
+          </div>
+          <div class="village-info-body">
+            <div class="facility-list">
+              <div class="facility-item">
+                <span class="facility-icon">🏛️</span>
+                <span class="facility-name">Kantor Desa</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">🕌</span>
+                <span class="facility-name">Masjid (4 unit)</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">🏫</span>
+                <span class="facility-name">SD (3 unit)</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">🏫</span>
+                <span class="facility-name">SMP (1 unit)</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">🏥</span>
+                <span class="facility-name">Puskesmas Pembantu</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">🏪</span>
+                <span class="facility-name">Pasar Desa</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">⚽</span>
+                <span class="facility-name">Lapangan Olahraga</span>
+              </div>
+              <div class="facility-item">
+                <span class="facility-icon">🎭</span>
+                <span class="facility-name">Balai Pertemuan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kontak -->
+        <div class="village-info-card">
+          <div class="village-info-header">
+            <div class="village-info-icon">📞</div>
+            <h3 class="village-info-title">Kontak</h3>
+          </div>
+          <div class="village-info-body">
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div class="contact-text">
+                  <div class="contact-label">Alamat</div>
+                  <div class="contact-value">Desa Pandan Indah, Kec. Praya Barat Daya, Kab. Lombok Tengah, NTB</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-text">
+                  <div class="contact-label">Telepon</div>
+                  <div class="contact-value">(0370) 123-456</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <div class="contact-text">
+                  <div class="contact-label">Email</div>
+                  <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d69687e6c7d6c63696c636463696c654d68606c6461236e6260">[email&#160;protected]</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dusun Section -->
+    <div class="dusun-section">
+      <div class="section-header">
+        <span class="section-badge">Wilayah</span>
+        <h2 class="section-title">Dusun di Desa Pandan Indah</h2>
+        <p class="section-subtitle">Klik pada dusun untuk melihat informasi lengkap</p>
+      </div>
+      
+      <div class="dusun-grid">
+        <!-- Dusun 1 -->
+        <div class="dusun-card" onclick="openDusun(0)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🏘️</div>
+            <h3 class="dusun-name">Dusun Pandan Indah</h3>
+            <p class="dusun-kadus">Kepala Dusun: H. Ahmad</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">720 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">215 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 2 -->
+        <div class="dusun-card" onclick="openDusun(1)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🏡</div>
+            <h3 class="dusun-name">Dusun Mekar Sari</h3>
+            <p class="dusun-kadus">Kepala Dusun: Budi Santoso</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">580 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">175 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 3 -->
+        <div class="dusun-card" onclick="openDusun(2)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌾</div>
+            <h3 class="dusun-name">Dusun Tegal Sari</h3>
+            <p class="dusun-kadus">Kepala Dusun: Suharto</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">650 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">195 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 4 -->
+        <div class="dusun-card" onclick="openDusun(3)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌻</div>
+            <h3 class="dusun-name">Dusun Sumber Rejeki</h3>
+            <p class="dusun-kadus">Kepala Dusun: Rahmat Hidayat</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">520 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">148 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 5 -->
+        <div class="dusun-card" onclick="openDusun(4)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌿</div>
+            <h3 class="dusun-name">Dusun Asri Jaya</h3>
+            <p class="dusun-kadus">Kepala Dusun: Lalu Saprudin</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">377 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">123 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 6 -->
+        <div class="dusun-card" onclick="openDusun(5)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌊</div>
+            <h3 class="dusun-name">Dusun Selatan</h3>
+            <p class="dusun-kadus">Kepala Dusun: H. Muhaimin</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">245 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">78 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 7 -->
+        <div class="dusun-card" onclick="openDusun(6)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌅</div>
+            <h3 class="dusun-name">Dusun Timur</h3>
+            <p class="dusun-kadus">Kepala Dusun: Lalu Zulkifli</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">198 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">62 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 8 -->
+        <div class="dusun-card" onclick="openDusun(7)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌄</div>
+            <h3 class="dusun-name">Dusun Barat</h3>
+            <p class="dusun-kadus">Kepala Dusun: H. Arifin</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">167 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">53 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 9 -->
+        <div class="dusun-card" onclick="openDusun(8)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌸</div>
+            <h3 class="dusun-name">Dusun Mawar</h3>
+            <p class="dusun-kadus">Kepala Dusun: Baiq Ratna</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">189 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">58 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 10 -->
+        <div class="dusun-card" onclick="openDusun(9)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌺</div>
+            <h3 class="dusun-name">Dusun Melati</h3>
+            <p class="dusun-kadus">Kepala Dusun: Lalu Herman</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">156 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">49 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 11 -->
+        <div class="dusun-card" onclick="openDusun(10)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🌳</div>
+            <h3 class="dusun-name">Dusun Cendana</h3>
+            <p class="dusun-kadus">Kepala Dusun: H. Nasir</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">134 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">42 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 12 -->
+        <div class="dusun-card" onclick="openDusun(11)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">🍃</div>
+            <h3 class="dusun-name">Dusun Damai</h3>
+            <p class="dusun-kadus">Kepala Dusun: Suhardi</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">112 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">36 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dusun 13 -->
+        <div class="dusun-card" onclick="openDusun(12)">
+          <div class="dusun-card-header">
+            <div class="dusun-icon">✨</div>
+            <h3 class="dusun-name">Dusun Harapan</h3>
+            <p class="dusun-kadus">Kepala Dusun: Lalu Fadli</p>
+          </div>
+          <div class="dusun-card-body">
+            <div class="dusun-info">
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah Penduduk</div>
+                  <div class="dusun-info-value">98 Jiwa</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Jumlah KK</div>
+                  <div class="dusun-info-value">31 KK</div>
+                </div>
+              </div>
+            </div>
+            <div class="dusun-cta">
+              <span>Lihat Detail</span>
+              <span class="dusun-cta-arrow">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="main-footer">
+      <div class="footer-logo">🏡</div>
+      <p class="footer-text">Desa Pandan Indah</p>
+      <p class="footer-text">Kec. Praya Barat Daya, Kab. Lombok Tengah, NTB</p>
+      <p class="footer-credits">© 2026 Pemerintah Desa Pandan Indah</p>
     </div>
   </div>
 
-  <!-- Navigation Arrows -->
-  <button class="nav-arrow nav-prev" id="nav-prev" aria-label="Sebelumnya">❮</button>
-  <button class="nav-arrow nav-next" id="nav-next" aria-label="Selanjutnya">❯</button>
-
-  <!-- Slides Container - Horizontal Scroll -->
-  <div class="slides-container" id="slides-container">
-
-    <!-- SLIDE 1: HERO -->
-    <div class="slide active" id="slide-0">
-      <div class="morph-wrapper">
-        <div class="section hero-section">
-          <div class="hero-overlay"></div>
-          <div class="hero-content">
-            <div class="morph-content">
-              <div class="hero-logo morph-item">🎓</div>
-              <div class="hero-university morph-item">Universitas Mataram</div>
-              <div class="hero-batch morph-item">KKN Reguler Batch 1 - 2026</div>
-              <h1 class="hero-title morph-item">Tim KKN Pandan Indah</h1>
-              <div class="hero-location morph-item">
-                <span>📍</span>
-                <span>Desa Pandan Indah, Kec. Praya Barat Daya, Kab. Lombok Tengah</span>
-              </div>
-              <p class="hero-tagline morph-item">"Berkolaborasi untuk Kemajuan Desa"</p>
-            </div>
-            <div class="hero-swipe">
-              <div style="font-size: 1.25rem;">❯</div>
-              <span class="hero-swipe-text">Geser ke kanan untuk menjelajahi</span>
-            </div>
-          </div>
-        </div>
+  <!-- ============================================
+       SLIDE PAGE (DUSUN)
+       ============================================ -->
+  <div class="slide-page" id="slide-page">
+    <!-- Header -->
+    <div class="slide-header">
+      <button class="slide-back-btn" onclick="closeDusun()">
+        ← Kembali
+      </button>
+      <div class="slide-header-info">
+        <h2 class="slide-header-title" id="slide-header-title">Dusun</h2>
+        <p class="slide-header-subtitle" id="slide-header-subtitle">Kepala Dusun</p>
       </div>
+      <div class="slide-header-spacer"></div>
     </div>
 
-    <!-- SLIDE 2: ABOUT -->
-    <div class="slide next" id="slide-1">
-      <div class="morph-wrapper">
-        <div class="section section-light">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="about-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Tentang</span>
-                  <h2 class="section-title">Tentang KKN & Tema</h2>
-                </div>
-                <p class="about-description morph-item">Kuliah Kerja Nyata (KKN) adalah program pengabdian kepada masyarakat yang wajib diikuti oleh mahasiswa sebagai bagian dari kurikulum akademik. Program ini bertujuan untuk menerapkan ilmu yang dipelajari di bangku kuliah langsung di tengah-tengah masyarakat.</p>
-                <div class="theme-card morph-item">
-                  <div class="theme-label">Tema KKN 2026</div>
-                  <h3 class="theme-title">Pemberdayaan Masyarakat Desa Berkelanjutan</h3>
-                  <p class="theme-description">Fokus pada penguatan ekonomi lokal, peningkatan literasi digital, dan pelestarian lingkungan hidup di pedesaan.</p>
-                </div>
-                <div class="mission-text morph-item">Misi kami adalah menjadi jembatan antara ilmu pengetahuan dan kebutuhan nyata masyarakat Desa Pandan Indah, menciptakan dampak positif yang berkelanjutan.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Slides Container -->
+    <div class="slides-container" id="slides-container">
+      <!-- Slides will be generated by JavaScript -->
     </div>
 
-    <!-- SLIDE 3: LOCATION -->
-    <div class="slide next" id="slide-2">
-      <div class="morph-wrapper">
-        <div class="section section-light">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="location-content">
-                <div class="location-header morph-item">
-                  <span class="section-badge">Lokasi</span>
-                  <h2 class="section-title">Profil Desa</h2>
-                  <h3 class="location-name">Desa Pandan Indah</h3>
-                  <p class="location-address">Kec. Praya Barat Daya, Kab. Lombok Tengah, Nusa Tenggara Barat</p>
-                </div>
-                <div class="map-container morph-item">
-                  <div class="map-placeholder">🗺️</div>
-                </div>
-                <div class="demographics-grid morph-item">
-                  <div class="demo-card">
-                    <div class="demo-icon">👥</div>
-                    <div class="demo-value">2.847 Jiwa</div>
-                    <div class="demo-label">Jumlah Penduduk</div>
-                  </div>
-                  <div class="demo-card">
-                    <div class="demo-icon">🏠</div>
-                    <div class="demo-value">856 KK</div>
-                    <div class="demo-label">Jumlah KK</div>
-                  </div>
-                  <div class="demo-card">
-                    <div class="demo-icon">📐</div>
-                    <div class="demo-value">12,5 km²</div>
-                    <div class="demo-label">Luas Wilayah</div>
-                  </div>
-                  <div class="demo-card">
-                    <div class="demo-icon">🌾</div>
-                    <div class="demo-value">Pertanian</div>
-                    <div class="demo-label">Mata Pencaharian</div>
-                  </div>
-                </div>
-                <p class="location-description morph-item">Desa Pandan Indah terletak di wilayah Kecamatan Praya Barat Daya, Kabupaten Lombok Tengah. Desa ini memiliki potensi besar di sektor pertanian, peternakan, dan kerajinan lokal.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Navigation -->
+    <div class="slide-nav">
+      <button class="slide-nav-btn" id="slide-prev" onclick="prevSlide()">←</button>
+      <div class="slide-dots" id="slide-dots"></div>
+      <span class="slide-counter" id="slide-counter">1 / 5</span>
+      <button class="slide-nav-btn" id="slide-next" onclick="nextSlide()">→</button>
     </div>
-
-    <!-- SLIDE 4: VISION -->
-    <div class="slide next" id="slide-3">
-      <div class="morph-wrapper">
-        <div class="section section-primary">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="vision-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Arah Kami</span>
-                  <h2 class="section-title">Visi, Misi & Tujuan</h2>
-                </div>
-                <div class="vision-box morph-item">
-                  <div class="vision-label">Visi</div>
-                  <p class="vision-text">Mewujudkan Desa Pandan Indah sebagai desa mandiri, berdaya saing, dan berkelanjutan.</p>
-                </div>
-                <ul class="missions-list morph-item">
-                  <li>Meningkatkan literasi digital masyarakat desa</li>
-                  <li>Memberdayakan ekonomi lokal melalui pelatihan kewirausahaan</li>
-                  <li>Meningkatkan kesadaran lingkungan hidup</li>
-                  <li>Mendukung pengembangan potensi anak-anak dan pemuda desa</li>
-                </ul>
-                <div class="objectives-grid morph-item">
-                  <div class="objective-card">
-                    <div class="objective-icon">📚</div>
-                    <div class="objective-title">Pendidikan</div>
-                    <div class="objective-desc">Bimbingan belajar dan literasi</div>
-                  </div>
-                  <div class="objective-card">
-                    <div class="objective-icon">🏥</div>
-                    <div class="objective-title">Kesehatan</div>
-                    <div class="objective-desc">Edukasi pola hidup sehat</div>
-                  </div>
-                  <div class="objective-card">
-                    <div class="objective-icon">💰</div>
-                    <div class="objective-title">Ekonomi</div>
-                    <div class="objective-desc">Pelatihan UMKM</div>
-                  </div>
-                  <div class="objective-card">
-                    <div class="objective-icon">🌿</div>
-                    <div class="objective-title">Lingkungan</div>
-                    <div class="objective-desc">Pengelolaan sampah</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 5: PROGRAMS -->
-    <div class="slide next" id="slide-4">
-      <div class="morph-wrapper">
-        <div class="section section-light">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="programs-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Program</span>
-                  <h2 class="section-title">Program Kerja</h2>
-                  <p class="section-subtitle">Kegiatan yang telah direncanakan</p>
-                </div>
-                <div class="programs-grid">
-                  <div class="program-card morph-item">
-                    <div class="program-icon">📖</div>
-                    <div class="program-category">Pendidikan</div>
-                    <h3 class="program-title">Kelas Inspirasi</h3>
-                    <p class="program-desc">Bimbingan belajar gratis untuk siswa SD-SMP</p>
-                    <div class="program-schedule">📅 Selasa & Kamis</div>
-                  </div>
-                  <div class="program-card morph-item">
-                    <div class="program-icon">💻</div>
-                    <div class="program-category">Ekonomi</div>
-                    <h3 class="program-title">Digitalisasi UMKM</h3>
-                    <p class="program-desc">Pelatihan media sosial untuk UMKM</p>
-                    <div class="program-schedule">📅 Minggu ke-2 & 3</div>
-                  </div>
-                  <div class="program-card morph-item">
-                    <div class="program-icon">🌱</div>
-                    <div class="program-category">Lingkungan</div>
-                    <h3 class="program-title">Bank Sampah</h3>
-                    <p class="program-desc">Pendirian bank sampah desa</p>
-                    <div class="program-schedule">📅 Setiap Jumat</div>
-                  </div>
-                  <div class="program-card morph-item">
-                    <div class="program-icon">🎨</div>
-                    <div class="program-category">Sosial</div>
-                    <h3 class="program-title">Festival Budaya</h3>
-                    <p class="program-desc">Pelestarian budaya lokal</p>
-                    <div class="program-schedule">📅 Minggu ke-4</div>
-                  </div>
-                  <div class="program-card morph-item">
-                    <div class="program-icon">🏥</div>
-                    <div class="program-category">Kesehatan</div>
-                    <h3 class="program-title">Posyandu Lansia</h3>
-                    <p class="program-desc">Pemeriksaan kesehatan lansia</p>
-                    <div class="program-schedule">📅 Setiap Rabu</div>
-                  </div>
-                  <div class="program-card morph-item">
-                    <div class="program-icon">📚</div>
-                    <div class="program-category">Pendidikan</div>
-                    <h3 class="program-title">Perpustakaan Mini</h3>
-                    <p class="program-desc">Perpustakaan desa</p>
-                    <div class="program-schedule">📅 Setiap hari</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 6: TEAM -->
-    <div class="slide next" id="slide-5">
-      <div class="morph-wrapper">
-        <div class="section section-light">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="team-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Tim</span>
-                  <h2 class="section-title">Struktur Organisasi</h2>
-                  <p class="section-subtitle">Kenali anggota tim kami</p>
-                </div>
-                <div class="team-grid">
-                  <!-- 1. Ketua -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">OD</div>
-                    <div class="team-info">
-                      <div class="team-name">Odie</div>
-                      <div class="team-role">Ketua</div>
-                      <div class="team-major">Teknik Informatika</div>
-                      <div class="team-quote">"Bersama membangun desa"</div>
-                    </div>
-                  </div>
-                  <!-- 2. Sekretaris -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">WI</div>
-                    <div class="team-info">
-                      <div class="team-name">Winda</div>
-                      <div class="team-role">Sekretaris</div>
-                      <div class="team-major">Administrasi Publik</div>
-                      <div class="team-quote">"Dokumentasi yang baik"</div>
-                    </div>
-                  </div>
-                  <!-- 3. Bendahara -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">NA</div>
-                    <div class="team-info">
-                      <div class="team-name">Nawaz</div>
-                      <div class="team-role">Bendahara</div>
-                      <div class="team-major">Akuntansi</div>
-                      <div class="team-quote">"Transparansi adalah kunci"</div>
-                    </div>
-                  </div>
-                  <!-- 4. Acara 1 -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">MA</div>
-                    <div class="team-info">
-                      <div class="team-name">Madin</div>
-                      <div class="team-role">Acara</div>
-                      <div class="team-major">Manajemen</div>
-                      <div class="team-quote">"Acara yang berkesan"</div>
-                    </div>
-                  </div>
-                  <!-- 5. Acara 2 -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">ZA</div>
-                    <div class="team-info">
-                      <div class="team-name">Zahra</div>
-                      <div class="team-role">Acara</div>
-                      <div class="team-major">PGSD</div>
-                      <div class="team-quote">"Sukses di setiap acara"</div>
-                    </div>
-                  </div>
-                  <!-- 6. PDD 1 -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">FA</div>
-                    <div class="team-info">
-                      <div class="team-name">Fariz</div>
-                      <div class="team-role">PDD</div>
-                      <div class="team-major">Ilmu Komunikasi</div>
-                      <div class="team-quote">"Dokumentasi yang bermakna"</div>
-                    </div>
-                  </div>
-                  <!-- 7. PDD 2 -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">YA</div>
-                    <div class="team-info">
-                      <div class="team-name">Yani</div>
-                      <div class="team-role">PDD</div>
-                      <div class="team-major">Desain Komunikasi Visual</div>
-                      <div class="team-quote">"Visual yang menginspirasi"</div>
-                    </div>
-                  </div>
-                  <!-- 8. Humas -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">FI</div>
-                    <div class="team-info">
-                      <div class="team-name">Fikri</div>
-                      <div class="team-role">Humas</div>
-                      <div class="team-major">Hubungan Masyarakat</div>
-                      <div class="team-quote">"Komunikasi yang efektif"</div>
-                    </div>
-                  </div>
-                  <!-- 9. Perlengkapan -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">AA</div>
-                    <div class="team-info">
-                      <div class="team-name">Aan</div>
-                      <div class="team-role">Perlengkapan</div>
-                      <div class="team-major">Teknik Industri</div>
-                      <div class="team-quote">"Siap dalam segala kondisi"</div>
-                    </div>
-                  </div>
-                  <!-- 10. Konsumsi -->
-                  <div class="team-card morph-item">
-                    <div class="team-photo-placeholder">RU</div>
-                    <div class="team-info">
-                      <div class="team-name">Runi</div>
-                      <div class="team-role">Konsumsi</div>
-                      <div class="team-major">Tata Boga</div>
-                      <div class="team-quote">"Hidangan yang bermakna"</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 7: TIMELINE -->
-    <div class="slide next" id="slide-6">
-      <div class="morph-wrapper">
-        <div class="section section-light">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="timeline-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Jadwal</span>
-                  <h2 class="section-title">Timeline Kegiatan</h2>
-                  <p class="section-subtitle">Jadwal pelaksanaan program KKN</p>
-                </div>
-                <div class="timeline-period morph-item">📅 1 Juli - 15 Agustus 2026</div>
-                <div class="timeline">
-                  <div class="timeline-item completed morph-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">1-3 Juli 2026</div>
-                    <h3 class="timeline-title">Orientasi & Observasi</h3>
-                    <p class="timeline-desc">Pengenalan desa dan pemetaan potensi</p>
-                    <span class="timeline-status status-completed">✓ Selesai</span>
-                  </div>
-                  <div class="timeline-item completed morph-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">4-10 Juli 2026</div>
-                    <h3 class="timeline-title">Perencanaan Program</h3>
-                    <p class="timeline-desc">Penyusunan program kerja</p>
-                    <span class="timeline-status status-completed">✓ Selesai</span>
-                  </div>
-                  <div class="timeline-item active morph-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">11-31 Juli 2026</div>
-                    <h3 class="timeline-title">Pelaksanaan Program</h3>
-                    <p class="timeline-desc">Realisasi seluruh program kerja</p>
-                    <span class="timeline-status status-active">● Berlangsung</span>
-                  </div>
-                  <div class="timeline-item upcoming morph-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">1-10 Agustus 2026</div>
-                    <h3 class="timeline-title">Evaluasi & Dokumentasi</h3>
-                    <p class="timeline-desc">Pengukuran dampak dan dokumentasi</p>
-                    <span class="timeline-status status-upcoming">○ Akan Datang</span>
-                  </div>
-                  <div class="timeline-item upcoming morph-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">11-15 Agustus 2026</div>
-                    <h3 class="timeline-title">Penutupan & Laporan</h3>
-                    <p class="timeline-desc">Presentasi hasil dan perpisahan</p>
-                    <span class="timeline-status status-upcoming">○ Akan Datang</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 8: GALLERY -->
-    <div class="slide next" id="slide-7">
-      <div class="morph-wrapper">
-        <div class="section section-dark">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="gallery-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Galeri</span>
-                  <h2 class="section-title">Dokumentasi</h2>
-                  <p class="section-subtitle">Momen-momen berharga selama KKN</p>
-                </div>
-                <div class="gallery-filters morph-item">
-                  <button class="gallery-filter active" data-category="Semua">Semua</button>
-                  <button class="gallery-filter" data-category="Pendidikan">Pendidikan</button>
-                  <button class="gallery-filter" data-category="Ekonomi">Ekonomi</button>
-                  <button class="gallery-filter" data-category="Lingkungan">Lingkungan</button>
-                  <button class="gallery-filter" data-category="Sosial">Sosial</button>
-                </div>
-                <div class="gallery-grid morph-item">
-                  <div class="gallery-item" data-category="Pendidikan">
-                    <div class="gallery-placeholder">📖</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Kelas Inspirasi</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Ekonomi">
-                    <div class="gallery-placeholder">💻</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Digitalisasi UMKM</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Lingkungan">
-                    <div class="gallery-placeholder">🌱</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Gotong royong</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Sosial">
-                    <div class="gallery-placeholder">🎨</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Festival budaya</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Pendidikan">
-                    <div class="gallery-placeholder">📚</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Perpustakaan mini</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Lingkungan">
-                    <div class="gallery-placeholder">♻️</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Bank sampah</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Sosial">
-                    <div class="gallery-placeholder">🤝</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Rapat koordinasi</span>
-                    </div>
-                  </div>
-                  <div class="gallery-item" data-category="Kesehatan">
-                    <div class="gallery-placeholder">🏥</div>
-                    <div class="gallery-item-overlay">
-                      <span class="gallery-item-caption">Posyandu lansia</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 9: IMPACT -->
-    <div class="slide next" id="slide-8">
-      <div class="morph-wrapper">
-        <div class="section section-primary">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="impact-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Dampak</span>
-                  <h2 class="section-title">Pencapaian & Dampak</h2>
-                  <p class="section-subtitle">Hasil nyata dari program KKN kami</p>
-                </div>
-                <div class="achievements-grid morph-item">
-                  <div class="achievement-card">
-                    <div class="achievement-icon">👨‍🎓</div>
-                    <div class="achievement-number">150+</div>
-                    <div class="achievement-label">Siswa Terbimbing</div>
-                  </div>
-                  <div class="achievement-card">
-                    <div class="achievement-icon">🏪</div>
-                    <div class="achievement-number">25</div>
-                    <div class="achievement-label">UMKM Terlatih</div>
-                  </div>
-                  <div class="achievement-card">
-                    <div class="achievement-icon">♻️</div>
-                    <div class="achievement-number">500+</div>
-                    <div class="achievement-label">Kg Sampah Terkelola</div>
-                  </div>
-                  <div class="achievement-card">
-                    <div class="achievement-icon">❤️</div>
-                    <div class="achievement-number">200+</div>
-                    <div class="achievement-label">Lansia Diperiksa</div>
-                  </div>
-                </div>
-                <div class="testimonials-section morph-item">
-                  <div class="testimonials-label">Testimoni</div>
-                  <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                      <p class="testimonial-quote">Anak-anak kami jadi semangat belajar sejak ada Kelas Inspirasi.</p>
-                      <div class="testimonial-author">
-                        <div class="testimonial-avatar-placeholder">IR</div>
-                        <div class="testimonial-info">
-                          <div class="testimonial-name">Ibu Rumini</div>
-                          <div class="testimonial-role">Guru SDN</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="testimonial-card">
-                      <p class="testimonial-quote">Produk anyaman kami sekarang bisa dijual online.</p>
-                      <div class="testimonial-author">
-                        <div class="testimonial-avatar-placeholder">BS</div>
-                        <div class="testimonial-info">
-                          <div class="testimonial-name">Bapak Surianto</div>
-                          <div class="testimonial-role">Pengrajin</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="testimonial-card">
-                      <p class="testimonial-quote">Bank sampah sangat membantu kebersihan desa kami.</p>
-                      <div class="testimonial-author">
-                        <div class="testimonial-avatar-placeholder">KK</div>
-                        <div class="testimonial-info">
-                          <div class="testimonial-name">Bapak Karno</div>
-                          <div class="testimonial-role">Kepala Desa</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 10: CONTACT -->
-    <div class="slide next" id="slide-9">
-      <div class="morph-wrapper">
-        <div class="section section-light">
-          <div class="section-content">
-            <div class="morph-content">
-              <div class="contact-content">
-                <div class="section-header morph-item">
-                  <span class="section-badge">Kontak</span>
-                  <h2 class="section-title">Hubungi Kami</h2>
-                  <p class="section-subtitle">Terima kasih atas dukungannya!</p>
-                </div>
-                <div class="thank-you-card morph-item">
-                  <div class="thank-you-icon">🙏</div>
-                  <p class="thank-you-text">Program KKN ini tidak akan berhasil tanpa dukungan dari seluruh pihak. Terima kasih kepada Universitas, Pemerintah Desa, dan seluruh warga Pandan Indah.</p>
-                </div>
-                <div class="social-links morph-item">
-                  <a href="https://instagram.com/kknpandanindah" class="social-link" target="_blank">
-                    <span>📷</span>
-                    <span>Instagram</span>
-                  </a>
-                  <a href="https://tiktok.com/@kknpandanindah" class="social-link" target="_blank">
-                    <span>🎵</span>
-                    <span>TikTok</span>
-                  </a>
-                  <a href="https://youtube.com/@kknpandanindah" class="social-link" target="_blank">
-                    <span>▶️</span>
-                    <span>YouTube</span>
-                  </a>
-                  <a href="/cdn-cgi/l/email-protection#2d464643035d4c43494c434443494c451f1d1f1b6d4a404c4441034e4240" class="social-link">
-                    <span>✉️</span>
-                    <span>Email</span>
-                  </a>
-                </div>
-                <p class="credits morph-item">© 2026 KKN Desa Pandan Indah - Universitas Mataram</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ============================================
+    // DUSUN DATA
+    // ============================================
+    const dusunData = [
+      {
+        name: "Dusun Pandan Indah",
+        kadus: "H. Ahmad",
+        icon: "🏘️",
+        population: "720 Jiwa",
+        households: "215 KK",
+        area: "3,2 km²",
+        description: "Dusun Pandan Indah merupakan pusat pemerintahan desa dengan fasilitas yang lengkap.",
+        slides: [
+          {
+            title: "Profil Dusun Pandan Indah",
+            subtitle: "Pusat Pemerintahan Desa",
+            content: "overview"
+          },
+          {
+            title: "Data Demografis",
+            subtitle: "Komposisi Penduduk",
+            content: "demographics"
+          },
+          {
+            title: "Potensi Dusun",
+            subtitle: "Sumber Daya & Keunggulan",
+            content: "potency"
+          },
+          {
+            title: "Program Unggulan",
+            subtitle: "Kegiatan & Pembangunan",
+            content: "programs"
+          },
+          {
+            title: "Kontak & Lokasi",
+            subtitle: "Informasi Lebih Lanjut",
+            content: "contact"
+          }
+        ]
+      },
+      {
+        name: "Dusun Mekar Sari",
+        kadus: "Budi Santoso",
+        icon: "🏡",
+        population: "580 Jiwa",
+        households: "175 KK",
+        area: "2,8 km²",
+        description: "Dusun Mekar Sari dikenal dengan pertanian dan peternakan yang berkembang pesat.",
+        slides: [
+          { title: "Profil Dusun Mekar Sari", subtitle: "Pertanian & Peternakan", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Tegal Sari",
+        kadus: "Suharto",
+        icon: "🌾",
+        population: "650 Jiwa",
+        households: "195 KK",
+        area: "3,0 km²",
+        description: "Dusun Tegal Sari memiliki lahan pertanian yang subur dan menjadi lumbung padi desa.",
+        slides: [
+          { title: "Profil Dusun Tegal Sari", subtitle: "Lumbung Padi Desa", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Sumber Rejeki",
+        kadus: "Rahmat Hidayat",
+        icon: "🌻",
+        population: "520 Jiwa",
+        households: "148 KK",
+        area: "2,5 km²",
+        description: "Dusun Sumber Rejeki dikenal dengan kerajinan tenun dan industri rumah tangga.",
+        slides: [
+          { title: "Profil Dusun Sumber Rejeki", subtitle: "Kerajinan & Industri", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Asri Jaya",
+        kadus: "Lalu Saprudin",
+        icon: "🌿",
+        population: "377 Jiwa",
+        households: "123 KK",
+        area: "1,5 km²",
+        description: "Dusun Asri Jaya memiliki potensi wisata alam dan lingkungan yang asri.",
+        slides: [
+          { title: "Profil Dusun Asri Jaya", subtitle: "Wisata & Lingkungan", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Selatan",
+        kadus: "H. Muhaimin",
+        icon: "🌊",
+        population: "245 Jiwa",
+        households: "78 KK",
+        area: "1,8 km²",
+        description: "Dusun Selatan terkenal dengan area persawahan yang luas dan hasil pertanian yang melimpah.",
+        slides: [
+          { title: "Profil Dusun Selatan", subtitle: "Sentra Pertanian", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Timur",
+        kadus: "Lalu Zulkifli",
+        icon: "🌅",
+        population: "198 Jiwa",
+        households: "62 KK",
+        area: "1,2 km²",
+        description: "Dusun Timur memiliki komunitas peternak yang solid dan berkembang.",
+        slides: [
+          { title: "Profil Dusun Timur", subtitle: "Peternakan & Perikanan", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Barat",
+        kadus: "H. Arifin",
+        icon: "🌄",
+        population: "167 Jiwa",
+        households: "53 KK",
+        area: "1,0 km²",
+        description: "Dusun Barat dikenal dengan kerajinan anyaman bambu dan kuliner tradisional.",
+        slides: [
+          { title: "Profil Dusun Barat", subtitle: "Kerajinan & Kuliner", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Mawar",
+        kadus: "Baiq Ratna",
+        icon: "🌸",
+        population: "189 Jiwa",
+        households: "58 KK",
+        area: "0,9 km²",
+        description: "Dusun Mawar memiliki potensi di bidang perkebunan dan florikultura.",
+        slides: [
+          { title: "Profil Dusun Mawar", subtitle: "Perkebunan & Bunga", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Melati",
+        kadus: "Lalu Herman",
+        icon: "🌺",
+        population: "156 Jiwa",
+        households: "49 KK",
+        area: "0,8 km²",
+        description: "Dusun Melati dikenal dengan industri rumah tangga dan UMKM yang berkembang.",
+        slides: [
+          { title: "Profil Dusun Melati", subtitle: "UMKM & Industri", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Cendana",
+        kadus: "H. Nasir",
+        icon: "🌳",
+        population: "134 Jiwa",
+        households: "42 KK",
+        area: "0,7 km²",
+        description: "Dusun Cendana memiliki hutan rakyat dan menjadi sentra produksi kayu.",
+        slides: [
+          { title: "Profil Dusun Cendana", subtitle: "Kehutanan & Lingkungan", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Damai",
+        kadus: "Suhardi",
+        icon: "🍃",
+        population: "112 Jiwa",
+        households: "36 KK",
+        area: "0,6 km²",
+        description: "Dusun Damai dikenal dengan kebersamaan dan gotong royong yang tinggi.",
+        slides: [
+          { title: "Profil Dusun Damai", subtitle: "Harmoni & Kebersamaan", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      },
+      {
+        name: "Dusun Harapan",
+        kadus: "Lalu Fadli",
+        icon: "✨",
+        population: "98 Jiwa",
+        households: "31 KK",
+        area: "0,5 km²",
+        description: "Dusun Harapan merupakan dusun termuda dengan semangat pemuda yang tinggi.",
+        slides: [
+          { title: "Profil Dusun Harapan", subtitle: "Generasi Muda", content: "overview" },
+          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
+          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
+          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
+        ]
+      }
+    ];
+
+    // ============================================
+    // STATE
+    // ============================================
+    let currentDusun = null;
+    let currentSlide = 0;
+
+    // ============================================
     // INITIALIZATION
     // ============================================
     document.addEventListener('DOMContentLoaded', () => {
-      generateProgressDots();
-      setupEventListeners();
-      updateSlideClasses(0);
-      
       // Hide loading screen
       setTimeout(() => {
         document.getElementById('loading-screen').classList.add('fade-out');
@@ -2018,102 +1955,274 @@
     });
 
     // ============================================
-    // PROGRESS DOTS
+    // OPEN DUSUN SLIDES
     // ============================================
-    function generateProgressDots() {
-      const container = document.getElementById('progress-bar');
-      const total = 10;
+    function openDusun(index) {
+      currentDusun = index;
+      currentSlide = 0;
       
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement('div');
-        dot.className = `progress-dot ${i === 0 ? 'active' : ''}`;
-        dot.dataset.index = i;
-        dot.addEventListener('click', () => goToSlide(i));
-        container.appendChild(dot);
+      const dusun = dusunData[index];
+      
+      // Update header
+      document.getElementById('slide-header-title').textContent = dusun.name;
+      document.getElementById('slide-header-subtitle').textContent = `Kepala Dusun: ${dusun.kadus}`;
+      
+      // Generate slides
+      generateSlides(dusun);
+      
+      // Generate dots
+      generateDots(dusun.slides.length);
+      
+      // Update counter
+      updateCounter();
+      
+      // Update nav buttons
+      updateNavButtons();
+      
+      // Show slide page
+      document.getElementById('slide-page').classList.add('active');
+      
+      // Scroll to first slide
+      const container = document.getElementById('slides-container');
+      container.scrollLeft = 0;
+    }
+
+    function closeDusun() {
+      document.getElementById('slide-page').classList.remove('active');
+      currentDusun = null;
+    }
+
+    // ============================================
+    // GENERATE SLIDES
+    // ============================================
+    function generateSlides(dusun) {
+      const container = document.getElementById('slides-container');
+      container.innerHTML = '';
+      
+      dusun.slides.forEach((slide, index) => {
+        const slideEl = document.createElement('div');
+        slideEl.className = 'slide';
+        slideEl.innerHTML = generateSlideContent(slide, dusun, index);
+        container.appendChild(slideEl);
+      });
+    }
+
+    function generateSlideContent(slide, dusun, index) {
+      let content = '';
+      
+      switch(slide.content) {
+        case 'overview':
+          content = `
+            <div class="slide-content">
+              <h2 class="slide-title">${slide.title}</h2>
+              <p class="slide-subtitle">${slide.subtitle}</p>
+              
+              <div class="info-card">
+                <div class="info-card-icon">${dusun.icon}</div>
+                <h3 class="info-card-title">Tentang ${dusun.name}</h3>
+                <p class="info-card-text">${dusun.description}</p>
+              </div>
+              
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-icon">👥</div>
+                  <div class="stat-number">${dusun.population.split(' ')[0]}</div>
+                  <div class="stat-label">Penduduk</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">🏠</div>
+                  <div class="stat-number">${dusun.households.split(' ')[0]}</div>
+                  <div class="stat-label">KK</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">📐</div>
+                  <div class="stat-number">${dusun.area}</div>
+                  <div class="stat-label">Luas Wilayah</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">👨‍💼</div>
+                  <div class="stat-number" style="font-size: 1rem;">${dusun.kadus}</div>
+                  <div class="stat-label">Kepala Dusun</div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+          
+        case 'demographics':
+          content = `
+            <div class="slide-content">
+              <h2 class="slide-title">${slide.title}</h2>
+              <p class="slide-subtitle">${slide.subtitle}</p>
+              
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-icon">👨</div>
+                  <div class="stat-number">365</div>
+                  <div class="stat-label">Laki-laki</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">👩</div>
+                  <div class="stat-number">355</div>
+                  <div class="stat-label">Perempuan</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">👶</div>
+                  <div class="stat-number">120</div>
+                  <div class="stat-label">Anak-anak</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">👴</div>
+                  <div class="stat-number">85</div>
+                  <div class="stat-label">Lansia</div>
+                </div>
+              </div>
+              
+              <div class="info-card">
+                <div class="info-card-icon">📊</div>
+                <h3 class="info-card-title">Mata Pencaharian</h3>
+                <p class="info-card-text">• Petani: 45%<br>• Buruh: 25%<br>• Pedagang: 15%<br>• PNS/Swasta: 10%<br>• Lainnya: 5%</p>
+              </div>
+            </div>
+          `;
+          break;
+          
+        case 'potency':
+          content = `
+            <div class="slide-content">
+              <h2 class="slide-title">${slide.title}</h2>
+              <p class="slide-subtitle">${slide.subtitle}</p>
+              
+              <div class="program-list">
+                <div class="program-item">
+                  <div class="program-icon">🌾</div>
+                  <div class="program-info">
+                    <h3 class="program-name">Pertanian</h3>
+                    <p class="program-desc">Lahan pertanian padi, jagung, dan sayuran dengan sistem irigasi teknis.</p>
+                  </div>
+                </div>
+                <div class="program-item">
+                  <div class="program-icon">🐄</div>
+                  <div class="program-info">
+                    <h3 class="program-name">Peternakan</h3>
+                    <p class="program-desc">Ternak sapi, kambing, dan unggas yang menjadi sumber penghasilan tambahan.</p>
+                  </div>
+                </div>
+                <div class="program-item">
+                  <div class="program-icon">🧶</div>
+                  <div class="program-info">
+                    <h3 class="program-name">Kerajinan</h3>
+                    <p class="program-desc">Tenun tradisional dan anyaman bambu sebagai produk unggulan dusun.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+          
+        case 'programs':
+          content = `
+            <div class="slide-content">
+              <h2 class="slide-title">${slide.title}</h2>
+              <p class="slide-subtitle">${slide.subtitle}</p>
+              
+              <div class="program-list">
+                <div class="program-item">
+                  <div class="program-icon">📚</div>
+                  <div class="program-info">
+                    <h3 class="program-name">Posyandu Balita</h3>
+                    <p class="program-desc">Pemeriksaan kesehatan rutin untuk balita dan ibu hamil setiap bulan.</p>
+                  </div>
+                </div>
+                <div class="program-item">
+                  <div class="program-icon">🏘️</div>
+                  <div class="program-info">
+                    <h3 class="program-name">Gotong Royong</h3>
+                    <p class="program-desc">Kegiatan bersih-bersih lingkungan setiap Jumat pagi.</p>
+                  </div>
+                </div>
+                <div class="program-item">
+                  <div class="program-icon">📖</div>
+                  <div class="program-info">
+                    <h3 class="program-name">TPA/TPQ</h3>
+                    <p class="program-desc">Pendidikan Al-Quran untuk anak-anak setiap sore.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+          
+        case 'contact':
+          content = `
+            <div class="slide-content">
+              <h2 class="slide-title">${slide.title}</h2>
+              <p class="slide-subtitle">${slide.subtitle}</p>
+              
+              <div class="info-card">
+                <div class="info-card-icon">📍</div>
+                <h3 class="info-card-title">Lokasi</h3>
+                <p class="info-card-text">${dusun.name}, Desa Pandan Indah<br>Kec. Praya Barat Daya, Kab. Lombok Tengah<br>NTB, Indonesia</p>
+              </div>
+              
+              <div class="info-card">
+                <div class="info-card-icon">👨‍💼</div>
+                <h3 class="info-card-title">Kepala Dusun</h3>
+                <p class="info-card-text">${dusun.kadus}<br>📞 Hubungi Kantor Desa</p>
+              </div>
+              
+              <div class="info-card">
+                <div class="info-card-icon">🏛️</div>
+                <h3 class="info-card-title">Kantor Desa</h3>
+                <p class="info-card-text">Desa Pandan Indah<br>📞 (0370) 123-456<br>✉️ desapandanindah@email.com</p>
+              </div>
+            </div>
+          `;
+          break;
       }
       
-      document.getElementById('total-slides').textContent = total;
-    }
-
-    function updateProgressDots(index) {
-      document.querySelectorAll('.progress-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-      document.getElementById('current-slide').textContent = index + 1;
+      return content;
     }
 
     // ============================================
-    // SLIDE MORPH EFFECTS
+    // NAVIGATION
     // ============================================
-    function updateSlideClasses(activeIndex) {
-      const slides = document.querySelectorAll('.slide');
+    function generateDots(count) {
+      const container = document.getElementById('slide-dots');
+      container.innerHTML = '';
       
-      slides.forEach((slide, index) => {
-        slide.classList.remove('prev', 'active', 'next');
-        
-        if (index < activeIndex) {
-          slide.classList.add('prev');
-        } else if (index === activeIndex) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.add('next');
-        }
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('div');
+        dot.className = `slide-dot ${i === 0 ? 'active' : ''}`;
+        dot.onclick = () => goToSlide(i);
+        container.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('.slide-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
       });
     }
 
-    // ============================================
-    // SCROLL DETECTION
-    // ============================================
-    const container = document.getElementById('slides-container');
-    let currentSlide = 0;
-    let isScrolling = false;
+    function updateCounter() {
+      const dusun = dusunData[currentDusun];
+      document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${dusun.slides.length}`;
+    }
 
-    function setupEventListeners() {
-      // Detect horizontal scroll
-      container.addEventListener('scroll', () => {
-        if (isScrolling) return;
-        
-        const scrollLeft = container.scrollLeft;
-        const slideWidth = window.innerWidth;
-        const newSlide = Math.round(scrollLeft / slideWidth);
-        
-        if (newSlide !== currentSlide && newSlide >= 0 && newSlide < 10) {
-          currentSlide = newSlide;
-          updateProgressDots(currentSlide);
-          updateNavArrows(currentSlide);
-          updateSlideClasses(currentSlide);
-        }
-      });
-
-      // Navigation arrows
-      document.getElementById('nav-prev').addEventListener('click', () => {
-        if (currentSlide > 0) goToSlide(currentSlide - 1);
-      });
-
-      document.getElementById('nav-next').addEventListener('click', () => {
-        if (currentSlide < 9) goToSlide(currentSlide + 1);
-      });
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' || e.key === ' ') {
-          e.preventDefault();
-          if (currentSlide < 9) goToSlide(currentSlide + 1);
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          if (currentSlide > 0) goToSlide(currentSlide - 1);
-        }
-      });
-
-      // Gallery filters
-      document.querySelectorAll('.gallery-filter').forEach(btn => {
-        btn.addEventListener('click', () => handleGalleryFilter(btn));
-      });
+    function updateNavButtons() {
+      const dusun = dusunData[currentDusun];
+      const prevBtn = document.getElementById('slide-prev');
+      const nextBtn = document.getElementById('slide-next');
+      
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === dusun.slides.length - 1;
     }
 
     function goToSlide(index) {
-      isScrolling = true;
-      const slideWidth = window.innerWidth;
+      const container = document.getElementById('slides-container');
+      const slideWidth = container.offsetWidth;
       
       container.scrollTo({
         left: index * slideWidth,
@@ -2121,41 +2230,46 @@
       });
       
       currentSlide = index;
-      updateProgressDots(index);
-      updateNavArrows(index);
-      updateSlideClasses(index);
+      updateDots();
+      updateCounter();
+      updateNavButtons();
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    function nextSlide() {
+      const dusun = dusunData[currentDusun];
+      if (currentSlide < dusun.slides.length - 1) {
+        goToSlide(currentSlide + 1);
+      }
+    }
+
+    // Detect scroll
+    document.getElementById('slides-container').addEventListener('scroll', function() {
+      const scrollLeft = this.scrollLeft;
+      const slideWidth = this.offsetWidth;
+      const newSlide = Math.round(scrollLeft / slideWidth);
       
-      setTimeout(() => {
-        isScrolling = false;
-      }, 600);
-    }
+      if (newSlide !== currentSlide) {
+        currentSlide = newSlide;
+        updateDots();
+        updateCounter();
+        updateNavButtons();
+      }
+    });
 
-    function updateNavArrows(index) {
-      const prev = document.getElementById('nav-prev');
-      const next = document.getElementById('nav-next');
-      prev.style.opacity = index === 0 ? '0.3' : '1';
-      prev.style.pointerEvents = index === 0 ? 'none' : 'auto';
-      next.style.opacity = index === 9 ? '0.3' : '1';
-      next.style.pointerEvents = index === 9 ? 'none' : 'auto';
-    }
-
-    // ============================================
-    // GALLERY FILTER
-    // ============================================
-    function handleGalleryFilter(button) {
-      const category = button.dataset.category;
-      
-      document.querySelectorAll('.gallery-filter').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      document.querySelectorAll('.gallery-item').forEach(item => {
-        if (category === 'Semua' || item.dataset.category === category) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('slide-page').classList.contains('active')) {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'Escape') closeDusun();
+      }
+    });
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1a46d25bfe1f908',t:'MTc4MzkwNTIxOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
