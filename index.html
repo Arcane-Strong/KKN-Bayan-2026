@@ -433,6 +433,57 @@
       line-height: 1.4;
     }
 
+    /* History Table */
+    .history-table-wrapper {
+      overflow-x: auto;
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .history-table thead {
+      background: var(--primary-50);
+    }
+
+    .history-table th {
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary-light);
+      font-size: 0.8rem;
+    }
+
+    .history-table td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-700);
+    }
+
+    .history-table tbody tr:hover {
+      background: var(--gray-50);
+    }
+
+    .history-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .history-penjabat td {
+      font-style: italic;
+      color: var(--gray-500);
+    }
+
+    .penjabat-label {
+      font-size: 0.7rem;
+      background: var(--gray-100);
+      padding: 0.15rem 0.4rem;
+      border-radius: 0.25rem;
+      color: var(--gray-500);
+    }
+
     /* Dusun Section */
     .dusun-section {
       max-width: 1000px;
@@ -1063,19 +1114,19 @@
             <h3 class="village-info-title">Profil Desa</h3>
           </div>
           <div class="village-info-body">
-            <p>Desa Pandan Indah merupakan salah satu desa di Kecamatan Praya Barat Daya yang memiliki luas wilayah 12,5 km². Desa ini terdiri dari 13 dusun dengan total penduduk 2.847 jiwa dari 856 Kepala Keluarga (KK).</p>
+            <p><strong>Desa Bayan</strong> merupakan salah satu dari <strong>11 desa</strong> yang berada di Kecamatan Bayan, Kabupaten Lombok Utara. Desa Bayan memiliki luas wilayah sekitar <strong>3.716 hektare</strong>. Wilayah Desa Bayan berbatasan dengan <strong>Desa Karang Bajo di sebelah utara, Hutan Tutupan di sebelah selatan, Desa Senaru di sebelah barat, dan Desa Loloan di sebelah timur</strong>. Desa Bayan juga dikenal sebagai desa yang masih memegang teguh dan menjalankan nilai-nilai luhur serta kearifan budaya lokal dalam kehidupan masyarakatnya.</p>
             <div class="village-info-highlights">
               <div class="highlight-item">
-                <span class="highlight-icon">📍</span>
-                <span class="highlight-text">Lokasi Strategis</span>
+                <span class="highlight-icon">🏛️</span>
+                <span class="highlight-text">Desa Bersejarah</span>
               </div>
               <div class="highlight-item">
                 <span class="highlight-icon">🌾</span>
-                <span class="highlight-text">Agraris</span>
+                <span class="highlight-text">Potensi Pertanian</span>
               </div>
               <div class="highlight-item">
                 <span class="highlight-icon">🤝</span>
-                <span class="highlight-text">Gotong Royong</span>
+                <span class="highlight-text">Kearifan Lokal</span>
               </div>
             </div>
           </div>
@@ -1111,59 +1162,73 @@
               <div class="potensi-item">
                 <div class="potensi-icon">🌾</div>
                 <div class="potensi-name">Pertanian</div>
-                <div class="potensi-desc">Padi, jagung, sayuran</div>
+                <div class="potensi-desc">Padi, jagung, vanili, kopi</div>
               </div>
               <div class="potensi-item">
                 <div class="potensi-icon">🐄</div>
                 <div class="potensi-name">Peternakan</div>
-                <div class="potensi-desc">Sapi, kambing, unggas</div>
+                <div class="potensi-desc">Sapi, kambing</div>
               </div>
               <div class="potensi-item">
                 <div class="potensi-icon">🧶</div>
                 <div class="potensi-name">Kerajinan</div>
-                <div class="potensi-desc">Tenun, anyaman</div>
+                <div class="potensi-desc">Tenun, anyaman bambu</div>
               </div>
               <div class="potensi-item">
                 <div class="potensi-icon">🏞️</div>
                 <div class="potensi-name">Wisata</div>
-                <div class="potensi-desc">Alam & budaya</div>
+                <div class="potensi-desc">Alam, budaya adat, budidaya</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Pemerintahan -->
+        <!-- Sejarah Pemerintahan -->
         <div class="village-info-card">
           <div class="village-info-header">
-            <div class="village-info-icon">👨‍💼</div>
-            <h3 class="village-info-title">Pemerintahan</h3>
+            <div class="village-info-icon">📜</div>
+            <h3 class="village-info-title">Sejarah Pemerintahan</h3>
           </div>
           <div class="village-info-body">
-            <div class="gov-structure">
-              <div class="gov-item">
-                <div class="gov-role">Kepala Desa</div>
-                <div class="gov-name">H. Muhammad Saleh</div>
-              </div>
-              <div class="gov-item">
-                <div class="gov-role">Sekretaris Desa</div>
-                <div class="gov-name">Ahmad Fauzi</div>
-              </div>
-              <div class="gov-item">
-                <div class="gov-role">Bendahara Desa</div>
-                <div class="gov-name">Siti Aminah</div>
-              </div>
-              <div class="gov-item">
-                <div class="gov-role">Kaur Pemerintahan</div>
-                <div class="gov-name">Lalu Irwan</div>
-              </div>
-              <div class="gov-item">
-                <div class="gov-role">Kaur Pembangunan</div>
-                <div class="gov-name">Baiq Nurul</div>
-              </div>
-              <div class="gov-item">
-                <div class="gov-role">Kaur Kesra</div>
-                <div class="gov-name">H. Ridwan</div>
-              </div>
+            <div class="history-table-wrapper">
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Periode</th>
+                    <th>Kepala Desa / Pemusungan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1967–1974</td>
+                    <td>Raden Sutasari</td>
+                  </tr>
+                  <tr>
+                    <td>1974–1979</td>
+                    <td>Raden Suta Gede</td>
+                  </tr>
+                  <tr>
+                    <td>1979–1998</td>
+                    <td>Raden Gonda Kusuma</td>
+                  </tr>
+                  <tr>
+                    <td>1998–2012</td>
+                    <td>Raden Sugeti, S.Sos.</td>
+                  </tr>
+                  <tr>
+                    <td>2013–2019</td>
+                    <td>Raden Madikusuma</td>
+                  </tr>
+                  <tr class="history-penjabat">
+                    <td>2019–2020</td>
+                    <td>Muhajir, S.Pd., M.Pd. <span class="penjabat-label">(Penjabat)</span></td>
+                  </tr>
+                  <tr>
+                    <td>2020–2026</td>
+                    <td>Satradi, SP.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -1238,7 +1303,7 @@
                 <span class="contact-icon">✉️</span>
                 <div class="contact-text">
                   <div class="contact-label">Email</div>
-                  <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d69687e6c7d6c63696c636463696c654d68606c6461236e6260">[email&#160;protected]</a></div>
+                  <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036766706273626d67626d6a6d67626b43666e626a6f2d606c6e">[email&#160;protected]</a></div>
                 </div>
               </div>
             </div>
@@ -1352,24 +1417,24 @@
         <!-- Dusun 4 -->
         <div class="dusun-card" onclick="openDusun(3)">
           <div class="dusun-card-header">
-            <div class="dusun-icon">🌻</div>
-            <h3 class="dusun-name">Dusun Sumber Rejeki</h3>
-            <p class="dusun-kadus">Kepala Dusun: Rahmat Hidayat</p>
+            <div class="dusun-icon">🏔️</div>
+            <h3 class="dusun-name">Dusun Pada Mangko</h3>
+            <p class="dusun-kadus">Kepala Dusun: Rumawadi</p>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
               <div class="dusun-info-item">
-                <div class="dusun-info-icon">👥</div>
+                <div class="dusun-info-icon">📍</div>
                 <div class="dusun-info-text">
-                  <div class="dusun-info-label">Jumlah Penduduk</div>
-                  <div class="dusun-info-value">520 Jiwa</div>
+                  <div class="dusun-info-label">Lokasi</div>
+                  <div class="dusun-info-value">Desa Bayan, Kab. Lombok Utara</div>
                 </div>
               </div>
               <div class="dusun-info-item">
-                <div class="dusun-info-icon">🏠</div>
+                <div class="dusun-info-icon">🌾</div>
                 <div class="dusun-info-text">
-                  <div class="dusun-info-label">Jumlah KK</div>
-                  <div class="dusun-info-value">148 KK</div>
+                  <div class="dusun-info-label">Potensi Utama</div>
+                  <div class="dusun-info-value">Pertanian & Tambak Ikan</div>
                 </div>
               </div>
             </div>
@@ -1600,24 +1665,24 @@
         <!-- Dusun 12 -->
         <div class="dusun-card" onclick="openDusun(11)">
           <div class="dusun-card-header">
-            <div class="dusun-icon">🍃</div>
-            <h3 class="dusun-name">Dusun Damai</h3>
-            <p class="dusun-kadus">Kepala Dusun: Suhardi</p>
+            <div class="dusun-icon">☕</div>
+            <h3 class="dusun-name">Dusun Nangka Rempek</h3>
+            <p class="dusun-kadus">Kepala Dusun: Yusriadi</p>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
               <div class="dusun-info-item">
-                <div class="dusun-info-icon">👥</div>
-                <div class="dusun-info-text">
-                  <div class="dusun-info-label">Jumlah Penduduk</div>
-                  <div class="dusun-info-value">112 Jiwa</div>
-                </div>
-              </div>
-              <div class="dusun-info-item">
                 <div class="dusun-info-icon">🏠</div>
                 <div class="dusun-info-text">
                   <div class="dusun-info-label">Jumlah KK</div>
-                  <div class="dusun-info-value">36 KK</div>
+                  <div class="dusun-info-value">185 KK</div>
+                </div>
+              </div>
+              <div class="dusun-info-item">
+                <div class="dusun-info-icon">🌾</div>
+                <div class="dusun-info-text">
+                  <div class="dusun-info-label">Potensi Utama</div>
+                  <div class="dusun-info-value">Kopi, Vanili & Wisata</div>
                 </div>
               </div>
             </div>
@@ -1774,18 +1839,21 @@
         ]
       },
       {
-        name: "Dusun Sumber Rejeki",
-        kadus: "Rahmat Hidayat",
-        icon: "🌻",
-        population: "520 Jiwa",
-        households: "148 KK",
-        area: "2,5 km²",
-        description: "Dusun Sumber Rejeki dikenal dengan kerajinan tenun dan industri rumah tangga.",
+        name: "Dusun Pada Mangko",
+        kadus: "Rumawadi",
+        icon: "🏔️",
+        population: "-",
+        households: "-",
+        area: "-",
+        location: "Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, NTB",
+        locationUrl: "https://maps.app.goo.gl/8Xmt1WbvBxLixBEw9?g_st=ic",
+        kadusLocationUrl: "https://maps.app.goo.gl/JiMYbfRYtJy6MTNy7?g_st=ic",
+        description: "Dusun Pada Mangko merupakan salah satu dusun di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat (NTB). Dusun ini memiliki jumlah penduduk yang tidak terlalu banyak yang berada di titik antara timur selatan desa bayan bersebrangan dengan jalan raya utama. Dusun Pada Mangko memberikan view yang indah sawah terasering dalam perjalanan lintas kabupaten.",
         slides: [
-          { title: "Profil Dusun Sumber Rejeki", subtitle: "Kerajinan & Industri", content: "overview" },
-          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
-          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
-          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Profil Dusun Pada Mangko", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
+          { title: "Potensi Dusun", subtitle: "Pertanian, Peternakan, Tambak Ikan & Budaya", content: "potency" },
+          { title: "Sektor Ekonomi & UMKM", subtitle: "Aktivitas Ekonomi Masyarakat", content: "economy" },
+          { title: "Kebudayaan & SDM", subtitle: "Adat & Budaya Desa Bayan", content: "culture" },
           { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
         ]
       },
@@ -1902,18 +1970,31 @@
         ]
       },
       {
-        name: "Dusun Damai",
-        kadus: "Suhardi",
-        icon: "🍃",
-        population: "112 Jiwa",
-        households: "36 KK",
-        area: "0,6 km²",
-        description: "Dusun Damai dikenal dengan kebersamaan dan gotong royong yang tinggi.",
+        name: "Dusun Nangka Rempek",
+        kadus: "Yusriadi",
+        kadusPhone: "085336618840",
+        icon: "☕",
+        population: "-",
+        households: "185 KK",
+        area: "-",
+        location: "Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, NTB",
+        locationUrl: "https://goo.gl/maps/oExZiKSCMaXhxbw19?g_st=aw",
+        kadusLocationUrl: "https://goo.gl/maps/oExZiKSCMaXhxbw19?g_st=aw",
+        umkmName: "Kopi Warisan Bayan",
+        umkmLocation: "https://goo.gl/maps/QmQyXCEHoJwMjuek8?g_st=aw",
+        umkmInstagram: "@Kopiwarisanbayan",
+        umkmWa: "085238362993",
+        umkmFounded: "2021",
+        rumahAdatName: "Rumah Adat Nangka Rempek",
+        rumahAdatAge: "Abad ke-16",
+        rumahAdatLocation: "https://goo.gl/maps/RHpDskY4cj9bdiGA9?g_st=aw",
+        pemangkuName: "Nusalip (Amak Lokak)",
+        description: "Nangka Rempek merupakan salah satu dusun di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat (NTB). Dusun ini memiliki karakteristik agraris yang kuat dengan potensi perkebunan komoditas bernilai tinggi, sekaligus memiliki modal sosial budaya serta pariwisata yang berbasis pada kearifan lokal lereng Gunung Rinjani. Di samping itu, Dusun ini juga memiliki rumah adat tradisional yang masih terjaga kelestariannya sebagai simbol warisan budaya leluhur.",
         slides: [
-          { title: "Profil Dusun Damai", subtitle: "Harmoni & Kebersamaan", content: "overview" },
-          { title: "Data Demografis", subtitle: "Komposisi Penduduk", content: "demographics" },
-          { title: "Potensi Dusun", subtitle: "Sumber Daya & Keunggulan", content: "potency" },
-          { title: "Program Unggulan", subtitle: "Kegiatan & Pembangunan", content: "programs" },
+          { title: "Profil Dusun Nangka Rempek", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
+          { title: "Potensi Dusun", subtitle: "Pertanian, Perkebunan & Peternakan", content: "potency" },
+          { title: "Sektor Ekonomi & UMKM", subtitle: "Kopi Warisan Bayan", content: "economy" },
+          { title: "SDM, Pariwisata & Kebudayaan", subtitle: "Rumah Adat & Kesenian Tradisional", content: "culture" },
           { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
         ]
       },
@@ -2012,6 +2093,10 @@
       
       switch(slide.content) {
         case 'overview':
+          const dusunLoc = dusun.location || 'Desa Pandan Indah, Kec. Praya Barat Daya, Kab. Lombok Tengah';
+          const locationLink = dusun.locationUrl ? 
+            `<a href="${dusun.locationUrl}" target="_blank" style="display: inline-block; margin-top: 0.75rem; padding: 0.5rem 1rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.8rem;">📍 Lihat Lokasi di Google Maps</a>` : '';
+          
           content = `
             <div class="slide-content">
               <h2 class="slide-title">${slide.title}</h2>
@@ -2021,103 +2106,212 @@
                 <div class="info-card-icon">${dusun.icon}</div>
                 <h3 class="info-card-title">Tentang ${dusun.name}</h3>
                 <p class="info-card-text">${dusun.description}</p>
+                ${locationLink}
               </div>
               
               <div class="stats-grid">
                 <div class="stat-card">
-                  <div class="stat-icon">👥</div>
-                  <div class="stat-number">${dusun.population.split(' ')[0]}</div>
-                  <div class="stat-label">Penduduk</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon">🏠</div>
-                  <div class="stat-number">${dusun.households.split(' ')[0]}</div>
-                  <div class="stat-label">KK</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon">📐</div>
-                  <div class="stat-number">${dusun.area}</div>
-                  <div class="stat-label">Luas Wilayah</div>
+                  <div class="stat-icon">📍</div>
+                  <div class="stat-number" style="font-size: 0.85rem;">${dusunLoc}</div>
+                  <div class="stat-label">Lokasi</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-icon">👨‍💼</div>
                   <div class="stat-number" style="font-size: 1rem;">${dusun.kadus}</div>
                   <div class="stat-label">Kepala Dusun</div>
                 </div>
+                ${dusun.population !== '-' ? `
+                <div class="stat-card">
+                  <div class="stat-icon">👥</div>
+                  <div class="stat-number">${dusun.population}</div>
+                  <div class="stat-label">Penduduk</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">🏠</div>
+                  <div class="stat-number">${dusun.households}</div>
+                  <div class="stat-label">KK</div>
+                </div>
+                ` : ''}
               </div>
             </div>
           `;
           break;
           
         case 'demographics':
-          content = `
-            <div class="slide-content">
-              <h2 class="slide-title">${slide.title}</h2>
-              <p class="slide-subtitle">${slide.subtitle}</p>
-              
-              <div class="stats-grid">
-                <div class="stat-card">
-                  <div class="stat-icon">👨</div>
-                  <div class="stat-number">365</div>
-                  <div class="stat-label">Laki-laki</div>
+          if (dusun.population === '-') {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">📊</div>
+                  <h3 class="info-card-title">Data Demografis</h3>
+                  <p class="info-card-text">Data demografis lengkap untuk ${dusun.name} sedang dalam proses pengumpulan. Silakan hubungi Kepala Dusun untuk informasi lebih lanjut.</p>
                 </div>
-                <div class="stat-card">
-                  <div class="stat-icon">👩</div>
-                  <div class="stat-number">355</div>
-                  <div class="stat-label">Perempuan</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon">👶</div>
-                  <div class="stat-number">120</div>
-                  <div class="stat-label">Anak-anak</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon">👴</div>
-                  <div class="stat-number">85</div>
-                  <div class="stat-label">Lansia</div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">👨‍💼</div>
+                  <h3 class="info-card-title">Kepala Dusun</h3>
+                  <p class="info-card-text">${dusun.kadus}</p>
                 </div>
               </div>
-              
-              <div class="info-card">
-                <div class="info-card-icon">📊</div>
-                <h3 class="info-card-title">Mata Pencaharian</h3>
-                <p class="info-card-text">• Petani: 45%<br>• Buruh: 25%<br>• Pedagang: 15%<br>• PNS/Swasta: 10%<br>• Lainnya: 5%</p>
+            `;
+          } else {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="stats-grid">
+                  <div class="stat-card">
+                    <div class="stat-icon">👨</div>
+                    <div class="stat-number">365</div>
+                    <div class="stat-label">Laki-laki</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">👩</div>
+                    <div class="stat-number">355</div>
+                    <div class="stat-label">Perempuan</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">👶</div>
+                    <div class="stat-number">120</div>
+                    <div class="stat-label">Anak-anak</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">👴</div>
+                    <div class="stat-number">85</div>
+                    <div class="stat-label">Lansia</div>
+                  </div>
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">📊</div>
+                  <h3 class="info-card-title">Mata Pencaharian</h3>
+                  <p class="info-card-text">• Petani: 45%<br>• Buruh: 25%<br>• Pedagang: 15%<br>• PNS/Swasta: 10%<br>• Lainnya: 5%</p>
+                </div>
               </div>
-            </div>
-          `;
+            `;
+          }
           break;
           
         case 'potency':
-          content = `
-            <div class="slide-content">
-              <h2 class="slide-title">${slide.title}</h2>
-              <p class="slide-subtitle">${slide.subtitle}</p>
-              
-              <div class="program-list">
-                <div class="program-item">
-                  <div class="program-icon">🌾</div>
-                  <div class="program-info">
-                    <h3 class="program-name">Pertanian</h3>
-                    <p class="program-desc">Lahan pertanian padi, jagung, dan sayuran dengan sistem irigasi teknis.</p>
+          if (dusun.name === "Dusun Nangka Rempek") {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="program-list">
+                  <div class="program-item">
+                    <div class="program-icon">🌾</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pertanian & Perkebunan</h3>
+                      <p class="program-desc">Mayoritas masyarakat bekerja sebagai petani dan pekebun. Komoditas unggulan meliputi <strong>kopi, pisang, dan vanili</strong>.</p>
+                    </div>
                   </div>
-                </div>
-                <div class="program-item">
-                  <div class="program-icon">🐄</div>
-                  <div class="program-info">
-                    <h3 class="program-name">Peternakan</h3>
-                    <p class="program-desc">Ternak sapi, kambing, dan unggas yang menjadi sumber penghasilan tambahan.</p>
+                  <div class="program-item">
+                    <div class="program-icon">🍌</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pisang</h3>
+                      <p class="program-desc">Hasil panen pisang sebagian besar dijual langsung ke pengepul. Sebagian pisang juga diolah secara mandiri menjadi keripik pisang.</p>
+                    </div>
                   </div>
-                </div>
-                <div class="program-item">
-                  <div class="program-icon">🧶</div>
-                  <div class="program-info">
-                    <h3 class="program-name">Kerajinan</h3>
-                    <p class="program-desc">Tenun tradisional dan anyaman bambu sebagai produk unggulan dusun.</p>
+                  <div class="program-item">
+                    <div class="program-icon">🌿</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Vanili</h3>
+                      <p class="program-desc">Komoditas vanili memiliki orientasi pasar yang sangat bagus karena sudah berhasil diekspor hingga ke Amerika.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">☕</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Kopi</h3>
+                      <p class="program-desc">Kopi dalam bentuk olahan maupun mentah (dalam kemasan) dijual dengan harga Rp90.000,- per kilogram. Pengolahannya sudah menggunakan proses roasting.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🐄</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Peternakan</h3>
+                      <p class="program-desc">Sektor peternakan masih berskala kecil dan hanya ditekuni oleh 1 atau 2 orang warga saja.</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          `;
+            `;
+          } else if (dusun.name === "Dusun Pada Mangko") {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="program-list">
+                  <div class="program-item">
+                    <div class="program-icon">🌾</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pertanian</h3>
+                      <p class="program-desc">Mayoritas masyarakat bekerja sebagai petani beras padi. Hasil panen biasanya dijual ke tengkulak. Selain itu, sawah terasering memberikan view yang indah.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🐄</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Peternakan</h3>
+                      <p class="program-desc">Sektor peternakan masih berskala kecil, rata-rata per KK memiliki hewan ternak di rumah mereka masing-masing.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🐟</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Tambak Ikan</h3>
+                      <p class="program-desc">Warga Dusun Pada Mangko memiliki tambak ikan yang bersebelahan dengan sawah terasering. Tambak dikelola oleh pemuda setempat dengan skala sedang.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🎭</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pentas Adat Budaya</h3>
+                      <p class="program-desc">Warga dusun bertugas jika ada panggilan acara kebudayaan adat di Desa Bayan. Tidak ada kelompok resmi, rata-rata bergerak dalam individu.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          } else {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="program-list">
+                  <div class="program-item">
+                    <div class="program-icon">🌾</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pertanian</h3>
+                      <p class="program-desc">Lahan pertanian padi, jagung, dan sayuran dengan sistem irigasi teknis.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🐄</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Peternakan</h3>
+                      <p class="program-desc">Ternak sapi, kambing, dan unggas yang menjadi sumber penghasilan tambahan.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🧶</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Kerajinan</h3>
+                      <p class="program-desc">Tenun tradisional dan anyaman bambu sebagai produk unggulan dusun.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
           break;
           
         case 'programs':
@@ -2154,6 +2348,12 @@
           break;
           
         case 'contact':
+          const dusunLocation = dusun.location || `${dusun.name}, Desa Pandan Indah`;
+          const dusunLocationLink = dusun.locationUrl ? 
+            `<a href="${dusun.locationUrl}" target="_blank" style="color: var(--primary); text-decoration: underline;">📍 Lihat di Google Maps</a>` : '';
+          const kadusLocationLink = dusun.kadusLocationUrl ? 
+            `<a href="${dusun.kadusLocationUrl}" target="_blank" style="color: var(--primary); text-decoration: underline;">📍 Lihat Lokasi Rumah Kadus</a>` : '';
+          
           content = `
             <div class="slide-content">
               <h2 class="slide-title">${slide.title}</h2>
@@ -2161,23 +2361,171 @@
               
               <div class="info-card">
                 <div class="info-card-icon">📍</div>
-                <h3 class="info-card-title">Lokasi</h3>
-                <p class="info-card-text">${dusun.name}, Desa Pandan Indah<br>Kec. Praya Barat Daya, Kab. Lombok Tengah<br>NTB, Indonesia</p>
+                <h3 class="info-card-title">Lokasi Dusun</h3>
+                <p class="info-card-text">${dusunLocation}</p>
+                ${dusunLocationLink ? `<p style="margin-top: 0.5rem;">${dusunLocationLink}</p>` : ''}
               </div>
               
               <div class="info-card">
                 <div class="info-card-icon">👨‍💼</div>
                 <h3 class="info-card-title">Kepala Dusun</h3>
-                <p class="info-card-text">${dusun.kadus}<br>📞 Hubungi Kantor Desa</p>
+                <p class="info-card-text">${dusun.kadus}</p>
+                ${kadusLocationLink ? `<p style="margin-top: 0.5rem;">${kadusLocationLink}</p>` : ''}
               </div>
               
               <div class="info-card">
                 <div class="info-card-icon">🏛️</div>
                 <h3 class="info-card-title">Kantor Desa</h3>
-                <p class="info-card-text">Desa Pandan Indah<br>📞 (0370) 123-456<br>✉️ desapandanindah@email.com</p>
+                <p class="info-card-text">Desa Bayan, Kec. Bayan<br>Kab. Lombok Utara, NTB</p>
               </div>
             </div>
           `;
+          break;
+          
+        case 'economy':
+          if (dusun.name === "Dusun Nangka Rempek") {
+            const umkmLocationLink = dusun.umkmLocation ? 
+              `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card" style="border-left: 4px solid var(--primary);">
+                  <div class="info-card-icon">☕</div>
+                  <h3 class="info-card-title">UMKM "${dusun.umkmName}"</h3>
+                  <p class="info-card-text">Didirikan pada tahun ${dusun.umkmFounded} bersama kelompok tani setempat. UMKM ini bergerak di bidang pengolahan hasil bumi, khususnya <strong>vanili dan kopi</strong>. Dijalankan melalui model kolaborasi yang menerapkan sistem koperasi secara sederhana.</p>
+                  ${umkmLocationLink}
+                </div>
+                
+                <div class="stats-grid">
+                  <div class="stat-card">
+                    <div class="stat-icon">📷</div>
+                    <div class="stat-number" style="font-size: 0.9rem;">${dusun.umkmInstagram}</div>
+                    <div class="stat-label">Instagram</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">📱</div>
+                    <div class="stat-number" style="font-size: 0.9rem;">${dusun.umkmWa}</div>
+                    <div class="stat-label">WhatsApp</div>
+                  </div>
+                </div>
+                
+                <div class="program-list">
+                  <div class="program-item">
+                    <div class="program-icon">🌿</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Produk Vanili</h3>
+                      <p class="program-desc">Vanili berkualitas ekspor yang sudah berhasil menembus pasar Amerika.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">☕</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Produk Kopi</h3>
+                      <p class="program-desc">Kopi olahan dengan proses roasting, dijual Rp90.000/kg dalam kemasan.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          } else {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🏪</div>
+                  <h3 class="info-card-title">Sektor Ekonomi</h3>
+                  <p class="info-card-text">UMKM di Dusun Pada Mangko bergerak di beberapa bidang utama yang menjadi sumber penghidupan masyarakat.</p>
+                </div>
+                
+                <div class="program-list">
+                  <div class="program-item">
+                    <div class="program-icon">🐄</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Ternak</h3>
+                      <p class="program-desc">Aktivitas peternakan menjadi salah satu pilar ekonomi masyarakat dusun.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🌾</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pengolahan Hasil Bumi</h3>
+                      <p class="program-desc">Pengolahan hasil pertanian untuk menambah nilai jual produk lokal.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🎭</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Talent Pentas Adat Budaya</h3>
+                      <p class="program-desc">Warga dusun juga berperan sebagai talent dalam acara adat budaya Desa Bayan sebagai mata pencarian sampingan.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+          break;
+          
+        case 'culture':
+          if (dusun.name === "Dusun Nangka Rempek") {
+            const rumahAdatLink = dusun.rumahAdatLocation ? 
+              `<a href="${dusun.rumahAdatLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Rumah Adat</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">👷</div>
+                  <h3 class="info-card-title">Ketenagakerjaan</h3>
+                  <p class="info-card-text">Pemuda atau warga laki-laki di dusun ini banyak yang bekerja sebagai <strong>Porter Rinjani</strong>.</p>
+                </div>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🏠</div>
+                  <h3 class="info-card-title">${dusun.rumahAdatName}</h3>
+                  <p class="info-card-text">Rumah adat tradisional yang masih terjaga kelestariannya sebagai simbol warisan budaya leluhur. Dibangun pada <strong>${dusun.rumahAdatAge}</strong>. Biasa digunakan ketika hari-hari besar saja, seperti lebaran adat dan lebaran agama. Tidak semua orang bisa masuk ke rumah adat tersebut.</p>
+                  ${rumahAdatLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">👨‍💼</div>
+                  <h3 class="info-card-title">Pemangku Adat</h3>
+                  <p class="info-card-text"><strong>${dusun.pemangkuName}</strong><br><br>Amak Lokak adalah pemangku adat yang tidak memiliki keturunan bangsawan, diperintahkan oleh datu bayan. Keturunan dari nenek moyang yang menjaga serta melestarikan wilayah, hutan adat, dan hukum adat di Desa Adat Bayan.</p>
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🥁</div>
+                  <h3 class="info-card-title">Kesenian Tradisional</h3>
+                  <p class="info-card-text">Kesenian tradisional <strong>Gendang Belek</strong> selalu dihadirkan dalam acara adat seperti khitanan maupun perayaan Begawe.</p>
+                </div>
+              </div>
+            `;
+          } else {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🎭</div>
+                  <h3 class="info-card-title">Adat & Budaya</h3>
+                  <p class="info-card-text">Adat dan budaya Desa Bayan tetap berlaku kental bagi masyarakat Dusun Pada Mangko. Nilai-nilai tradisional tetap dijaga dan dilestarikan dalam kehidupan sehari-hari.</p>
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">👥</div>
+                  <h3 class="info-card-title">Sumber Daya Manusia</h3>
+                  <p class="info-card-text">Rata-rata warga dusun bertugas sebagai talent dalam acara adat budaya Desa Bayan. Kegiatan ini menjadi mata pencarian sampingan yang menghasilkan pendapatan tambahan bagi warga.</p>
+                </div>
+              </div>
+            `;
+          }
           break;
       }
       
@@ -2271,5 +2619,5 @@
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1a46d25bfe1f908',t:'MTc4MzkwNTIxOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1e2cf0d2ef3ff96',t:'MTc4NDU1OTM0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
