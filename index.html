@@ -1450,12 +1450,12 @@
                 <span class="facility-name">8 Hutan Adat</span>
               </div>
               <div class="facility-item">
-                <span class="facility-icon">💧</span>
-                <span class="facility-name">Air Terjun Sendang Gile</span>
+                <span class="facility-icon">🥊</span>
+                <span class="facility-name">Peresean</span>
               </div>
               <div class="facility-item">
                 <span class="facility-icon">💧</span>
-                <span class="facility-name">Air Terjun Tiu Kelep</span>
+                <span class="facility-name">Air Terjun Tiu Sajang</span>
               </div>
               <div class="facility-item">
                 <span class="facility-icon">🌾</span>
@@ -1486,6 +1486,20 @@
                 <div class="contact-text">
                   <div class="contact-label">Alamat</div>
                   <div class="contact-value">Desa Bayan, Kec. Bayan, Kab. Lombok Utara, NTB</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📮</span>
+                <div class="contact-text">
+                  <div class="contact-label">Kode Pos</div>
+                  <div class="contact-value">83354</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <div class="contact-text">
+                  <div class="contact-label">HP</div>
+                  <div class="contact-value">081337812024</div>
                 </div>
               </div>
               <div class="contact-item">
@@ -2256,8 +2270,14 @@
         wisata3Name: "Air Terjun Tiu Sajang",
         wisata3Location: "https://goo.gl/maps/JEYQcgD3gqTBZPmx7?g_st=aw",
         akomodasi: "Villa Rollan",
+        maduKomunitas: "KELOMPOK MADU TRIGONA LERENG SETAMPOL",
         maduType: "Madu Trigona",
-        maduSource: "Komunitas Madu Bunga Mekar di Dusun Montong Baru",
+        maduFounded: "2019",
+        maduHarvest: "Setiap 6 bulan (2x dalam setahun)",
+        maduPrice250: "Rp75.000 (250 ml)",
+        maduPrice600: "Rp200.000 (600 ml)",
+        maduOrderPhone: "+62 853-3926-8271",
+        maduLocation: "https://maps.app.goo.gl/9owo5FTdgHXLSo7k9?g_st=aw",
         description: "Dusun Teres Genit merupakan Dusun yang berlokasi di kawasan kaki Gunung Rinjani dan merupakan salah satu dusun yang paling terkenal di Desa Bayan dari segi potensi wisata alam dan budaya. Dusun ini merupakan rumah bagi Sawah Terasering Bangket Bayan yang sangat indah serta Air Terjun Singang Petune yang memiliki ketinggian sekitar 35 meter. Dusun Teres Genit memiliki nilai budaya yang sangat tinggi karena masih teguh mempertahankan tradisi dan adat istiadat Suku Sasak Bayan secara asli.",
         slides: [
           { title: "Profil Dusun Teres Genit", subtitle: "Kaki Gunung Rinjani", content: "overview" },
@@ -3376,8 +3396,28 @@
                 
                 <div class="info-card" style="border-left: 4px solid var(--accent);">
                   <div class="info-card-icon">🍯</div>
-                  <h3 class="info-card-title">UMKM: ${dusun.maduType}</h3>
-                  <p class="info-card-text">Di Dusun Teres Genit terdapat madu yang menjadi produk UMKM andalan. Saat ini, skala produksi masih terbatas sehingga belum ada sistem pengolahan skala besar. Untuk pemasaran madu ini bersifat <strong>kelompok</strong> dan untuk madunya adalah jenis <strong>${dusun.maduType}</strong> yang diambil dari ${dusun.maduSource}.</p>
+                  <h3 class="info-card-title">UMKM: ${dusun.maduKomunitas}</h3>
+                  <p class="info-card-text">Kelompok madu trigona ini merupakan produk UMKM andalan Dusun Teres Genit. Terbentuk sejak tahun <strong>${dusun.maduFounded}</strong> dengan masa panen (pasca panen) <strong>${dusun.maduHarvest}</strong>. Madu yang dihasilkan adalah jenis <strong>${dusun.maduType}</strong>.</p>
+                </div>
+
+                <div class="stats-grid">
+                  <div class="stat-card">
+                    <div class="stat-icon">🍯</div>
+                    <div class="stat-number" style="font-size: 0.85rem;">${dusun.maduPrice250}</div>
+                    <div class="stat-label">Kemasan 250 ml</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">🍯</div>
+                    <div class="stat-number" style="font-size: 0.85rem;">${dusun.maduPrice600}</div>
+                    <div class="stat-label">Kemasan 600 ml</div>
+                  </div>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-card-icon">📱</div>
+                  <h3 class="info-card-title">Pemesanan</h3>
+                  <p class="info-card-text">Pemesanan dapat menghubungi <strong>${dusun.maduOrderPhone}</strong>.</p>
+                  ${dusun.maduLocation ? `<a href="${dusun.maduLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Kelompok Madu</a>` : ''}
                 </div>
               </div>
             `;
@@ -3737,5 +3777,5 @@
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2192cc84aef5fb5',t:'MTc4NTEyOTQxNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
