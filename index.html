@@ -2239,31 +2239,35 @@
         populationFemale: "-",
         area: "-",
         location: "Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, NTB",
-        locationUrl: "https://www.google.com/maps?q=-8.2679415,116.4241677",
-        kadusLocationUrl: "https://www.google.com/maps?q=-8.2692852,116.4225884",
+        locationUrl: "https://www.google.com/maps?q=-8.2679415,116.4267426",
+        kadusLocationUrl: "https://www.google.com/maps?q=-8.2692852,116.4251633",
         rumahAdatName: "Rumah Adat Bayan Barat",
         rumahAdatAge: "Abad ke-16",
-        rumahAdatLocation: "https://www.google.com/maps?q=-8.2676659,116.4236641",
+        rumahAdatLocation: "https://www.google.com/maps?q=-8.2676659,116.426239",
         pemangkuName: "Raden Sumanarsa",
+        pemangkuTitle: "Pembekel",
         pemangkuSince: "8 tahun",
         pelawanganName: "Pelawangan",
         tenunName: "Belinda Bayan",
         tenunOwner: "Ibu Denda Candrasih",
         tenunFounded: "2014",
         tenunPhone: "081775256507",
-        tenunLocation: "https://www.google.com/maps?q=-8.269393,116.4247208",
+        tenunLocation: "https://www.google.com/maps?q=-8.2693984,116.42472",
         tenunMarket: "Internasional (Malaysia)",
-        kulinerName: "Keripik Pisang DJ Bayan",
+        kulinerName: "Keripik Pisang DJ Bayan (Dende Julianti)",
         kulinerOwner: "Ibu Dende Julianti",
         kulinerFounded: "2020",
         kulinerPhone: "087866756122",
-        kulinerLocation: "https://www.google.com/maps?q=-8.2695608,116.4218331",
+        kulinerLocation: "https://www.google.com/maps?q=-8.2695608,116.424408",
+        ponpesName: "Pondok Pesantren Babul Mujahidin Nurul Hakim 2 (MTs Babul Hakim)",
+        ponpesFounded: "1994 (Beroperasi 1995)",
+        ponpesLocation: "https://www.google.com/maps/search/PCJG%2B57X,+Bayan,+Kec.+Bayan,+Kabupaten+Lombok+Utara,+Nusa+Tenggara+Bar.+83354",
         description: "Dusun Bayan Barat merupakan bagian dari Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Nusa Tenggara Barat. Dusun ini juga memiliki rumah adat yang menjadi bagian penting dari kehidupan masyarakat setempat. Hingga Juli 2026, jumlah penduduknya tercatat sekitar 110 KK. Sebagian besar masyarakat di Dusun Bayan Barat bekerja sebagai petani dan peternak. Wilayahnya didominasi oleh lahan persawahan milik warga yang menjadi sumber utama mata pencaharian. Selain sektor pertanian, dusun ini juga memiliki beberapa potensi wisata serta UMKM lokal yang bisa dikunjungi dan menarik untuk dicoba.",
         slides: [
           { title: "Profil Dusun Bayan Barat", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
           { title: "Wisata & Rumah Adat", subtitle: "Rumah Adat & Pelawangan", content: "wisata" },
           { title: "Sektor Ekonomi & UMKM", subtitle: "Tenun & Kuliner", content: "economy" },
-          { title: "Pertanian & Peternakan", subtitle: "Mata Pencaharian Utama", content: "potency" },
+          { title: "Potensi & Pendidikan", subtitle: "Pertanian, Peternakan & Ponpes", content: "potency" },
           { title: "Kontak & Lokasi", subtitle: "Informasi Lebih Lanjut", content: "contact" }
         ]
       },
@@ -2758,8 +2762,8 @@
                 
                 <div class="info-card">
                   <div class="info-card-icon">👨‍💼</div>
-                  <h3 class="info-card-title">Pemangku Adat</h3>
-                  <p class="info-card-text">Di Rumah Adat Bayan Barat pemangku adat disebut dengan <strong>pembekel</strong>, karena adanya perbedaan dari derajat seseorang yang menjadi penjaga rumah adat. Pembekel di Rumah Adat Bayan Barat bernama <strong>${dusun.pemangkuName}</strong>. Beliau telah menjalankan perannya selama <strong>${dusun.pemangkuSince}</strong>.</p>
+                  <h3 class="info-card-title">Pemangku Adat (Pembekel)</h3>
+                  <p class="info-card-text">Dari kedua Rumah adat tersebut adapun Rumah adat Penghulu. Di Rumah Adat Bayan Barat pemangku adat disebut dengan <strong>pembekel</strong>, karena adanya perbedaan dari derajat seseorang yang menjadi penjaga rumah adat. Pembekel di Rumah Adat Bayan Barat bernama <strong>${dusun.pemangkuName}</strong>. Beliau telah menjalankan perannya selama <strong>${dusun.pemangkuSince}</strong>.</p>
                 </div>
               </div>
             `;
@@ -3233,6 +3237,40 @@
                 </div>
               </div>
             `;
+          } else if (dusun.name === "Dusun Bayan Barat") {
+            const ponpesLink = dusun.ponpesLocation ? 
+              `<a href="${dusun.ponpesLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi MTs / Ponpes</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="program-list">
+                  <div class="program-item">
+                    <div class="program-icon">🌾</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Pertanian (90% Sektor Utama)</h3>
+                      <p class="program-desc">Sekitar <strong>90% masyarakat</strong> Dusun Bayan Barat menggantungkan hidupnya pada sektor pertanian. Kondisi ini didukung oleh luasnya lahan persawahan dan lingkungan yang masih alami untuk bercocok tanam padi, jagung, dan sayuran.</p>
+                    </div>
+                  </div>
+                  <div class="program-item">
+                    <div class="program-icon">🐄</div>
+                    <div class="program-info">
+                      <h3 class="program-name">Peternakan</h3>
+                      <p class="program-desc">Masyarakat Dusun Bayan Barat sebagian besar beternak <strong>sapi, kambing, dan unggas</strong> sebagai sumber penghasilan tambahan.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="info-card" style="border-left: 4px solid var(--primary);">
+                  <div class="info-card-icon">🕌</div>
+                  <h3 class="info-card-title">${dusun.ponpesName}</h3>
+                  <p class="info-card-text">Lembaga pendidikan swasta yang didirikan pada tahun <strong>1994</strong> dan beroperasi sejak tahun <strong>1995</strong>. Berdirinya pesantren ini dilatarbelakangi oleh kesadaran keagamaan masyarakat untuk melanjutkan ajaran Islam yang diawali oleh para wali seperti Sunan Ampel hingga berdirinya Masjid Kuno Bayan.</p>
+                  ${ponpesLink}
+                </div>
+              </div>
+            `;
           } else if (dusun.name === "Dusun Pada Mangko") {
             content = `
               <div class="slide-content">
@@ -3419,9 +3457,9 @@
             `;
           } else if (dusun.name === "Dusun Bayan Barat") {
             const tenunLink = dusun.tenunLocation ? 
-              `<a href="${dusun.tenunLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Tenun</a>` : '';
+              `<a href="${dusun.tenunLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Belinda Bayan</a>` : '';
             const kulinerLink = dusun.kulinerLocation ? 
-              `<a href="${dusun.kulinerLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Kuliner</a>` : '';
+              `<a href="${dusun.kulinerLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi DJ Bayan</a>` : '';
             
             content = `
               <div class="slide-content">
@@ -3431,523 +3469,16 @@
                 <div class="info-card" style="border-left: 4px solid var(--accent);">
                   <div class="info-card-icon">🧵</div>
                   <h3 class="info-card-title">UMKM Tenun - ${dusun.tenunName}</h3>
-                  <p class="info-card-text">Pengrajin tenun oleh <strong>${dusun.tenunOwner}</strong>, dikenal sebagai penggerak UMKM sekaligus sosok yang aktif melatih remaja Bayan Barat agar bisa meneruskan budaya menenun. Kain tenun sudah ada sejak tahun <strong>${dusun.tenunFounded}</strong>. Proses pembuatan sekitar <strong>1-3 bulan</strong> tergantung tingkat kesulitan motif. Produk sudah sampai ke pasar <strong>${dusun.tenunMarket}</strong>. Kontak: <strong>${dusun.tenunPhone}</strong>.</p>
+                  <p class="info-card-text">Selain dikenal dengan adatnya yang masih kental, Bayan Barat juga mempunyai potensi UMKM yang cukup berkembang. Salah satu tokoh pengrajin tenun di dusun ini adalah <strong>${dusun.tenunOwner}</strong>. Beliau dikenal sebagai penggerak UMKM sekaligus sosok yang aktif melatih remaja Bayan Barat agar bisa meneruskan budaya menenun. Kain tenun yang diproduksi dikenal dengan nama <strong>${dusun.tenunName}</strong> dan sudah ada sejak tahun <strong>${dusun.tenunFounded}</strong>. Proses pembuatan tenun ini memakan waktu sekitar 1–3 bulan tergantung tingkat kesulitan motif. Produk Belinda Bayan sudah menembus pasar internasional, termasuk <strong>${dusun.tenunMarket}</strong>. Pemesanan hubungi: <strong>${dusun.tenunPhone}</strong>.</p>
                   ${tenunLink}
                 </div>
                 
                 <div class="info-card">
-                  <div class="info-card-icon">🍌</div>
+                  <div class="info-card-icon">🍿</div>
                   <h3 class="info-card-title">Kuliner - ${dusun.kulinerName}</h3>
-                  <p class="info-card-text">UMMKM kuliner oleh <strong>${dusun.kulinerOwner}</strong>, sudah berjalan sejak tahun <strong>${dusun.kulinerFounded}</strong> dan memiliki pelanggan tetap. Pemasaran melalui penitipan ke pedagang sekitar dan sistem pre-order (PO). Kontak: <strong>${dusun.kulinerPhone}</strong>.</p>
+                  <p class="info-card-text">Di bidang kuliner, <strong>${dusun.kulinerOwner}</strong> merupakan pebisnis snack atau jajanan lepas yang usahanya sudah berjalan sejak tahun <strong>${dusun.kulinerFounded}</strong>. Produk unggulannya adalah <strong>Keripik Pisang Dende Julianti (DJ Bayan)</strong>. Pemasarannya dititipkan ke pedagang sekitar serta melayani pemesanan dengan sistem pre-order (PO) di nomor <strong>${dusun.kulinerPhone}</strong>.</p>
                   ${kulinerLink}
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Bayan Timur") {
-            const tenunLink = dusun.tenunLocation ? 
-              `<a href="${dusun.tenunLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Tenun</a>` : '';
-            const cateringLink = dusun.cateringLocation ? 
-              `<a href="${dusun.cateringLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Catering</a>` : '';
-            const homestayLink = dusun.homestayLocation ? 
-              `<a href="${dusun.homestayLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Homestay</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🧵</div>
-                  <h3 class="info-card-title">UMKM Tenun - ${dusun.tenunName}</h3>
-                  <p class="info-card-text">Kerajinan kain tenun yang dibuat oleh tangan-tangan terampil inaq-inaq Bayan Timur. Toko ini sudah ada sejak tahun <strong>${dusun.tenunFounded}</strong>. Proses pembuatan kain tenun memakan waktu sekitar <strong>1-3 bulan</strong>, tergantung tingkat kesulitan motif. Pemesanan melalui sistem pre-order (PO) di nomor <strong>${dusun.tenunPhone}</strong>.</p>
-                  ${tenunLink}
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🍽️</div>
-                  <h3 class="info-card-title">Kuliner - ${dusun.cateringName}</h3>
-                  <p class="info-card-text">Catering yang dijalankan oleh <strong>${dusun.cateringOwner}</strong>, telah berdiri selama sekitar <strong>${dusun.cateringFounded}</strong>. Menyediakan berbagai jenis jajanan basah (risoles, lemper, dll) dan nasi kotakan. Harga per kotak berkisar <strong>${dusun.cateringPrice}</strong>. Pemesanan melalui sistem pre-order (PO).</p>
-                  ${cateringLink}
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🏠</div>
-                  <h3 class="info-card-title">Homestay</h3>
-                  <p class="info-card-text">Tersedia homestay yang dikelola oleh keluarga setempat: <strong>${dusun.homestayNames}</strong>. Harga menginap sekitar <strong>${dusun.homestayPrice}</strong>. Fasilitas: twin bed, kipas angin, kamar mandi dalam, teras, sarapan pagi. Pemesanan: <strong>${dusun.homestayPhone}</strong>.</p>
-                  ${homestayLink}
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Sembulan") {
-            const homestayLink = dusun.homestayLocation ? 
-              `<a href="${dusun.homestayLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Homestay</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">💰</div>
-                  <h3 class="info-card-title">Sektor Ekonomi</h3>
-                  <p class="info-card-text">Aktivitas UMKM di Dusun Sembulan masih didominasi oleh kegiatan perdagangan hasil pertanian dan peternakan. Sebagian masyarakat menjalankan usaha dagang skala kecil yang berkaitan dengan kebutuhan sehari-hari maupun pemasaran hasil pertanian.</p>
-                </div>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🏨</div>
-                  <h3 class="info-card-title">Pariwisata: ${dusun.homestayName}</h3>
-                  <p class="info-card-text">Dusun Sembulan memiliki potensi wisata yang mulai berkembang. Hal ini ditandai dengan adanya beberapa penginapan yang telah dibangun di kawasan bagian atas dusun sebagai pendukung kegiatan pariwisata. <strong>${dusun.homestayName}</strong> menjadi salah satu akomodasi bagi wisatawan yang berkunjung ke kawasan Bayan.</p>
-                  ${homestayLink}
-                </div>
-                
-                <div class="info-card" style="background: var(--primary-50); border: 1px dashed var(--primary);">
-                  <div class="info-card-icon">💡</div>
-                  <h3 class="info-card-title">Peluang Pengembangan</h3>
-                  <p class="info-card-text">Pengembangan sektor pertanian, khususnya budidaya padi dan perkebunan, menjadi potensi utama. Berkembangnya sektor pariwisata memberikan peluang bagi masyarakat untuk mengembangkan UMKM berbasis hasil pertanian, peternakan, kerajinan, kuliner lokal, maupun jasa wisata.</p>
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Montong Baru") {
-            const maduLocationLink = dusun.maduLocation ? 
-              `<a href="${dusun.maduLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Komunitas Madu</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">💰</div>
-                  <h3 class="info-card-title">Sektor Ekonomi Masyarakat</h3>
-                  <p class="info-card-text">Kegiatan ekonomi masyarakat didominasi oleh usaha pertanian, perdagangan skala kecil, UMKM berskala kecil.</p>
-                </div>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🍯</div>
-                  <h3 class="info-card-title">Komunitas Madu Trigona "${dusun.maduKomunitas}"</h3>
-                  <p class="info-card-text">Terdapat budidaya madu trigona yang komunitasnya bernama <strong>${dusun.maduKomunitas}</strong>, berdiri sekitar tahun <strong>${dusun.maduFounded}</strong> sampai sekarang.</p>
-                  ${maduLocationLink}
-                </div>
-                
-                <div class="stats-grid">
-                  <div class="stat-card">
-                    <div class="stat-icon">👩</div>
-                    <div class="stat-number" style="font-size: 0.9rem;">${dusun.maduContact}</div>
-                    <div class="stat-label">Istri Ketua Komunitas</div>
-                  </div>
-                  <div class="stat-card">
-                    <div class="stat-icon">📱</div>
-                    <div class="stat-number" style="font-size: 0.85rem;">${dusun.maduPhone}</div>
-                    <div class="stat-label">No. Pemesanan Madu</div>
-                  </div>
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Dusun Teres Genit") {
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="program-list">
-                  <div class="program-item">
-                    <div class="program-icon">🌾</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Sektor Pertanian</h3>
-                      <p class="program-desc">Merupakan sektor utama, namun untuk perkebunan intensitasnya lebih jarang karena wilayah ini didominasi oleh sistem irigasi.</p>
-                    </div>
-                  </div>
-                  <div class="program-item">
-                    <div class="program-icon">🐄</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Sektor Peternakan</h3>
-                      <p class="program-desc">Sudah terdapat upaya peningkatan kualitas ternak melalui workshop penerapan vaksin bagi hewan ternak warga. Hewan ternak yang dipelihara mayoritas adalah <strong>sapi</strong>.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🍯</div>
-                  <h3 class="info-card-title">UMKM: ${dusun.maduKomunitas}</h3>
-                  <p class="info-card-text">Kelompok madu trigona ini merupakan produk UMKM andalan Dusun Teres Genit. Terbentuk sejak tahun <strong>${dusun.maduFounded}</strong> dengan masa panen (pasca panen) <strong>${dusun.maduHarvest}</strong>. Madu yang dihasilkan adalah jenis <strong>${dusun.maduType}</strong>.</p>
-                </div>
-
-                <div class="stats-grid">
-                  <div class="stat-card">
-                    <div class="stat-icon">🍯</div>
-                    <div class="stat-number" style="font-size: 0.85rem;">${dusun.maduPrice250}</div>
-                    <div class="stat-label">Kemasan 250 ml</div>
-                  </div>
-                  <div class="stat-card">
-                    <div class="stat-icon">🍯</div>
-                    <div class="stat-number" style="font-size: 0.85rem;">${dusun.maduPrice600}</div>
-                    <div class="stat-label">Kemasan 600 ml</div>
-                  </div>
-                </div>
-
-                <div class="info-card">
-                  <div class="info-card-icon">📱</div>
-                  <h3 class="info-card-title">Pemesanan</h3>
-                  <p class="info-card-text">Pemesanan dapat menghubungi <strong>${dusun.maduOrderPhone}</strong>.</p>
-                  ${dusun.maduLocation ? `<a href="${dusun.maduLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Kelompok Madu</a>` : ''}
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Dasan Tutul") {
-            const umkmLocationLink = dusun.umkmLocation ? 
-              `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card" style="border-left: 4px solid var(--primary);">
-                  <div class="info-card-icon">☕</div>
-                  <h3 class="info-card-title">UMKM "${dusun.umkmName}"</h3>
-                  <p class="info-card-text">UMKM ini berfokus pada pengolahan kopi secara langsung, dimana kopi diolah mulai dari awal mulai dari pengupasan sampai dengan pengolahan dan menghasilkan produk. Jenis kopi yang digunakan adalah <strong>kopi Rinjani</strong> akan tetapi diberi nama "Kopi Kartini". Pemilik: <strong>${dusun.umkmOwner}</strong>.</p>
-                  ${umkmLocationLink}
-                </div>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🍯</div>
-                  <h3 class="info-card-title">Madu Trigona</h3>
-                  <p class="info-card-text">Di Dasan Tutul juga terdapat madu, untuk pemasaran madu ini bersifat perseorangan. Jenis madu adalah <strong>${dusun.maduType}</strong> yang diambil dari ${dusun.maduSource}.</p>
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Dusun Batu Jompang") {
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">💰</div>
-                  <h3 class="info-card-title">Potensi Ekonomi Masyarakat</h3>
-                  <p class="info-card-text">Kegiatan ekonomi masyarakat Dusun Batu Jompang masih didominasi oleh sektor primer, yaitu pertanian dan peternakan. Selain itu, sebagian masyarakat menjalankan usaha perdagangan skala kecil dengan menjual kebutuhan pokok (sembako) secara mandiri di lingkungan dusun.</p>
-                </div>
-                
-                <div class="program-list">
-                  <div class="program-item">
-                    <div class="program-icon">🌾</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Sektor Pertanian</h3>
-                      <p class="program-desc">Wilayah ini memiliki komoditas perkebunan yang beragam. Tanaman yang paling banyak ditanam meliputi <strong>kopi, pisang, dan vanili</strong>.</p>
-                    </div>
-                  </div>
-                  <div class="program-item">
-                    <div class="program-icon">🐄</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Sektor Peternakan</h3>
-                      <p class="program-desc">Selain berkebun, aktivitas masyarakat sekitar adalah <strong>beternak sapi</strong>.</p>
-                    </div>
-                  </div>
-                  <div class="program-item">
-                    <div class="program-icon">🏪</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Perdagangan</h3>
-                      <p class="program-desc">Sebagian masyarakat menjalankan usaha kecil secara mandiri, seperti berdagang kebutuhan pokok (sembako).</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="info-card" style="background: var(--primary-50); border: 1px dashed var(--primary);">
-                  <div class="info-card-icon">💡</div>
-                  <h3 class="info-card-title">Peluang Pengembangan</h3>
-                  <p class="info-card-text">Hingga saat ini belum terdapat kelompok UMKM ataupun koperasi yang menaungi kegiatan usaha masyarakat. Pembentukan kelembagaan ekonomi lokal menjadi salah satu peluang yang dapat dikembangkan untuk meningkatkan produktivitas dan memperkuat perekonomian masyarakat.</p>
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Dusun Nangka Rempek") {
-            const umkmLocationLink = dusun.umkmLocation ? 
-              `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card" style="border-left: 4px solid var(--primary);">
-                  <div class="info-card-icon">☕</div>
-                  <h3 class="info-card-title">UMKM "${dusun.umkmName}"</h3>
-                  <p class="info-card-text">Didirikan pada tahun ${dusun.umkmFounded} bersama kelompok tani setempat. UMKM ini bergerak di bidang pengolahan hasil bumi, khususnya <strong>vanili dan kopi</strong>. Dijalankan melalui model kolaborasi yang menerapkan sistem koperasi secara sederhana.</p>
-                  ${umkmLocationLink}
-                </div>
-                
-                <div class="stats-grid">
-                  <div class="stat-card">
-                    <div class="stat-icon">📷</div>
-                    <div class="stat-number" style="font-size: 0.9rem;">${dusun.umkmInstagram}</div>
-                    <div class="stat-label">Instagram</div>
-                  </div>
-                  <div class="stat-card">
-                    <div class="stat-icon">📱</div>
-                    <div class="stat-number" style="font-size: 0.9rem;">${dusun.umkmWa}</div>
-                    <div class="stat-label">WhatsApp</div>
-                  </div>
-                </div>
-                
-                <div class="program-list">
-                  <div class="program-item">
-                    <div class="program-icon">🌿</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Produk Vanili</h3>
-                      <p class="program-desc">Vanili berkualitas ekspor yang sudah berhasil menembus pasar Amerika.</p>
-                    </div>
-                  </div>
-                  <div class="program-item">
-                    <div class="program-icon">☕</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Produk Kopi</h3>
-                      <p class="program-desc">Kopi olahan dengan proses roasting, dijual Rp90.000/kg dalam kemasan.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            `;
-          } else {
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🏪</div>
-                  <h3 class="info-card-title">Sektor Ekonomi</h3>
-                  <p class="info-card-text">UMKM di Dusun Pada Mangko bergerak di beberapa bidang utama yang menjadi sumber penghidupan masyarakat.</p>
-                </div>
-                
-                <div class="program-list">
-                  <div class="program-item">
-                    <div class="program-icon">🐄</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Ternak</h3>
-                      <p class="program-desc">Aktivitas peternakan menjadi salah satu pilar ekonomi masyarakat dusun.</p>
-                    </div>
-                  </div>
-                  <div class="program-item">
-                    <div class="program-icon">🌾</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Pengolahan Hasil Bumi</h3>
-                      <p class="program-desc">Pengolahan hasil pertanian untuk menambah nilai jual produk lokal.</p>
-                    </div>
-                  </div>
-                  <div class="program-item">
-                    <div class="program-icon">🎭</div>
-                    <div class="program-info">
-                      <h3 class="program-name">Talent Pentas Adat Budaya</h3>
-                      <p class="program-desc">Warga dusun juga berperan sebagai talent dalam acara adat budaya Desa Bayan sebagai mata pencarian sampingan.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            `;
-          }
-          break;
           
-        case 'culture':
-          if (dusun.name === "Dusun Pada Mangko") {
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🎭</div>
-                  <h3 class="info-card-title">Adat & Budaya</h3>
-                  <p class="info-card-text">Adat dan budaya Desa Bayan tetap berlaku kental bagi masyarakat Dusun Pada Mangko. Nilai-nilai tradisional tetap dijaga dan dilestarikan dalam kehidupan sehari-hari.</p>
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">👥</div>
-                  <h3 class="info-card-title">Sumber Daya Manusia</h3>
-                  <p class="info-card-text">Rata-rata warga dusun bertugas sebagai talent dalam acara adat budaya Desa Bayan. Kegiatan ini menjadi mata pencarian sampingan yang menghasilkan pendapatan tambahan bagi warga.</p>
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Dusun Bual") {
-            const rumahAdatLink = dusun.rumahAdatLocation ? 
-              `<a href="${dusun.rumahAdatLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Rumah Adat</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🤝</div>
-                  <h3 class="info-card-title">Masyarakat Adat Bayan</h3>
-                  <p class="info-card-text">Desa Bual merupakan bagian tak terpisahkan dari entitas masyarakat Adat Bayan. Kehidupan religi dan adat di sini dipandu oleh <strong>satu tokoh agama</strong> yang menjadi rujukan warga.</p>
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🔗</div>
-                  <h3 class="info-card-title">Konektivitas Adat</h3>
-                  <p class="info-card-text">Masyarakat Bual memiliki satu acuan tradisi dengan masyarakat Rumah Adat Bawah.</p>
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">📅</div>
-                  <h3 class="info-card-title">Sistem Penjadwalan Adat</h3>
-                  <p class="info-card-text">Pelaksanaan ritual adat seperti Khitanan (Sunatan) mengikuti sistem penanggalan adat yang ketat. Terdapat perbedaan khusus pada perayaan <strong>Maulid</strong>, di mana Dusun Bual tidak memusatkan kegiatan di rumah adat, melainkan mengikuti pembagian peran bersama wilayah lain seperti Dusun Bayan Timur, Loloan, dan Karang Bajo.</p>
-                </div>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🏠</div>
-                  <h3 class="info-card-title">${dusun.rumahAdatName}</h3>
-                  <p class="info-card-text">Pranata <strong>${dusun.rumahAdatPranata}</strong> mempunyai peran untuk ${dusun.rumahAdatRole}</p>
-                  ${rumahAdatLink}
-                </div>
-              </div>
-            `;
-          } else if (dusun.name === "Dusun Nangka Rempek") {
-            const rumahAdatLink = dusun.rumahAdatLocation ? 
-              `<a href="${dusun.rumahAdatLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Rumah Adat</a>` : '';
-            
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">👷</div>
-                  <h3 class="info-card-title">Ketenagakerjaan</h3>
-                  <p class="info-card-text">Pemuda atau warga laki-laki di dusun ini banyak yang bekerja sebagai <strong>Porter Rinjani</strong>.</p>
-                </div>
-                
-                <div class="info-card" style="border-left: 4px solid var(--accent);">
-                  <div class="info-card-icon">🏠</div>
-                  <h3 class="info-card-title">${dusun.rumahAdatName}</h3>
-                  <p class="info-card-text">Rumah adat tradisional yang masih terjaga kelestariannya sebagai simbol warisan budaya leluhur. Dibangun pada <strong>${dusun.rumahAdatAge}</strong>. Biasa digunakan ketika hari-hari besar saja, seperti lebaran adat dan lebaran agama. Tidak semua orang bisa masuk ke rumah adat tersebut.</p>
-                  ${rumahAdatLink}
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">👨‍💼</div>
-                  <h3 class="info-card-title">Pemangku Adat</h3>
-                  <p class="info-card-text"><strong>${dusun.pemangkuName}</strong><br><br>Amak Lokak adalah pemangku adat yang tidak memiliki keturunan bangsawan, diperintahkan oleh datu bayan. Keturunan dari nenek moyang yang menjaga serta melestarikan wilayah, hutan adat, dan hukum adat di Desa Adat Bayan.</p>
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🥁</div>
-                  <h3 class="info-card-title">Kesenian Tradisional</h3>
-                  <p class="info-card-text">Kesenian tradisional <strong>Gendang Belek</strong> selalu dihadirkan dalam acara adat seperti khitanan maupun perayaan Begawe.</p>
-                </div>
-              </div>
-            `;
-          } else {
-            content = `
-              <div class="slide-content">
-                <h2 class="slide-title">${slide.title}</h2>
-                <p class="slide-subtitle">${slide.subtitle}</p>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">🎭</div>
-                  <h3 class="info-card-title">Adat & Budaya</h3>
-                  <p class="info-card-text">Adat dan budaya Desa Bayan tetap berlaku kental bagi masyarakat Dusun Pada Mangko. Nilai-nilai tradisional tetap dijaga dan dilestarikan dalam kehidupan sehari-hari.</p>
-                </div>
-                
-                <div class="info-card">
-                  <div class="info-card-icon">👥</div>
-                  <h3 class="info-card-title">Sumber Daya Manusia</h3>
-                  <p class="info-card-text">Rata-rata warga dusun bertugas sebagai talent dalam acara adat budaya Desa Bayan. Kegiatan ini menjadi mata pencarian sampingan yang menghasilkan pendapatan tambahan bagi warga.</p>
-                </div>
-              </div>
-            `;
-          }
-          break;
-      }
-      
-      return content;
-    }
-
-    // ============================================
-    // NAVIGATION
-    // ============================================
-    function generateDots(count) {
-      const container = document.getElementById('slide-dots');
-      container.innerHTML = '';
-      
-      for (let i = 0; i < count; i++) {
-        const dot = document.createElement('div');
-        dot.className = `slide-dot ${i === 0 ? 'active' : ''}`;
-        dot.onclick = () => goToSlide(i);
-        container.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = document.querySelectorAll('.slide-dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-    }
-
-    function updateCounter() {
-      const dusun = dusunData[currentDusun];
-      document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${dusun.slides.length}`;
-    }
-
-    function updateNavButtons() {
-      const dusun = dusunData[currentDusun];
-      const prevBtn = document.getElementById('slide-prev');
-      const nextBtn = document.getElementById('slide-next');
-      
-      prevBtn.disabled = currentSlide === 0;
-      nextBtn.disabled = currentSlide === dusun.slides.length - 1;
-    }
-
-    function goToSlide(index) {
-      const container = document.getElementById('slides-container');
-      const slideWidth = container.offsetWidth;
-      
-      container.scrollTo({
-        left: index * slideWidth,
-        behavior: 'smooth'
-      });
-      
-      currentSlide = index;
-      updateDots();
-      updateCounter();
-      updateNavButtons();
-    }
-
-    function prevSlide() {
-      if (currentSlide > 0) {
-        goToSlide(currentSlide - 1);
-      }
-    }
-
-    function nextSlide() {
-      const dusun = dusunData[currentDusun];
-      if (currentSlide < dusun.slides.length - 1) {
-        goToSlide(currentSlide + 1);
-      }
-    }
-
-    // Detect scroll
-    document.getElementById('slides-container').addEventListener('scroll', function() {
-      const scrollLeft = this.scrollLeft;
-      const slideWidth = this.offsetWidth;
-      const newSlide = Math.round(scrollLeft / slideWidth);
-      
-      if (newSlide !== currentSlide) {
-        currentSlide = newSlide;
-        updateDots();
-        updateCounter();
-        updateNavButtons();
-      }
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (document.getElementById('slide-page').classList.contains('active')) {
-        if (e.key === 'ArrowLeft') prevSlide();
-        if (e.key === 'ArrowRight') nextSlide();
-        if (e.key === 'Escape') closeDusun();
-      }
-    });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a23142e8ed73385d',t:'MTc4NTM4MTk4MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a234d9abedd6ce2b',t:'MTc4NTQxOTYxNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
