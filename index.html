@@ -3831,13 +3831,25 @@
       }
     });
 
-    // Keyboard navigation (arrow keys + Escape to close)
+    // Keyboard navigation:
+    //   ← / →            : previous / next slide
+    //   Alt + ← / Alt + → : back / next slide (Alt+← on the first slide returns
+    //                       to the village page; preventDefault stops the
+    //                       browser's own Back/Forward history shortcut)
+    //   Escape           : back to village page
     document.addEventListener('keydown', (e) => {
       if (currentDusun === null) return;
-      if (e.key === 'ArrowLeft') prevSlide();
-      else if (e.key === 'ArrowRight') nextSlide();
-      else if (e.key === 'Escape') closeDusun();
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (e.altKey && currentSlide === 0) closeDusun();
+        else prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'Escape') {
+        closeDusun();
+      }
     });
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2382f863fb8a0bc',t:'MTc4NTQ1NDU4Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
