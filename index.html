@@ -953,6 +953,7 @@
       flex-direction: column;
       transform: translateX(100%);
       transition: transform var(--transition-slow);
+      overscroll-behavior-x: contain;
     }
 
     .slide-page.active {
@@ -1018,6 +1019,7 @@
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
     }
 
     .slides-container::-webkit-scrollbar {
@@ -3850,6 +3852,65 @@
         closeDusun();
       }
     });
+
+    // ============================================
+    // TOUCH SWIPE NAVIGATION (MOBILE)
+    // Swipe left  : next slide
+    // Swipe right : back (previous slide; closes viewer on the first slide)
+    // Vertical scrolling and two-finger pinch-to-zoom are left untouched.
+    // ============================================
+    (function () {
+      const slidePage = document.getElementById('slide-page');
+      const SWIPE_MIN = 50;  // px needed to count as a swipe
+      const INTENT_MIN = 10; // px before the gesture is considered horizontal
+      let startX = 0, startY = 0, deltaX = 0;
+      let tracking = false, horizontal = false;
+
+      slidePage.addEventListener('touchstart', (e) => {
+        if (currentDusun === null || e.touches.length !== 1) { tracking = false; return; }
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        deltaX = 0;
+        horizontal = false;
+        tracking = true;
+      }, { passive: true });
+
+      slidePage.addEventListener('touchmove', (e) => {
+        if (!tracking || e.touches.length !== 1) return;
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+        if (!horizontal && Math.abs(dx) > INTENT_MIN && Math.abs(dx) > Math.abs(dy)) {
+          horizontal = true; // sideways intent detected: we take over the gesture
+        }
+        if (horizontal) {
+          e.preventDefault(); // stop native horizontal scroll / overscroll navigation
+          deltaX = dx;
+        }
+      }, { passive: false });
+
+      slidePage.addEventListener('touchend', () => {
+        if (!tracking) return;
+        tracking = false;
+        if (horizontal) {
+          if (deltaX <= -SWIPE_MIN) {
+            nextSlide();                      // swipe left -> next
+          } else if (deltaX >= SWIPE_MIN) {   // swipe right -> back
+            if (currentSlide === 0) closeDusun();
+            else prevSlide();
+          } else {
+            goToSlide(currentSlide);          // too short: snap back in place
+          }
+        }
+        deltaX = 0;
+        horizontal = false;
+      }, { passive: true });
+
+      slidePage.addEventListener('touchcancel', () => {
+        tracking = false;
+        horizontal = false;
+        deltaX = 0;
+      }, { passive: true });
+    })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2382f863fb8a0bc',t:'MTc4NTQ1NDU4Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a23838a44c2da0bc',t:'MTc4NTQ1NDk2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
