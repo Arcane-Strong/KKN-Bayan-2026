@@ -1331,6 +1331,26 @@
     </div>
   </div>
 
+  <script>
+    // Loading screen dismissal lives in its OWN dedicated script block so it
+    // always runs — even if the main application script ever fails to parse
+    // or throws an error (which is what froze this screen previously).
+    (function () {
+      var dismissed = false;
+      function hideLoadingScreen() {
+        if (dismissed) return;
+        dismissed = true;
+        var ls = document.getElementById('loading-screen');
+        if (!ls) return;
+        ls.classList.add('fade-out');
+        setTimeout(function () { ls.style.display = 'none'; }, 800);
+      }
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoadingScreen, 500); });
+      window.addEventListener('load', function () { setTimeout(hideLoadingScreen, 200); });
+      setTimeout(hideLoadingScreen, 3000); // absolute fallback
+    })();
+  </script>
+
   <!-- ============================================
        MAIN PAGE
        ============================================ -->
@@ -1391,10 +1411,7 @@
              Ganti tag <div class="map-frame">...</div> di bawah dengan tag <img> seperti contoh berikut:
              <img class="map-frame" src="peta-desa-bayan.jpg" alt="Peta Desa Bayan">
         -->
-      <div class="map-container">
-  <img class="map-frame" src="peta.jpg" alt="Peta Desa Bayan">
-</div>
-        </div>
+        <img class="map-frame" src="peta.jpg" alt="Peta Desa Bayan">
       </div>
     </div>
 
@@ -2562,15 +2579,8 @@
     // ============================================
     // INITIALIZATION
     // ============================================
-    document.addEventListener('DOMContentLoaded', () => {
-      // Hide loading screen
-      setTimeout(() => {
-        document.getElementById('loading-screen').classList.add('fade-out');
-        setTimeout(() => {
-          document.getElementById('loading-screen').style.display = 'none';
-        }, 800);
-      }, 500);
-    });
+    // NOTE: The loading screen is dismissed by a dedicated script block near
+    // the top of <body>, so it can never be blocked by an error in this file.
 
     // ============================================
     // OPEN DUSUN SLIDES
@@ -2936,7 +2946,7 @@
           break;
 
         case 'demographics':
-          if (dusun.name === "Dusun Batu Jompang" || dusun.name === "Dasan Tutul" || dusun.name === "Dusun Teres Genit" || dusun.name === "Sembulan" || dusun.name === "Dusun Mandala" || dusun.name === "Bayan Timur" || dusun.name === "Dusun Ujung Mekar" || dusun.name === "Karang Salah" || dusun.name === "Dusun Pada Mangko") {
+          if (dusun.name === "Dusun Batu Jompang" || dusun.name === "Dasan Tutul" || dusun.name === "Dusun Teres Genit" || dusun.name === "Sembulan" || dusun.name === "Dusun Mandala" || dusun.name === "Bayan Timur" || dusun.name === "Dusun Ujung Mekar" || dusun.name === "Karang Salah" || dusun.name === "Dusun Pada Mangko" || dusun.name === "Montong Baru" || dusun.name === "Dusun Bual") {
             content = `
               <div class="slide-content">
                 <h2 class="slide-title">${slide.title}</h2>
@@ -3481,4 +3491,353 @@
                 </div>
               </div>
             `;
+          } else if (dusun.name === "Bayan Timur") {
+            const tenunLink = dusun.tenunLocation ? 
+              `<a href="${dusun.tenunLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Tenun</a>` : '';
+            const cateringLink = dusun.cateringLocation ? 
+              `<a href="${dusun.cateringLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Warung</a>` : '';
+            const homestayLink = dusun.homestayLocation ? 
+              `<a href="${dusun.homestayLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Homestay</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🧵</div>
+                  <h3 class="info-card-title">Tenun - ${dusun.tenunName}</h3>
+                  <p class="info-card-text">Usaha tenun <strong>${dusun.tenunName}</strong> telah berdiri sejak tahun <strong>${dusun.tenunFounded}</strong> dan menjadi salah satu penggerak ekonomi kreatif dusun sekaligus pelestari budaya menenun masyarakat Bayan. Pemesanan hubungi: <strong>${dusun.tenunPhone}</strong>.</p>
+                  ${tenunLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🍱</div>
+                  <h3 class="info-card-title">Kuliner - ${dusun.cateringName}</h3>
+                  <p class="info-card-text">Usaha katering milik <strong>${dusun.cateringOwner}</strong> yang berjalan sejak <strong>${dusun.cateringFounded}</strong>. Menyediakan nasi kotak dengan harga terjangkau <strong>${dusun.cateringPrice}</strong>.</p>
+                  ${cateringLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🏨</div>
+                  <h3 class="info-card-title">Homestay</h3>
+                  <p class="info-card-text">Terdapat beberapa pilihan penginapan: <strong>${dusun.homestayNames}</strong>. Tarif sekitar <strong>${dusun.homestayPrice}</strong>. Reservasi: <strong>${dusun.homestayPhone}</strong>.</p>
+                  ${homestayLink}
+                </div>
+              </div>
+            `;
+          } else if (dusun.name === "Sembulan") {
+            const homestayLink = dusun.homestayLocation ? 
+              `<a href="${dusun.homestayLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Homestay</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">💰</div>
+                  <h3 class="info-card-title">Sektor Ekonomi</h3>
+                  <p class="info-card-text">Perekonomian Dusun Sembulan bertumpu pada sektor <strong>pertanian</strong> dan <strong>peternakan</strong>, dengan komoditas unggulan padi serta tanaman nangka rempek.</p>
+                </div>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🏨</div>
+                  <h3 class="info-card-title">${dusun.homestayName}</h3>
+                  <p class="info-card-text">Dusun Sembulan mulai berkembang sebagai kawasan pariwisata dengan adanya pembangunan penginapan seperti <strong>${dusun.homestayName}</strong>, yang diharapkan mampu meningkatkan perekonomian masyarakat.</p>
+                  ${homestayLink}
+                </div>
+              </div>
+            `;
+          } else if (dusun.name === "Montong Baru") {
+            const maduLink = dusun.maduLocation ? 
+              `<a href="${dusun.maduLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Komunitas</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🍯</div>
+                  <h3 class="info-card-title">Komunitas Madu ${dusun.maduKomunitas}</h3>
+                  <p class="info-card-text">UMKM unggulan dusun berupa budidaya <strong>madu trigona (kelulut)</strong> yang tergabung dalam komunitas <strong>${dusun.maduKomunitas}</strong>, berdiri sejak tahun <strong>${dusun.maduFounded}</strong>. Kontak: <strong>${dusun.maduContact} (${dusun.maduPhone})</strong>.</p>
+                  ${maduLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🌾</div>
+                  <h3 class="info-card-title">Pertanian & Peternakan</h3>
+                  <p class="info-card-text">Mayoritas masyarakat bekerja sebagai petani (padi dan sayuran) serta beternak sapi dan kambing sebagai penopang ekonomi keluarga.</p>
+                </div>
+              </div>
+            `;
+          } else if (dusun.name === "Dusun Teres Genit") {
+            const maduLink = dusun.maduLocation ? 
+              `<a href="${dusun.maduLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Kelompok</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🌾</div>
+                  <h3 class="info-card-title">Pertanian & Peternakan</h3>
+                  <p class="info-card-text">Mayoritas penduduk bermata pencaharian sebagai petani dan peternak, didukung sawah terasering yang subur di kaki Gunung Rinjani.</p>
+                </div>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🍯</div>
+                  <h3 class="info-card-title">${dusun.maduKomunitas}</h3>
+                  <p class="info-card-text">Kelompok budidaya <strong>${dusun.maduType}</strong> yang berdiri sejak tahun <strong>${dusun.maduFounded}</strong>. Panen dilakukan <strong>${dusun.maduHarvest}</strong>.</p>
+                  <p style="margin-top: 0.5rem;"><strong>Harga:</strong> ${dusun.maduPrice250} &bull; ${dusun.maduPrice600}</p>
+                  <p><strong>Pemesanan:</strong> ${dusun.maduOrderPhone}</p>
+                  ${maduLink}
+                </div>
+              </div>
+            `;
+          } else if (dusun.name === "Dasan Tutul") {
+            const umkmLink = dusun.umkmLocation ? 
+              `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">☕</div>
+                  <h3 class="info-card-title">UMKM ${dusun.umkmName}</h3>
+                  <p class="info-card-text">Usaha pengolahan <strong>${dusun.umkmType}</strong> yang dikelola oleh <strong>${dusun.umkmOwner}</strong>. Kopi diolah dari biji kopi pilihan lereng Rinjani menjadi produk kopi bubuk yang khas.</p>
+                  ${umkmLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🍯</div>
+                  <h3 class="info-card-title">${dusun.maduType}</h3>
+                  <p class="info-card-text">Produk <strong>${dusun.maduType}</strong> juga tersedia melalui <strong>${dusun.maduSource}</strong>.</p>
+                </div>
+              </div>
+            `;
+          } else if (dusun.name === "Dusun Nangka Rempek") {
+            const umkmLink = dusun.umkmLocation ? 
+              `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">☕</div>
+                  <h3 class="info-card-title">${dusun.umkmName}</h3>
+                  <p class="info-card-text">UMKM pengolahan kopi yang berdiri sejak tahun <strong>${dusun.umkmFounded}</strong>. Produk kopi diolah dari buah kopi segar menjadi kopi bubuk siap seduh dan dipasarkan hingga ke luar daerah. Instagram: <strong>${dusun.umkmInstagram}</strong>. Pemesanan (WA): <strong>${dusun.umkmWa}</strong>.</p>
+                  ${umkmLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🌾</div>
+                  <h3 class="info-card-title">Pertanian & Perkebunan</h3>
+                  <p class="info-card-text">Mayoritas masyarakat bekerja sebagai petani dan pekebun kopi, pisang, dan vanili. Vanili dari dusun ini bahkan sudah berhasil diekspor hingga ke Amerika.</p>
+                </div>
+              </div>
+            `;
+          } else {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">💰</div>
+                  <h3 class="info-card-title">Sektor Ekonomi</h3>
+                  <p class="info-card-text">Perekonomian dusun bertumpu pada sektor <strong>pertanian</strong>, <strong>perkebunan</strong>, dan <strong>peternakan</strong> yang dikelola masyarakat secara mandiri.</p>
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🧺</div>
+                  <h3 class="info-card-title">Usaha Masyarakat</h3>
+                  <p class="info-card-text">Terdapat usaha kecil masyarakat seperti perdagangan kebutuhan pokok serta pengolahan hasil bumi sebagai sumber penghasilan tambahan.</p>
+                </div>
+              </div>
+            `;
+          }
+          break;
           
+        case 'culture':
+          if (dusun.name === "Dusun Bual") {
+            const rumahAdatLink = dusun.rumahAdatLocation ? 
+              `<a href="${dusun.rumahAdatLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Rumah Adat</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🤝</div>
+                  <h3 class="info-card-title">Masyarakat Adat Bayan</h3>
+                  <p class="info-card-text">Masyarakat Dusun Bual dikenal memegang teguh nilai <strong>gotong royong</strong> serta menjaga adat istiadat Suku Sasak Bayan yang diwariskan secara turun-temurun.</p>
+                </div>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🏠</div>
+                  <h3 class="info-card-title">${dusun.rumahAdatName}</h3>
+                  <p class="info-card-text">Rumah adat dijaga oleh pranata adat <strong>${dusun.rumahAdatPranata}</strong>. Perannya: <strong>${dusun.rumahAdatRole}</strong></p>
+                  ${rumahAdatLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🎭</div>
+                  <h3 class="info-card-title">Tradisi & Kesenian</h3>
+                  <p class="info-card-text">Warga dusun aktif dalam kegiatan adat Desa Bayan, termasuk ritual adat tahunan serta kesenian tradisional seperti rudat dan peresean.</p>
+                </div>
+              </div>
+            `;
+          } else if (dusun.name === "Dusun Nangka Rempek") {
+            const rumahAdatLink = dusun.rumahAdatLocation ? 
+              `<a href="${dusun.rumahAdatLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Rumah Adat</a>` : '';
+            
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card" style="border-left: 4px solid var(--accent);">
+                  <div class="info-card-icon">🏠</div>
+                  <h3 class="info-card-title">${dusun.rumahAdatName}</h3>
+                  <p class="info-card-text">Rumah adat tradisional yang telah berdiri sejak <strong>${dusun.rumahAdatAge}</strong> dan masih terjaga kelestariannya sebagai simbol warisan budaya leluhur. Dijaga oleh pemangku adat <strong>${dusun.pemangkuName}</strong>.</p>
+                  ${rumahAdatLink}
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🎭</div>
+                  <h3 class="info-card-title">Kesenian Tradisional</h3>
+                  <p class="info-card-text">Masyarakat dusun turut melestarikan kesenian tradisional khas Bayan seperti <strong>rudat</strong> dan <strong>cupak gerantang</strong>, serta berperan dalam upacara adat tingkat desa.</p>
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">👥</div>
+                  <h3 class="info-card-title">Sumber Daya Manusia</h3>
+                  <p class="info-card-text">Masyarakat Nangka Rempek memiliki modal sosial budaya yang kuat dengan kearifan lokal lereng Gunung Rinjani yang masih dijalankan dalam kehidupan sehari-hari.</p>
+                </div>
+              </div>
+            `;
+          } else {
+            content = `
+              <div class="slide-content">
+                <h2 class="slide-title">${slide.title}</h2>
+                <p class="slide-subtitle">${slide.subtitle}</p>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🎭</div>
+                  <h3 class="info-card-title">Adat & Budaya</h3>
+                  <p class="info-card-text">Masyarakat ${dusun.name} merupakan bagian dari masyarakat adat Desa Bayan yang menjunjung tinggi tradisi dan adat istiadat Suku Sasak Bayan, termasuk partisipasi dalam ritual adat tahunan desa.</p>
+                </div>
+                
+                <div class="info-card">
+                  <div class="info-card-icon">🤝</div>
+                  <h3 class="info-card-title">Gotong Royong</h3>
+                  <p class="info-card-text">Nilai gotong royong masih kuat dalam kehidupan bermasyarakat, sesuai prinsip <em>"Duduk sama rendah, berdiri sama tinggi"</em>.</p>
+                </div>
+              </div>
+            `;
+          }
+          break;
+          
+        default:
+          content = `
+            <div class="slide-content">
+              <h2 class="slide-title">${slide.title}</h2>
+              <p class="slide-subtitle">${slide.subtitle}</p>
+              <div class="info-card">
+                <div class="info-card-icon">${dusun.icon}</div>
+                <h3 class="info-card-title">${dusun.name}</h3>
+                <p class="info-card-text">Informasi akan segera tersedia.</p>
+              </div>
+            </div>
+          `;
+      }
+      
+      return content;
+    }
+
+    // ============================================
+    // SLIDE NAVIGATION
+    // ============================================
+    function generateDots(count) {
+      const dotsContainer = document.getElementById('slide-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('#slide-dots .slide-dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function updateCounter() {
+      if (currentDusun === null) return;
+      const total = dusunData[currentDusun].slides.length;
+      document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${total}`;
+    }
+
+    function updateNavButtons() {
+      if (currentDusun === null) return;
+      const total = dusunData[currentDusun].slides.length;
+      document.getElementById('slide-prev').disabled = currentSlide === 0;
+      document.getElementById('slide-next').disabled = currentSlide === total - 1;
+    }
+
+    function goToSlide(index) {
+      if (currentDusun === null) return;
+      const total = dusunData[currentDusun].slides.length;
+      if (index < 0 || index >= total) return;
+      currentSlide = index;
+      const container = document.getElementById('slides-container');
+      container.scrollTo({ left: index * container.clientWidth, behavior: 'smooth' });
+      updateDots();
+      updateCounter();
+      updateNavButtons();
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    // Keep dots/counter in sync when the user swipes the slides directly
+    document.getElementById('slides-container').addEventListener('scroll', () => {
+      if (currentDusun === null) return;
+      const container = document.getElementById('slides-container');
+      if (!container.clientWidth) return;
+      const index = Math.round(container.scrollLeft / container.clientWidth);
+      if (index !== currentSlide && index >= 0 && index < dusunData[currentDusun].slides.length) {
+        currentSlide = index;
+        updateDots();
+        updateCounter();
+        updateNavButtons();
+      }
+    });
+
+    // Keyboard navigation (arrow keys + Escape to close)
+    document.addEventListener('keydown', (e) => {
+      if (currentDusun === null) return;
+      if (e.key === 'ArrowLeft') prevSlide();
+      else if (e.key === 'ArrowRight') nextSlide();
+      else if (e.key === 'Escape') closeDusun();
+    });
+  </script>
+</body>
+</html>
