@@ -295,36 +295,42 @@
       padding: 3rem 1.5rem 0;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
+    .map-container {
+      max-width: 1000px;
+      margin: 1.5rem auto 0;
+      display: flex;
+      justify-content: center;
     }
 
-    .gallery-item {
+    .map-frame {
+      width: 100%;
+      min-height: 320px;
       background: var(--gray-100);
       border: 2px dashed var(--gray-300);
       border-radius: 0.75rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--gray-400);
-      font-size: 0.8rem;
+      color: var(--gray-500);
+      font-size: 0.9rem;
       text-align: center;
-      aspect-ratio: 4 / 3;
+      padding: 2rem;
+      transition: var(--transition-base);
     }
 
-    img.gallery-item {
-      width: auto;
+    img.map-frame {
+      width: 100%;
       max-width: 100%;
       height: auto;
-      aspect-ratio: auto;
+      min-height: initial;
       background: none;
-      border: 2px dashed var(--gray-300);
+      border: 2px solid var(--gray-200);
+      box-shadow: var(--shadow-md);
       border-radius: 0.75rem;
       display: block;
       margin: 0 auto;
+      object-fit: contain;
     }
 
     /* Village Info Section */
@@ -1348,18 +1354,20 @@
     <!-- Gallery Section -->
     <div class="village-gallery">
       <div class="section-header">
-        <span class="section-badge">Galeri</span>
-        <h2 class="section-title">Galeri Desa Bayan</h2>
-        <p class="section-subtitle">Dokumentasi kegiatan & potensi desa</p>
+        <span class="section-badge">Peta Wilayah</span>
+        <h2 class="section-title">Peta Desa Bayan</h2>
+        <p class="section-subtitle">Peta wilayah dan batas administrasi Desa Bayan</p>
       </div>
-      <div class="gallery-grid">
-        <!-- PETUNJUK CARA UPLOAD FOTO:
-             Ganti tag <div class="gallery-item">...</div> dengan tag <img> seperti contoh berikut:
-             <img class="gallery-item" src="foto1.jpg" alt="Dokumentasi 1">
+      <div class="map-container">
+        <!-- PETUNJUK CARA UPLOAD PETA:
+             Ganti tag <div class="map-frame">...</div> di bawah dengan tag <img> seperti contoh berikut:
+             <img class="map-frame" src="peta-desa-bayan.jpg" alt="Peta Desa Bayan">
         -->
-        <div class="gallery-item">Frame Foto 1</div>
-        <div class="gallery-item">Frame Foto 2</div>
-        <div class="gallery-item">Frame Foto 3</div>
+        <div class="map-frame">
+          <span style="font-size: 2.5rem; margin-bottom: 0.5rem;">🗺️</span>
+          <strong style="font-size: 1rem; color: var(--gray-700);">Frame Peta Desa Bayan</strong>
+          <span style="font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem;">Foto/gambar peta yang ditaruh di sini akan otomatis menyesuaikan ukuran aslinya.</span>
+        </div>
       </div>
     </div>
 
@@ -2164,26 +2172,26 @@
         populationFemale: "165",
         area: "-",
         location: "Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, NTB",
-        locationUrl: "https://www.google.com/maps/place/8°16'04.6\"S+116°25'36.3\"E/@-8.2679529,116.4241829,17z",
-        kadusLocationUrl: "https://www.google.com/maps/place/8°16'09.6\"S+116°25'37.2\"E/@-8.2693233,116.4244194,17z",
+        locationUrl: "https://www.google.com/maps?q=-8.2679529,116.4241829",
+        kadusLocationUrl: "https://www.google.com/maps?q=-8.2693233,116.4244194",
         rumahAdatName: "Rumah Adat Bayan Timur",
         rumahAdatAge: "Abad ke-16",
-        rumahAdatLocation: "https://www.google.com/maps/place/8°16'05.4\"S+116°25'37.8\"E/@-8.2646979,116.4307755,15z",
+        rumahAdatLocation: "https://www.google.com/maps?q=-8.2646979,116.4307755",
         pemangkuName: "Raden Kertamono",
-        sanggarLocation: "https://www.google.com/maps/place/8°16'08.5\"S+116°25'34.9\"E/@-8.269022,116.4237862,17z",
+        sanggarLocation: "https://www.google.com/maps?q=-8.269022,116.4237862",
         tenunName: "Toko Jajaq Bayan",
         tenunFounded: "2017",
         tenunPhone: "081907152407",
-        tenunLocation: "https://www.google.com/maps/place/8°16'08.5\"S+116°25'34.9\"E/@-8.269022,116.4237862,17z",
+        tenunLocation: "https://www.google.com/maps?q=-8.269022,116.4237862",
         cateringName: "Warung N'D",
         cateringOwner: "Ibu Agung",
         cateringFounded: "~2016",
         cateringPrice: "Rp8.000 - Rp10.000/kotak",
-        cateringLocation: "https://www.google.com/maps/search/Warung%20N'D%20(Bu%20Agum)%20-%20Bayan%20Village%20Catering/@-8.269351959228516,116.4263687133789,17z",
+        cateringLocation: "https://www.google.com/maps?q=-8.269351959228516,116.4263687133789",
         homestayNames: "Jelita Homestay, Anja Homestay, Agung Homestay, Clara Homestay",
         homestayPrice: "Rp150.000/malam",
         homestayPhone: "081703350173",
-        homestayLocation: "https://www.google.com/maps/place/8°16'04.6\"S+116°25'36.3\"E/@-8.2679529,116.4241829,17z",
+        homestayLocation: "https://www.google.com/maps?q=-8.2679529,116.4241829",
         description: "Dusun Bayan Timur merupakan salah satu dusun yang berada di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat. Dusun ini memiliki peran penting sebagai pusat kegiatan adat masyarakat Bayan, karena di wilayah ini terdapat rumah adat serta menjadi lokasi utama pelaksanaan berbagai ritual adat tahunan. Selain itu, rumah adat juga difungsikan sebagai tempat penyelenggaraan Gundem Besar, yaitu forum musyawarah untuk menyelesaikan permasalahan sosial dalam masyarakat adat. Dusun Bayan Timur memiliki potensi lokal yang cukup beragam, terutama dalam bidang kuliner dan kerajinan tradisional.",
         slides: [
           { title: "Profil Bayan Timur", subtitle: "Pusat Kegiatan Adat Bayan", content: "overview" },
@@ -2204,11 +2212,11 @@
         populationFemale: "-",
         area: "-",
         location: "Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, NTB",
-        locationUrl: "https://www.google.com/maps/place/8°16'04.6\"S+116°25'36.3\"E/@-8.2679415,116.4241677,17z",
-        kadusLocationUrl: "https://www.google.com/maps/place/8°16'09.4\"S+116°25'30.6\"E/@-8.2692852,116.4225884,17z",
+        locationUrl: "https://www.google.com/maps?q=-8.2679415,116.4241677",
+        kadusLocationUrl: "https://www.google.com/maps?q=-8.2692852,116.4225884",
         rumahAdatName: "Rumah Adat Bayan Barat",
         rumahAdatAge: "Abad ke-16",
-        rumahAdatLocation: "https://www.google.com/maps/place/8°16'03.6\"S+116°25'34.5\"E/@-8.2676659,116.4236641,17z",
+        rumahAdatLocation: "https://www.google.com/maps?q=-8.2676659,116.4236641",
         pemangkuName: "Raden Sumanarsa",
         pemangkuSince: "8 tahun",
         pelawanganName: "Pelawangan",
@@ -2216,13 +2224,13 @@
         tenunOwner: "Ibu Denda Candrasih",
         tenunFounded: "2014",
         tenunPhone: "081775256507",
-        tenunLocation: "https://www.google.com/maps/place/Belida+Bayan/@-8.269393,116.4247208,17z",
+        tenunLocation: "https://www.google.com/maps?q=-8.269393,116.4247208",
         tenunMarket: "Internasional (Malaysia)",
         kulinerName: "Keripik Pisang DJ Bayan",
         kulinerOwner: "Ibu Dende Julianti",
         kulinerFounded: "2020",
         kulinerPhone: "087866756122",
-        kulinerLocation: "https://www.google.com/maps/place/8°16'10.4\"S+116°25'27.9\"E/@-8.2695608,116.4218331,17z",
+        kulinerLocation: "https://www.google.com/maps?q=-8.2695608,116.4218331",
         description: "Dusun Bayan Barat merupakan bagian dari Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Nusa Tenggara Barat. Dusun ini juga memiliki rumah adat yang menjadi bagian penting dari kehidupan masyarakat setempat. Hingga Juli 2026, jumlah penduduknya tercatat sekitar 110 KK. Sebagian besar masyarakat di Dusun Bayan Barat bekerja sebagai petani dan peternak. Wilayahnya didominasi oleh lahan persawahan milik warga yang menjadi sumber utama mata pencaharian. Selain sektor pertanian, dusun ini juga memiliki beberapa potensi wisata serta UMKM lokal yang bisa dikunjungi dan menarik untuk dicoba.",
         slides: [
           { title: "Profil Dusun Bayan Barat", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
@@ -3914,5 +3922,5 @@
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a23142e8ed73385d',t:'MTc4NTM4MTk4MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a23142e8ed73385d',t:'MTc4NTM4MTk4MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a234d9abedd6ce2b',t:'MTc4NTQxOTYxNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
