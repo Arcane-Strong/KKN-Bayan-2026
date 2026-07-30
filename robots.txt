@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jejak-tanah-bayan-2026.vercel.app/sitemap.xml
+Sitemap: https://jejak-tanah-bayan26.vercel.app/sitemap.xml
