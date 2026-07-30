@@ -140,52 +140,66 @@
       opacity: 0.5;
     }
 
-    /* Hero decorative images */
+    /* Hero decorative images / logos alignment */
     .hero-deco {
       position: absolute;
-      top: 16px;
+      top: 20px;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       pointer-events: none;
     }
 
-    .hero-deco img {
+    .hero-deco img,
+    .hero-deco img.deco-5882,
+    .hero-deco-left img,
+    .hero-deco-right img {
       display: block;
-      border-radius: 1.25rem;
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 0.75rem;
+      transition: var(--transition-base);
     }
 
     .hero-deco-left {
-      left: 16px;
-    }
-
-    .hero-deco-left img {
-      width: 250px;
-      height: auto;
+      left: 20px;
     }
 
     .hero-deco-right {
-      right: 16px;
-      display: flex;
-      gap: 8px;
+      right: 20px;
+      gap: 12px;
     }
 
-    .hero-deco-right img {
-      width: 250px;
-      height: auto;
-    }
-
-    .hero-deco-left img.deco-5882,
-    .hero-deco-right img.deco-5882 {
-      height: 205px;
-      object-fit: contain;
+    @media (max-width: 991px) {
+      .hero-deco {
+        top: 16px;
+        gap: 8px;
+      }
+      .hero-deco img,
+      .hero-deco img.deco-5882,
+      .hero-deco-left img,
+      .hero-deco-right img {
+        height: 60px;
+      }
+      .hero-deco-left { left: 16px; }
+      .hero-deco-right { right: 16px; }
     }
 
     @media (max-width: 767px) {
+      .hero-deco {
+        top: 12px;
+        gap: 6px;
+      }
+      .hero-deco img,
+      .hero-deco img.deco-5882,
+      .hero-deco-left img,
+      .hero-deco-right img {
+        height: 44px;
+      }
       .hero-deco-left { left: 12px; }
-      .hero-deco-left img { width: 130px; }
-      .hero-deco-right { right: 12px; gap: 6px; }
-      .hero-deco-right img { width: 105px; }
-      .hero-deco-left img.deco-5882,
-      .hero-deco-right img.deco-5882 { height: 88px; }
+      .hero-deco-right { right: 12px; }
     }
 
     .village-hero-content {
@@ -1339,8 +1353,13 @@
         <p class="section-subtitle">Dokumentasi kegiatan & potensi desa</p>
       </div>
       <div class="gallery-grid">
-        <!-- Untuk menambahkan foto: ganti <div class="gallery-item">…</div> di bawah dengan <img class="gallery-item" src="nama-file.jpg" alt="..."> (ukuran frame menyesuaikan foto asli) -->
-        <div class="gallery-item" style="max-width: 480px; margin: 0 auto;">Foto 1</div>
+        <!-- PETUNJUK CARA UPLOAD FOTO:
+             Ganti tag <div class="gallery-item">...</div> dengan tag <img> seperti contoh berikut:
+             <img class="gallery-item" src="foto1.jpg" alt="Dokumentasi 1">
+        -->
+        <div class="gallery-item">Frame Foto 1</div>
+        <div class="gallery-item">Frame Foto 2</div>
+        <div class="gallery-item">Frame Foto 3</div>
       </div>
     </div>
 
