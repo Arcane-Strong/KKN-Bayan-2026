@@ -7,6 +7,7 @@
   
   <meta property="og:title" content="Desa Bayan - Kec. Bayan, Kab. Lombok Utara">
   <meta property="og:description" content="Profil Desa Bayan, Kec. Bayan, Kab. Lombok Utara, NTB - Pusat Budaya Sasak & Wisata Alam Lereng Gunung Rinjani">
+  <meta name="description" content="Profil Desa Bayan, Kec. Bayan, Kab. Lombok Utara, NTB - pusat budaya Sasak, wisata alam Rinjani, dan potensi 13 dusun.">
   <meta property="og:type" content="website">
   
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -138,6 +139,54 @@
       opacity: 0.5;
     }
 
+    /* Hero decorative images */
+    .hero-deco {
+      position: absolute;
+      top: 16px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-deco img {
+      display: block;
+      border-radius: 1.25rem;
+    }
+
+    .hero-deco-left {
+      left: 16px;
+    }
+
+    .hero-deco-left img {
+      width: 250px;
+      height: auto;
+    }
+
+    .hero-deco-right {
+      right: 16px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .hero-deco-right img {
+      width: 250px;
+      height: auto;
+    }
+
+    .hero-deco-left img.deco-5882,
+    .hero-deco-right img.deco-5882 {
+      height: 205px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 767px) {
+      .hero-deco-left { left: 12px; }
+      .hero-deco-left img { width: 130px; }
+      .hero-deco-right { right: 12px; gap: 6px; }
+      .hero-deco-right img { width: 105px; }
+      .hero-deco-left img.deco-5882,
+      .hero-deco-right img.deco-5882 { height: 88px; }
+    }
+
     .village-hero-content {
       position: relative;
       z-index: 1;
@@ -146,10 +195,10 @@
     }
 
     .village-logo {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       background: rgba(255,255,255,0.15);
-      border-radius: 50%;
+      border-radius: 1.25rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -157,6 +206,14 @@
       margin: 0 auto 1.5rem;
       border: 3px solid rgba(255,255,255,0.3);
       animation: float 3s ease-in-out infinite;
+      overflow: hidden;
+    }
+
+    .village-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 1.25rem;
     }
 
     @keyframes float {
@@ -213,6 +270,45 @@
       line-height: 1.7;
       color: rgba(255,255,255,0.85);
       max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Gallery Section */
+    .village-gallery {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-item {
+      background: var(--gray-100);
+      border: 2px dashed var(--gray-300);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      font-size: 0.8rem;
+      text-align: center;
+      aspect-ratio: 4 / 3;
+    }
+
+    img.gallery-item {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      background: none;
+      border: 2px dashed var(--gray-300);
+      border-radius: 0.75rem;
+      display: block;
       margin: 0 auto;
     }
 
@@ -1193,8 +1289,16 @@
     
     <!-- Hero Section -->
     <div class="village-hero">
+      <!-- Hero decorative images -->
+      <div class="hero-deco hero-deco-left">
+        <img src="IMG_5884.PNG" alt="Desa Bayan" class="deco-5882">
+      </div>
+      <div class="hero-deco hero-deco-right">
+        <img src="IMG_5882.PNG" alt="Desa Bayan" class="deco-5882">
+        <img src="IMG_5881.PNG" alt="Desa Bayan" class="deco-5882">
+      </div>
       <div class="village-hero-content">
-        <div class="village-logo">🕌</div>
+        <div class="village-logo"><img src="IMG_5879.PNG" alt="Logo Desa Bayan"></div>
         <h1 class="village-title">Desa Bayan</h1>
         <p class="village-subtitle">Kecamatan Bayan, Kabupaten Lombok Utara</p>
         <p class="village-address">Nusa Tenggara Barat (NTB)</p>
@@ -1223,6 +1327,19 @@
           Dikenal sebagai kampung halaman Suku Bayan dengan tradisi Islam Wetu Telu, Masjid Kuno Bayan Beleq dari abad ke-16, 
           serta keindahan alam seperti sawah terasering dan air terjun yang memukau.
         </p>
+      </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="village-gallery">
+      <div class="section-header">
+        <span class="section-badge">Galeri</span>
+        <h2 class="section-title">Galeri Desa Bayan</h2>
+        <p class="section-subtitle">Dokumentasi kegiatan & potensi desa</p>
+      </div>
+      <div class="gallery-grid">
+        <!-- Untuk menambahkan foto: ganti <div class="gallery-item">…</div> di bawah dengan <img class="gallery-item" src="nama-file.jpg" alt="..."> (ukuran frame menyesuaikan foto asli) -->
+        <div class="gallery-item" style="max-width: 480px; margin: 0 auto;">Foto 1</div>
       </div>
     </div>
 
@@ -3777,5 +3894,6 @@
       }
     });
   </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
 </body>
 </html>
