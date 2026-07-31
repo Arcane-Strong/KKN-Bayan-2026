@@ -810,24 +810,65 @@
       border-color: var(--primary);
     }
 
-    .dusun-card-header {
-      background: var(--gradient-primary);
-      padding: 1.5rem;
-      text-align: center;
+    /* Dusun photo frame — letakkan <img class="dusun-photo" src="..." alt="...">
+       di dalam frame; placeholder akan otomatis tersembunyi. */
+    .dusun-photo-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-100);
+      overflow: hidden;
       position: relative;
     }
 
-    .dusun-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
+    .dusun-photo-frame .dusun-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    .dusun-card:hover .dusun-photo {
+      transform: scale(1.05);
+    }
+
+    .dusun-photo-placeholder {
+      position: absolute;
+      inset: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 0.4rem;
+      color: var(--gray-400);
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--gray-50),
+        var(--gray-50) 10px,
+        var(--gray-100) 10px,
+        var(--gray-100) 20px
+      );
+    }
+
+    .dusun-photo-placeholder-icon {
       font-size: 1.75rem;
-      margin: 0 auto 0.75rem;
-      border: 2px solid rgba(255,255,255,0.3);
+      opacity: 0.6;
+    }
+
+    /* Placeholder otomatis hilang saat sebuah <img> dimasukkan ke frame */
+    .dusun-photo-frame:has(img) .dusun-photo-placeholder {
+      display: none;
+    }
+
+    .dusun-photo-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 2.5rem 1.1rem 0.9rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0));
     }
 
     .dusun-name {
@@ -835,12 +876,14 @@
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
     }
 
     .dusun-kadus {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.85);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.45);
     }
 
     .dusun-card-body {
@@ -1727,10 +1770,17 @@
       <div class="dusun-grid">
         <!-- Dusun 1 -->
         <div class="dusun-card" onclick="openDusun(0)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏛️</div>
-            <h3 class="dusun-name">Karang Salah</h3>
-            <p class="dusun-kadus">Kepala Dusun: Raden Riko Agustian</p>
+          <!-- FOTO KARANG SALAH: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Karang Salah"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Karang Salah</h3>
+              <p class="dusun-kadus">Kepala Dusun: Raden Riko Agustian</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1758,10 +1808,17 @@
 
         <!-- Dusun 2 -->
         <div class="dusun-card" onclick="openDusun(1)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏛️</div>
-            <h3 class="dusun-name">Bayan Timur</h3>
-            <p class="dusun-kadus">Kepala Dusun: Raden Suryanto</p>
+          <!-- FOTO BAYAN TIMUR: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Bayan Timur"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Bayan Timur</h3>
+              <p class="dusun-kadus">Kepala Dusun: Raden Suryanto</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1789,10 +1846,17 @@
 
         <!-- Dusun 3 -->
         <div class="dusun-card" onclick="openDusun(2)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏘️</div>
-            <h3 class="dusun-name">Dusun Bayan Barat</h3>
-            <p class="dusun-kadus">Kepala Dusun: Raden Mawadi</p>
+          <!-- FOTO DUSUN BAYAN BARAT: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Bayan Barat"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Bayan Barat</h3>
+              <p class="dusun-kadus">Kepala Dusun: Raden Mawadi</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1820,10 +1884,17 @@
 
         <!-- Dusun 4 -->
         <div class="dusun-card" onclick="openDusun(3)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏡</div>
-            <h3 class="dusun-name">Dusun Ujung Mekar</h3>
-            <p class="dusun-kadus">Kepala Dusun: Raden Endi Kusuma</p>
+          <!-- FOTO DUSUN UJUNG MEKAR: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Ujung Mekar"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Ujung Mekar</h3>
+              <p class="dusun-kadus">Kepala Dusun: Raden Endi Kusuma</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1851,10 +1922,17 @@
 
         <!-- Dusun 5 -->
         <div class="dusun-card" onclick="openDusun(4)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏔️</div>
-            <h3 class="dusun-name">Dusun Pada Mangko</h3>
-            <p class="dusun-kadus">Kepala Dusun: Rumawadi</p>
+          <!-- FOTO DUSUN PADA MANGKO: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Pada Mangko"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Pada Mangko</h3>
+              <p class="dusun-kadus">Kepala Dusun: Rumawadi</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1882,10 +1960,17 @@
 
         <!-- Dusun 6 -->
         <div class="dusun-card" onclick="openDusun(5)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">💧</div>
-            <h3 class="dusun-name">Dusun Mandala</h3>
-            <p class="dusun-kadus">Kepala Dusun: Budi Hartawan</p>
+          <!-- FOTO DUSUN MANDALA: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Mandala"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Mandala</h3>
+              <p class="dusun-kadus">Kepala Dusun: Budi Hartawan</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1913,10 +1998,17 @@
 
         <!-- Dusun 7 -->
         <div class="dusun-card" onclick="openDusun(6)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🌾</div>
-            <h3 class="dusun-name">Sembulan</h3>
-            <p class="dusun-kadus">Kepala Dusun: Suherman</p>
+          <!-- FOTO SEMBULAN: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Sembulan"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Sembulan</h3>
+              <p class="dusun-kadus">Kepala Dusun: Suherman</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1944,10 +2036,17 @@
 
         <!-- Dusun 8 -->
         <div class="dusun-card" onclick="openDusun(7)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏔️</div>
-            <h3 class="dusun-name">Montong Baru</h3>
-            <p class="dusun-kadus">Kepala Dusun: Madiasih</p>
+          <!-- FOTO MONTONG BARU: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Montong Baru"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Montong Baru</h3>
+              <p class="dusun-kadus">Kepala Dusun: Madiasih</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -1975,10 +2074,17 @@
 
         <!-- Dusun 9 -->
         <div class="dusun-card" onclick="openDusun(8)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🌿</div>
-            <h3 class="dusun-name">Dusun Batu Jompang</h3>
-            <p class="dusun-kadus">Kepala Dusun: Sutisman</p>
+          <!-- FOTO DUSUN BATU JOMPANG: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Batu Jompang"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Batu Jompang</h3>
+              <p class="dusun-kadus">Kepala Dusun: Sutisman</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -2006,10 +2112,17 @@
 
         <!-- Dusun 10 -->
         <div class="dusun-card" onclick="openDusun(9)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">🏞️</div>
-            <h3 class="dusun-name">Dusun Teres Genit</h3>
-            <p class="dusun-kadus">Kepala Dusun: Putra Alam</p>
+          <!-- FOTO DUSUN TERES GENIT: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Teres Genit"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Teres Genit</h3>
+              <p class="dusun-kadus">Kepala Dusun: Putra Alam</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -2037,10 +2150,17 @@
 
         <!-- Dusun 11 -->
         <div class="dusun-card" onclick="openDusun(10)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">☕</div>
-            <h3 class="dusun-name">Dasan Tutul</h3>
-            <p class="dusun-kadus">Kepala Dusun: Suwandi, S.Pd.</p>
+          <!-- FOTO DASAN TUTUL: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dasan Tutul"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dasan Tutul</h3>
+              <p class="dusun-kadus">Kepala Dusun: Suwandi, S.Pd.</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -2068,10 +2188,17 @@
 
         <!-- Dusun 12 -->
         <div class="dusun-card" onclick="openDusun(11)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">☕</div>
-            <h3 class="dusun-name">Dusun Nangka Rempek</h3>
-            <p class="dusun-kadus">Kepala Dusun: Yusriadi</p>
+          <!-- FOTO DUSUN NANGKA REMPEK: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Nangka Rempek"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Nangka Rempek</h3>
+              <p class="dusun-kadus">Kepala Dusun: Yusriadi</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -2099,10 +2226,17 @@
 
         <!-- Dusun 13 -->
         <div class="dusun-card" onclick="openDusun(12)">
-          <div class="dusun-card-header">
-            <div class="dusun-icon">⛰️</div>
-            <h3 class="dusun-name">Dusun Bual</h3>
-            <p class="dusun-kadus">Kepala Dusun: Muliana</p>
+          <!-- FOTO DUSUN BUAL: ganti placeholder di bawah dengan
+               <img class="dusun-photo" src="nama-file-foto.jpg" alt="Dusun Bual"> -->
+          <div class="dusun-photo-frame">
+            <div class="dusun-photo-placeholder">
+              <span class="dusun-photo-placeholder-icon">📷</span>
+              <span>Foto segera hadir</span>
+            </div>
+            <div class="dusun-photo-overlay">
+              <h3 class="dusun-name">Dusun Bual</h3>
+              <p class="dusun-kadus">Kepala Dusun: Muliana</p>
+            </div>
           </div>
           <div class="dusun-card-body">
             <div class="dusun-info">
@@ -3908,5 +4042,5 @@
       }, { passive: true });
     })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a23840469bebfe22',t:'MTc4NTQ1NTI3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2385dc8ed43fceb',t:'MTc4NTQ1NjQ4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
