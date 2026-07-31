@@ -830,6 +830,12 @@
       display: block;
     }
 
+    /* Mode zoom-penuh: foto memenuhi frame 16:9 tanpa ruang kosong
+       (dipakai khusus Karang Salah, Bayan Timur, Pada Mangko, Montong Baru) */
+    .dusun-photo-frame img.dusun-photo-fill {
+      object-fit: cover;
+    }
+
     .dusun-photo-overlay {
       position: absolute;
       left: 0;
@@ -1740,9 +1746,9 @@
         <div class="dusun-card" onclick="openDusun(0)">
           <!-- GANTI FOTO: ubah src di bawah dengan nama file foto Anda -->
           <div class="dusun-photo-frame">
-            <img class="dusun-photo" loading="lazy" decoding="async" src="karang salah.jpg" alt="Karang Salah">
+            <img class="dusun-photo dusun-photo-fill" loading="lazy" decoding="async" src="karang salah.jpg" alt="Dusun Karang Salah">
             <div class="dusun-photo-overlay">
-              <h3 class="dusun-name">Karang Salah</h3>
+              <h3 class="dusun-name">Dusun Karang Salah</h3>
               <p class="dusun-kadus">Kepala Dusun: Raden Riko Agustian</p>
             </div>
           </div>
@@ -1774,9 +1780,9 @@
         <div class="dusun-card" onclick="openDusun(1)">
           <!-- GANTI FOTO: ubah src di bawah dengan nama file foto Anda -->
           <div class="dusun-photo-frame">
-            <img class="dusun-photo" loading="lazy" decoding="async" src="bayan timur.jpeg" alt="Bayan Timur">
+            <img class="dusun-photo dusun-photo-fill" loading="lazy" decoding="async" src="bayan timur.jpeg" alt="Dusun Bayan Timur">
             <div class="dusun-photo-overlay">
-              <h3 class="dusun-name">Bayan Timur</h3>
+              <h3 class="dusun-name">Dusun Bayan Timur</h3>
               <p class="dusun-kadus">Kepala Dusun: Raden Suryanto</p>
             </div>
           </div>
@@ -1876,7 +1882,7 @@
         <div class="dusun-card" onclick="openDusun(4)">
           <!-- GANTI FOTO: ubah src di bawah dengan nama file foto Anda -->
           <div class="dusun-photo-frame">
-            <img class="dusun-photo" loading="lazy" decoding="async" src="pada mangko.jpeg" alt="Dusun Pada Mangko">
+            <img class="dusun-photo dusun-photo-fill" loading="lazy" decoding="async" src="pada mangko.jpeg" alt="Dusun Pada Mangko">
             <div class="dusun-photo-overlay">
               <h3 class="dusun-name">Dusun Pada Mangko</h3>
               <p class="dusun-kadus">Kepala Dusun: Rumawadi</p>
@@ -1944,9 +1950,9 @@
         <div class="dusun-card" onclick="openDusun(6)">
           <!-- GANTI FOTO: ubah src di bawah dengan nama file foto Anda -->
           <div class="dusun-photo-frame">
-            <img class="dusun-photo" loading="lazy" decoding="async" src="sembulan.jpeg" alt="Sembulan">
+            <img class="dusun-photo" loading="lazy" decoding="async" src="sembulan.jpeg" alt="Dusun Sembulan">
             <div class="dusun-photo-overlay">
-              <h3 class="dusun-name">Sembulan</h3>
+              <h3 class="dusun-name">Dusun Sembulan</h3>
               <p class="dusun-kadus">Kepala Dusun: Suherman</p>
             </div>
           </div>
@@ -1978,9 +1984,9 @@
         <div class="dusun-card" onclick="openDusun(7)">
           <!-- GANTI FOTO: ubah src di bawah dengan nama file foto Anda -->
           <div class="dusun-photo-frame">
-            <img class="dusun-photo" loading="lazy" decoding="async" src="montong baru.jpg" alt="Montong Baru">
+            <img class="dusun-photo dusun-photo-fill" loading="lazy" decoding="async" src="montong baru.jpg" alt="Dusun Montong Baru">
             <div class="dusun-photo-overlay">
-              <h3 class="dusun-name">Montong Baru</h3>
+              <h3 class="dusun-name">Dusun Montong Baru</h3>
               <p class="dusun-kadus">Kepala Dusun: Madiasih</p>
             </div>
           </div>
@@ -2080,9 +2086,9 @@
         <div class="dusun-card" onclick="openDusun(10)">
           <!-- GANTI FOTO: ubah src di bawah dengan nama file foto Anda -->
           <div class="dusun-photo-frame">
-            <img class="dusun-photo" loading="lazy" decoding="async" src="dasan tutul.jpeg" alt="Dasan Tutul">
+            <img class="dusun-photo" loading="lazy" decoding="async" src="dasan tutul.jpeg" alt="Dusun Dasan Tutul">
             <div class="dusun-photo-overlay">
-              <h3 class="dusun-name">Dasan Tutul</h3>
+              <h3 class="dusun-name">Dusun Dasan Tutul</h3>
               <p class="dusun-kadus">Kepala Dusun: Suwandi, S.Pd.</p>
             </div>
           </div>
@@ -2225,7 +2231,7 @@
     // ============================================
     const dusunData = [
       {
-        name: "Karang Salah",
+        name: "Dusun Karang Salah",
         kadus: "Raden Riko Agustian",
         icon: "🏛️",
         population: "-",
@@ -2247,7 +2253,7 @@
         pemangkuName: "Raden Gedarip",
         description: "Karang Salah merupakan salah satu dusun di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat (NTB). Dusun ini memiliki potensi Kebudayaan yang bernilai tinggi, sekaligus memiliki modal sosial budaya serta pariwisata yang berbasis pada kearifan lokal.",
         slides: [
-          { title: "Profil Karang Salah", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
+          { title: "Profil Dusun Karang Salah", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
           { title: "Potensi Dusun", subtitle: "Pertanian & Peternakan", content: "potency" },
           { title: "Sektor Ekonomi & UMKM", subtitle: "Tenun & Kerajinan", content: "economy" },
           { title: "Pariwisata & Kebudayaan", subtitle: "Masjid Kuno & Rumah Adat", content: "wisata" },
@@ -2255,7 +2261,7 @@
         ]
       },
       {
-        name: "Bayan Timur",
+        name: "Dusun Bayan Timur",
         kadus: "Raden Suryanto",
         icon: "🏛️",
         population: "330 Jiwa",
@@ -2286,7 +2292,7 @@
         homestayLocation: "https://www.google.com/maps?q=-8.2679529,116.4241829",
         description: "Dusun Bayan Timur merupakan salah satu dusun yang berada di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat. Dusun ini memiliki peran penting sebagai pusat kegiatan adat masyarakat Bayan, karena di wilayah ini terdapat rumah adat serta menjadi lokasi utama pelaksanaan berbagai ritual adat tahunan. Selain itu, rumah adat juga difungsikan sebagai tempat penyelenggaraan Gundem Besar, yaitu forum musyawarah untuk menyelesaikan permasalahan sosial dalam masyarakat adat. Dusun Bayan Timur memiliki potensi lokal yang cukup beragam, terutama dalam bidang kuliner dan kerajinan tradisional.",
         slides: [
-          { title: "Profil Bayan Timur", subtitle: "Pusat Kegiatan Adat Bayan", content: "overview" },
+          { title: "Profil Dusun Bayan Timur", subtitle: "Pusat Kegiatan Adat Bayan", content: "overview" },
           { title: "Kondisi Demografi", subtitle: "Komposisi Penduduk", content: "demographics" },
           { title: "Wisata & Budaya", subtitle: "Rumah Adat & Sanggar Seni", content: "wisata" },
           { title: "Sektor Ekonomi & UMKM", subtitle: "Tenun, Kuliner & Homestay", content: "economy" },
@@ -2417,7 +2423,7 @@
         ]
       },
       {
-        name: "Sembulan",
+        name: "Dusun Sembulan",
         kadus: "Suherman",
         kadusPhone: "+62-819-1720-4664",
         icon: "🌾",
@@ -2433,7 +2439,7 @@
         homestayLocation: "https://maps.app.goo.gl/QkXFs5p8YaVDZ5u4A?g_st=iw",
         description: "Sembulan merupakan salah satu dusun yang berada di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat (NTB). Dusun ini memiliki karakteristik sebagai wilayah agraris dengan mayoritas penduduk menggantungkan mata pencaharian pada sektor pertanian dan peternakan. Selain memiliki potensi pertanian yang cukup besar, Dusun Sembulan juga mulai berkembang sebagai kawasan pariwisata dengan adanya pembangunan beberapa penginapan yang diharapkan mampu meningkatkan perekonomian masyarakat.",
         slides: [
-          { title: "Profil Sembulan", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
+          { title: "Profil Dusun Sembulan", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
           { title: "Kondisi Demografi", subtitle: "Komposisi Penduduk", content: "demographics" },
           { title: "Potensi Dusun", subtitle: "Pertanian, Perkebunan & Peternakan", content: "potency" },
           { title: "Sektor Ekonomi", subtitle: "UMKM & Pariwisata", content: "economy" },
@@ -2441,7 +2447,7 @@
         ]
       },
       {
-        name: "Montong Baru",
+        name: "Dusun Montong Baru",
         kadus: "Madiasih",
         kadusPhone: "+6282340447977",
         icon: "🏔️",
@@ -2460,7 +2466,7 @@
         maduLocation: "https://maps.app.goo.gl/odHBLbpFveWA2Aq98",
         description: "Montong Baru merupakan salah satu dusun di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat (NTB). Dusun ini memiliki karakteristik masyarakat pedesaan yang sebagian besar menggantungkan mata pencaharian pada sektor pertanian, perkebunan, peternakan, serta kegiatan ekonomi masyarakat lainnya. Selain memiliki potensi sumber daya alam, Dusun Montong Baru juga memiliki nilai sosial dan budaya yang masih dijaga oleh masyarakat sebagai bagian dari identitas lokal Desa Bayan. Terdapat view Gunung Rinjani dan persawahan yang sangat indah, perpaduan yang membuat dusun ini memiliki daya tarik tersendiri.",
         slides: [
-          { title: "Profil Montong Baru", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
+          { title: "Profil Dusun Montong Baru", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
           { title: "Kondisi Demografi", subtitle: "Komposisi Penduduk", content: "demographics" },
           { title: "Potensi Dusun", subtitle: "Pertanian, Perkebunan & Peternakan", content: "potency" },
           { title: "Sektor Ekonomi & UMKM", subtitle: "Madu Trigona Bunga Mekar", content: "economy" },
@@ -2529,7 +2535,7 @@
         ]
       },
       {
-        name: "Dasan Tutul",
+        name: "Dusun Dasan Tutul",
         kadus: "Suwandi, S.Pd.",
         kadusPhone: "+6287852444374",
         icon: "☕",
@@ -2549,7 +2555,7 @@
         maduSource: "Komunitas Madu Bunga Mekar di Dusun Montong Baru",
         description: "Dasan Tutul adalah salah satu Dusun yang berada di Desa Bayan, Kecamatan Bayan, Kabupaten Lombok Utara, Provinsi Nusa Tenggara Barat. Dasan Tutul merupakan salah satu dusun yang berada di kawasan dataran rendah relatif dibanding dusun-dusun lain di Desa Bayan. Dusun ini memiliki peran strategis dalam kehidupan sosial masyarakat Desa Bayan, dengan adanya fasilitas umum seperti masjid yang menjadi pusat kegiatan ibadah dan sosial. Dusun Dasan Tutul terletak di bagian selatan wilayah Desa Adat Bayan dengan topografi wilayah yang cukup landai. Wilayah permukimannya dikelilingi oleh area bentang alam hijau berupa perkebunan dan lahan basah.",
         slides: [
-          { title: "Profil Dasan Tutul", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
+          { title: "Profil Dusun Dasan Tutul", subtitle: "Desa Bayan, Kab. Lombok Utara", content: "overview" },
           { title: "Kondisi Demografi", subtitle: "Komposisi Penduduk", content: "demographics" },
           { title: "Sektor Pertanian & Peternakan", subtitle: "Komoditas Unggulan", content: "potency" },
           { title: "UMKM & Produk Lokal", subtitle: "Kopi Kartini & Madu", content: "economy" },
@@ -2733,7 +2739,7 @@
           break;
           
         case 'wisata':
-          if (dusun.name === "Karang Salah") {
+          if (dusun.name === "Dusun Karang Salah") {
             const masjidLink = dusun.masjidLocation ? 
               `<a href="${dusun.masjidLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Masjid</a>` : '';
             const rumahAdatLink = dusun.rumahAdatLocation ? 
@@ -2825,7 +2831,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Bayan Timur") {
+          } else if (dusun.name === "Dusun Bayan Timur") {
             const rumahAdatLink = dusun.rumahAdatLocation ? 
               `<a href="${dusun.rumahAdatLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Rumah Adat</a>` : '';
             const sanggarLink = dusun.sanggarLocation ? 
@@ -2994,7 +3000,7 @@
           break;
 
         case 'demographics':
-          if (dusun.name === "Dusun Batu Jompang" || dusun.name === "Dasan Tutul" || dusun.name === "Dusun Teres Genit" || dusun.name === "Sembulan" || dusun.name === "Dusun Mandala" || dusun.name === "Bayan Timur" || dusun.name === "Dusun Ujung Mekar" || dusun.name === "Karang Salah" || dusun.name === "Dusun Pada Mangko" || dusun.name === "Montong Baru" || dusun.name === "Dusun Bual") {
+          if (dusun.name === "Dusun Batu Jompang" || dusun.name === "Dusun Dasan Tutul" || dusun.name === "Dusun Teres Genit" || dusun.name === "Dusun Sembulan" || dusun.name === "Dusun Mandala" || dusun.name === "Dusun Bayan Timur" || dusun.name === "Dusun Ujung Mekar" || dusun.name === "Dusun Karang Salah" || dusun.name === "Dusun Pada Mangko" || dusun.name === "Dusun Montong Baru" || dusun.name === "Dusun Bual") {
             content = `
               <div class="slide-content">
                 <h2 class="slide-title">${slide.title}</h2>
@@ -3178,7 +3184,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Sembulan") {
+          } else if (dusun.name === "Dusun Sembulan") {
             content = `
               <div class="slide-content">
                 <h2 class="slide-title">${slide.title}</h2>
@@ -3202,7 +3208,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Montong Baru") {
+          } else if (dusun.name === "Dusun Montong Baru") {
             content = `
               <div class="slide-content">
                 <h2 class="slide-title">${slide.title}</h2>
@@ -3226,7 +3232,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Dasan Tutul") {
+          } else if (dusun.name === "Dusun Dasan Tutul") {
             content = `
               <div class="slide-content">
                 <h2 class="slide-title">${slide.title}</h2>
@@ -3489,7 +3495,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Karang Salah") {
+          } else if (dusun.name === "Dusun Karang Salah") {
             const umkmLink = dusun.umkmLocation ? 
               `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
             
@@ -3539,7 +3545,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Bayan Timur") {
+          } else if (dusun.name === "Dusun Bayan Timur") {
             const tenunLink = dusun.tenunLocation ? 
               `<a href="${dusun.tenunLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Tenun</a>` : '';
             const cateringLink = dusun.cateringLocation ? 
@@ -3574,7 +3580,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Sembulan") {
+          } else if (dusun.name === "Dusun Sembulan") {
             const homestayLink = dusun.homestayLocation ? 
               `<a href="${dusun.homestayLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Homestay</a>` : '';
             
@@ -3597,7 +3603,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Montong Baru") {
+          } else if (dusun.name === "Dusun Montong Baru") {
             const maduLink = dusun.maduLocation ? 
               `<a href="${dusun.maduLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi Komunitas</a>` : '';
             
@@ -3645,7 +3651,7 @@
                 </div>
               </div>
             `;
-          } else if (dusun.name === "Dasan Tutul") {
+          } else if (dusun.name === "Dusun Dasan Tutul") {
             const umkmLink = dusun.umkmLocation ? 
               `<a href="${dusun.umkmLocation}" target="_blank" style="display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-size: 0.75rem;">📍 Lihat Lokasi UMKM</a>` : '';
             
@@ -3958,5 +3964,5 @@
       }, { passive: true });
     })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a238956afbddf879',t:'MTc4NTQ1ODc2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a238d91c0f13a8ee',t:'MTc4NTQ2MTUzNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a238956afbddf879',t:'MTc4NTQ1ODc2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a238f3c26e30fd38',t:'MTc4NTQ2MjYyNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
