@@ -806,25 +806,27 @@
     }
 
     /* Dusun photo frame — ganti src pada <img class="dusun-photo" src="..." alt="...">
-       dengan nama file foto Anda. Frame menyesuaikan ukuran asli foto
-       (tidak ada bagian foto yang ter-crop). */
+       dengan nama file foto Anda. Frame fix 16:9: ukuran & posisi card TIDAK
+       berubah sama sekali saat foto dimasukkan, apa pun ukuran foto aslinya.
+       Foto ditampilkan utuh tanpa crop (object-fit: contain); jika foto bukan
+       16:9 akan ada ruang kosong di sisi kiri-kanan atau atas-bawahnya. */
     .dusun-photo-frame {
       width: 100%;
-      aspect-ratio: 16 / 9; /* hanya tampak jika foto belum ada */
+      aspect-ratio: 16 / 9;
       background: var(--gray-100);
-      overflow: hidden;
+      overflow: hidden; /* foto tidak akan pernah keluar dari frame */
       position: relative;
     }
 
-    /* Setelah foto dimasukkan: rasio tetap dilepas agar tinggi frame
-       mengikuti tinggi asli foto */
-    .dusun-photo-frame:has(img) {
-      aspect-ratio: auto;
-    }
-
-    .dusun-photo-frame .dusun-photo {
+    /* Berlaku untuk SEMUA gambar di dalam frame (dengan atau tanpa class),
+       sehingga rasio card tetap terkunci 16:9 */
+    .dusun-photo-frame img {
       width: 100%;
-      height: auto; /* tinggi mengikuti proporsi asli foto — tidak ter-crop */
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
       display: block;
     }
 
@@ -3956,5 +3958,5 @@
       }, { passive: true });
     })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2387b457a8fb5c4',t:'MTc4NTQ1NzY5MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a238956afbddf879',t:'MTc4NTQ1ODc2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
